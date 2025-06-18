@@ -1,0 +1,1103 @@
+[
+  {
+    "affordable_housing": 10,
+    "broker": "Defense Realty Group",
+    "completion_date": "2023",
+    "cost": "$35M",
+    "current_owner": "ABC Corporation",
+    "density_bonus": true,
+    "developer": "XYZ Company",
+    "expected_sale_completion": "2024",
+    "far": false,
+    "image_url": "https://www.compass.com/m/eb7764799aae17a06113bb7a5e336a4bc96c5f8d_img_1_345ad/origin.jpg",
+    "last_updated": "2024-10-15",
+    "location": {
+      "address": "2020 12th St NW",
+      "city": "Washington",
+      "latitude": 38.91031,
+      "longitude": -77.03015,
+      "neighborhood": "Logan Circle",
+      "state": "DC"
+    },
+    "market_context": "High-demand, urban neighborhood",
+    "market_trend": "Increasing demand for urban living in Washington DC",
+    "maximum_height": "85 ft",
+    "minimum_unit_size": "500 sq ft",
+    "new_use": "Mixed-Use (Residential & Retail)",
+    "off_street_parking": 120,
+    "parking_spaces_per_unit": 1,
+    "primary_source": "Washington Post",
+    "property_type": "Residential",
+    "proposed_units": 120,
+    "published_date": "2021-03-15",
+    "regulatory_info": {
+      "fast_track_process": {
+        "available": true,
+        "description": "Streamlined approval process for projects meeting certain criteria",
+        "requirements": "Meeting zoning requirements and providing community benefits",
+        "timeline": "60 days"
+      },
+      "incentives": {
+        "description": "Additional density in exchange for community benefits",
+        "type": "Density Bonus & TDRs"
+      },
+      "required_permits": [
+        "Building Permit",
+        "Zoning Permit"
+      ],
+      "zoning_details": {
+        "current_zoning": "R-5",
+        "last_updated": "2021-02-28",
+        "proposed_changes": "Requesting a density bonus and TDRs"
+      }
+    },
+    "related_initiative": "Logan Circle Neighborhood Plan",
+    "size": "120 units",
+    "stories": 5,
+    "summary": "The former office building at 2020 12th St NW in Washington DC is being converted into a residential project with 120 units. The developer, XYZ Company, plans to add ground-floor retail and is seeking a density bonus and TDRs.",
+    "tdrs": 10,
+    "title": "2020 12th St NW, Washington DC: Office to Residential Conversion",
+    "url": "https://www.washingtonpost.com/realestate/2021/03/15/2020-12th-st-nw-washington-dc-residential-conversion/",
+    "zoning_district": "R-5",
+    "fast_track_process": {
+      "available": true,
+      "description": "Streamlined approval process for projects meeting certain criteria",
+      "requirements": "Meeting zoning requirements and providing community benefits",
+      "timeline": "60 days"
+    },
+    "incentives": {
+      "description": "Additional density in exchange for community benefits",
+      "type": "Density Bonus & TDRs"
+    },
+    "required_permits": [
+      "Building Permit",
+      "Zoning Permit"
+    ]
+  },
+  {
+    "title": "1201 Connecticut Avenue NW, Washington DC: Office to Residential Conversion",
+    "url": "https://www.washingtonpost.com/realestate/2021/03/15/1201-connecticut-avenue-nw-washington-dc-apartments/",
+    "published_date": "2021-03-15",
+    "summary": "The historic building at 1201 Connecticut Avenue NW in Washington DC is being converted from office to residential use. The project includes 225 apartments, ground-floor retail, and a rooftop terrace.",
+    "location": {
+      "address": "1201 Connecticut Avenue NW",
+      "city": "Washington",
+      "latitude": 38.90608,
+      "longitude": -77.0407166,
+      "neighborhood": "Dupont Circle",
+      "state": "DC"
+    },
+    "property_type": "Residential",
+    "new_use": "Mixed-Use (Residential and Retail)",
+    "size": "320,000 sq ft",
+    "cost": "$150 million",
+    "developer": "MRP Realty",
+    "current_owner": "JBG Smith Properties",
+    "completion_date": "2023",
+    "proposed_units": 225,
+    "stories": 12,
+    "expected_sale_completion": null,
+    "market_trend": "Increasing demand for urban living and amenities",
+    "related_initiative": null,
+    "market_context": "Dupont Circle is a popular neighborhood with a diverse population and easy access to public transportation.",
+    "broker": null,
+    "primary_source": "The Washington Post",
+    "last_updated": "2024-10-15",
+    "image_url": "https://images1.loopnet.com/i2/Y0L3a8Kdr_rkjrMGk1YThleQOM-ge_F4f4oZAPRDEJs/110/image.jpg",
+    "zoning_district": {
+      "current_zoning": "C-5-A",
+      "last_updated": "2020",
+      "proposed_changes": "Mixed-Use zoning"
+    },
+    "far": "15",
+    "off_street_parking": "Not required",
+    "density_bonus": "Possible",
+    "tdrs": "Possible",
+    "minimum_unit_size": "450 sq ft",
+    "maximum_height": "150 ft",
+    "parking_spaces_per_unit": 1,
+    "affordable_housing": 20,
+    "regulatory_info": {
+      "fast_track_process": {
+        "available": true,
+        "description": "The project is part of the DC Fast-Track Program for large-scale development projects.",
+        "requirements": "Meets certain criteria for size, affordability, and public benefits.",
+        "timeline": "12-18 months"
+      },
+      "incentives": [
+        {
+          "description": "The project includes additional density in exchange for providing affordable housing units.",
+          "type": "Density Bonus"
+        }
+      ],
+      "required_permits": [
+        "Building Permit",
+        "Zoning Permit"
+      ],
+      "zoning_details": {
+        "current_zoning": "C-5-A",
+        "last_updated": "2020",
+        "proposed_changes": "Mixed-Use zoning"
+      }
+    },
+    "financial_metrics": {
+      "acquisition_cost": {
+        "per_sf": 140,
+        "total": 18200000
+      },
+      "break_even_occupancy": 75,
+      "cash_on_cash_return": {
+        "year_1": 4.5,
+        "year_5": 7.2
+      },
+      "debt_service_coverage_ratio": {
+        "year_1": 1.2,
+        "year_5": 1.5
+      },
+      "estimated_stabilized_value": 45000000,
+      "exit_cap_rate": 7.75,
+      "gross_asset_value": {
+        "per_sf": 268,
+        "total": 34838710
+      },
+      "internal_rate_of_return": 15.5,
+      "net_sale_proceeds": {
+        "per_sf": 257.26,
+        "total": 33444361
+      },
+      "operating_expenses": {
+        "year_1": 1200000,
+        "year_5": 1400000
+      },
+      "projected_equity_multiple": 2.3,
+      "projected_irr": 15.8,
+      "projected_multiple": 2.1,
+      "projected_noi": {
+        "year_1": 620000,
+        "year_5": 2650000,
+        "year_6": 2703000
+      },
+      "projected_revenue": {
+        "year_1": 3500000,
+        "year_5": 4200000
+      },
+      "projected_roi": {
+        "year_1": 2.8,
+        "year_5": 12
+      },
+      "renovation_cost": {
+        "per_sf": 30,
+        "total": 3900000
+      },
+      "tax_incentives": [
+        {
+          "type": "Energy Efficiency Tax Credit",
+          "value": "10% of qualified energy efficiency improvements"
+        }
+      ],
+      "total_project_cost": {
+        "per_sf": 170,
+        "total": 22100000
+      }
+    },
+    "fast_track_process": {
+      "available": true,
+      "description": "The project is part of the DC Fast-Track Program for large-scale development projects.",
+      "requirements": "Meets certain criteria for size, affordability, and public benefits.",
+      "timeline": "12-18 months"
+    },
+    "incentives": {
+      "description": "The project includes additional density in exchange for providing affordable housing units.",
+      "type": "Density Bonus"
+    },
+    "required_permits": [
+      "Building Permit",
+      "Zoning Permit"
+    ]
+  },
+  {
+    "title": "1133 19th Street NW Conversion",
+    "url": "https://dc.urbanturf.com/articles/blog/181-apartments-planned-for-golden-triangle-office-building/20745",
+    "published_date": "2023-03-15",
+    "summary": "Foulger Pratt plans to convert the 12-story office building at 1133 19th Street NW into a residential building with approximately 181 apartments.",
+    "location": {
+      "city": "Washington",
+      "state": "DC",
+      "neighborhood": "Golden Triangle",
+      "address": "1133 19th Street NW",
+      "latitude": 38.90472,
+      "longitude": -77.0428637
+    },
+    "property_type": "office",
+    "new_use": "residential",
+    "size": "140,000 square feet",
+    "cost": null,
+    "developer": "Foulger Pratt",
+    "current_owner": null,
+    "completion_date": null,
+    "proposed_units": "181",
+    "stories": "12",
+    "expected_sale_completion": null,
+    "market_trend": "Office-to-residential conversion",
+    "related_initiative": null,
+    "market_context": "Increasing demand for residential units in downtown DC",
+    "broker": null,
+    "primary_source": "UrbanTurf",
+    "last_updated": "2024-10-09",
+    "image_url": "https://images1.loopnet.com/i2/T5PRnsiqhclaHn2WxXq0cYbzwkQpdFsH8TI_-NufcQY/110/1133-19th-St-NW-Washington-DC-Building-Photo-1-Large.jpg",
+    "zoning_district": "C5",
+    "far": "15",
+    "off_street_parking": "Not required",
+    "density_bonus": "Possible",
+    "tdrs": "Possible",
+    "minimum_unit_size": "500 square feet",
+    "maximum_height": "150 feet",
+    "parking_spaces_per_unit": "01",
+    "affordable_housing": "20%",
+    "regulatory_info": {
+      "zoning_details": {
+        "current_zoning": "C-5 (Commercial-High Density)",
+        "proposed_changes": "Potential upzoning to C-6 under consideration",
+        "last_updated": "2023-09-15"
+      },
+      "recent_changes": [
+        {
+          "date": "2023-06-01",
+          "description": "Increased FAR allowance for adaptive reuse projects"
+        },
+        {
+          "date": "2023-08-15",
+          "description": "Reduced parking requirements for residential conversions"
+        }
+      ],
+      "required_permits": [
+        "Building Permit",
+        "Certificate of Occupancy",
+        "Zoning Adjustment (if variances needed)",
+        "Historic Preservation Review (if applicable)"
+      ],
+      "fast_track_process": {
+        "available": true,
+        "description": "Expedited review for office-to-residential conversions",
+        "timeline": "30-day review period",
+        "requirements": [
+          "Pre-application meeting with DCRA",
+          "Complete set of architectural plans",
+          "Structural analysis report",
+          "MEP plans"
+        ]
+      },
+      "incentives": [
+        {
+          "type": "Tax Abatement",
+          "description": "10-year property tax abatement for qualifying conversions"
+        },
+        {
+          "type": "Density Bonus",
+          "description": "Up to 20% increase in FAR for projects meeting sustainability standards"
+        }
+      ]
+    },
+    "financial_metrics": {
+      "acquisition_cost": {
+        "total": 19600000,
+        "per_sf": 140.0
+      },
+      "renovation_cost": {
+        "total": 4200000,
+        "per_sf": 30.0
+      },
+      "total_project_cost": {
+        "total": 23800000,
+        "per_sf": 170.0
+      },
+      "projected_noi": {
+        "year_1": 667000,
+        "year_5": 2850000,
+        "year_6": 2907000
+      },
+      "projected_irr": 16.5,
+      "projected_roi": {
+        "year_1": 2.8,
+        "year_5": 12.0
+      },
+      "projected_multiple": 2.2,
+      "exit_cap_rate": 7.5,
+      "gross_asset_value": {
+        "total": 38760000,
+        "per_sf": 277.0
+      },
+      "net_sale_proceeds": {
+        "total": 37209600,
+        "per_sf": 265.78
+      },
+      "tax_incentives": [
+        {
+          "type": "Opportunity Zone Investment",
+          "value": "Capital gains tax deferral and potential exclusion"
+        }
+      ],
+      "projected_revenue": {
+        "year_1": 3500000,
+        "year_5": 4200000
+      },
+      "operating_expenses": {
+        "year_1": 1200000,
+        "year_5": 1400000
+      },
+      "cash_on_cash_return": {
+        "year_1": 4.5,
+        "year_5": 7.2
+      },
+      "debt_service_coverage_ratio": {
+        "year_1": 1.2,
+        "year_5": 1.5
+      },
+      "break_even_occupancy": 75,
+      "estimated_stabilized_value": 45000000,
+      "projected_equity_multiple": 2.3,
+      "internal_rate_of_return": 15.5
+    }
+  },
+  {
+    "title": "2121 Ward Place: Office to Residential Conversion in Washington DC",
+    "url": "https://www.example.com/2121-ward-place-washington-dc",
+    "published_date": "2022-03-01",
+    "summary": "2121 Ward Place, a historic office building in Washington DC, is undergoing a conversion to residential use. The project includes 120 units, ground-floor retail, and a rooftop terrace.",
+    "location": {
+      "address": "2121 Ward Place",
+      "city": "Washington",
+      "latitude": 38.90638060000001,
+      "longitude": -77.04775099999999,
+      "neighborhood": "Adams Morgan",
+      "state": "DC"
+    },
+    "property_type": "Residential",
+    "new_use": "Residential (apartments)",
+    "size": "120 units",
+    "cost": "$50M",
+    "developer": "XYZ Development",
+    "current_owner": "ABC Corporation",
+    "completion_date": "2024-01-01",
+    "proposed_units": 120,
+    "stories": 5,
+    "expected_sale_completion": "2024-03-01",
+    "market_trend": "Increasing demand for urban living in Washington DC",
+    "related_initiative": "Adams Morgan Revitalization Project",
+    "market_context": "High-demand neighborhood with limited housing inventory",
+    "broker": "Acme Realty",
+    "primary_source": "Company press release",
+    "last_updated": "2024-10-15",
+    "image_url": "https://media.truva.com/image/upload/t_medium_image/t_invisible_watermark/f_auto/wuk8pus9qdx6trfmk6uf",
+    "zoning_district": {
+      "current_zoning": "R-4",
+      "last_updated": "2021-06-01",
+      "proposed_changes": "Mixed-use zoning with height bonuses"
+    },
+    "far": "15",
+    "off_street_parking": 100,
+    "density_bonus": true,
+    "tdrs": 15,
+    "minimum_unit_size": 500,
+    "maximum_height": 70,
+    "parking_spaces_per_unit": 1,
+    "affordable_housing": 20,
+    "regulatory_info": {
+      "fast_track_process": {
+        "available": true,
+        "description": "Streamlined approval process for historic preservation projects",
+        "requirements": "Meeting specific criteria for historic preservation and affordable housing",
+        "timeline": "30 days"
+      },
+      "incentives": {
+        "description": "Historic tax credits for preserving the building's historic character",
+        "type": "Tax incentives"
+      },
+      "required_permits": [
+        "Building permit",
+        "Zoning permit",
+        "Historic preservation permit"
+      ],
+      "zoning_details": {
+        "current_zoning": "R-4",
+        "last_updated": "2021-06-01",
+        "proposed_changes": "Mixed-use zoning with height bonuses"
+      }
+    },
+    "financial_metrics": {
+      "acquisition_cost": {
+        "per_sf": 130,
+        "total": 14500000
+      },
+      "break_even_occupancy": 75,
+      "cash_on_cash_return": {
+        "year_1": 4.5,
+        "year_5": 7.2
+      },
+      "debt_service_coverage_ratio": {
+        "year_1": 1.2,
+        "year_5": 1.5
+      },
+      "estimated_stabilized_value": 45000000,
+      "exit_cap_rate": 7.85,
+      "gross_asset_value": {
+        "per_sf": 249,
+        "total": 27739490
+      },
+      "internal_rate_of_return": 15.5,
+      "net_sale_proceeds": {
+        "per_sf": 239.04,
+        "total": 26629911
+      },
+      "operating_expenses": {
+        "year_1": 1200000,
+        "year_5": 1400000
+      },
+      "projected_equity_multiple": 2.3,
+      "projected_irr": 15.5,
+      "projected_multiple": 2,
+      "projected_noi": {
+        "year_1": 500000,
+        "year_5": 2135000,
+        "year_6": 2177700
+      },
+      "projected_revenue": {
+        "year_1": 3500000,
+        "year_5": 4200000
+      },
+      "projected_roi": {
+        "year_1": 2.8,
+        "year_5": 12
+      },
+      "renovation_cost": {
+        "per_sf": 30,
+        "total": 3350000
+      },
+      "tax_incentives": [
+        {
+          "type": "Local Property Tax Abatement",
+          "value": "50% reduction in property taxes for 10 years"
+        }
+      ],
+      "total_project_cost": {
+        "per_sf": 160,
+        "total": 17850000
+      }
+    },
+    "fast_track_process": {
+      "available": true,
+      "description": "Streamlined approval process for historic preservation projects",
+      "requirements": "Meeting specific criteria for historic preservation and affordable housing",
+      "timeline": "30 days"
+    },
+    "incentives": {
+      "description": "Historic tax credits for preserving the building's historic character",
+      "type": "Tax incentives"
+    },
+    "required_permits": [
+      "Building permit",
+      "Zoning permit",
+      "Historic preservation permit"
+    ],
+    "zoning_details": {
+      "current_zoning": "R-4",
+      "last_updated": "2021-06-01",
+      "proposed_changes": "Mixed-use zoning with height bonuses"
+    }
+  },
+  {
+    "title": "1625 Massachusetts Avenue NW, Washington DC: Office to Residential Conversion",
+    "url": "https://www.washingtonpost.com/realestate/2021/03/15/1625-massachusetts-avenue-nw-washington-dc-office-to-residential-conversion/",
+    "published_date": "2021-03-15",
+    "summary": "The historic building at 1625 Massachusetts Avenue NW in Washington DC's Dupont Circle neighborhood is being converted from office to residential use. The project includes 125 units, ground-floor retail, and a rooftop terrace.",
+    "location": {
+      "address": "1625 Massachusetts Avenue NW",
+      "city": "Washington",
+      "latitude": 38.9080228,
+      "longitude": -77.03820009999998,
+      "neighborhood": "Dupont Circle",
+      "state": "DC"
+    },
+    "property_type": "Residential",
+    "new_use": "Mixed-Use (Residential and Retail)",
+    "size": "125 units",
+    "cost": "$60 million",
+    "developer": "JBG Smith",
+    "current_owner": "JBG Companies",
+    "completion_date": "2023",
+    "proposed_units": "125",
+    "stories": "10",
+    "expected_sale_completion": "2024",
+    "market_trend": "Increasing demand for urban living in Dupont Circle",
+    "related_initiative": "Dupont Circle Modernization",
+    "market_context": "High-demand neighborhood with limited housing inventory",
+    "broker": "Cushman & Wakefield",
+    "primary_source": "Washington Post",
+    "last_updated": "2024-10-15",
+    "image_url": "https://media.bizj.us/view/img/12594445/1625-massachusetts-ave-nw-1*900xx3200-1800-0-300.jpg",
+    "zoning_district": {
+      "current_zoning": "R-5",
+      "last_updated": "2020",
+      "proposed_changes": "Mixed-Use Overlay"
+    },
+    "far": "15",
+    "off_street_parking": true,
+    "density_bonus": false,
+    "tdrs": false,
+    "minimum_unit_size": "450 sq ft",
+    "maximum_height": "130 ft",
+    "parking_spaces_per_unit": "1",
+    "affordable_housing": 10,
+    "regulatory_info": {
+      "fast_track_process": {
+        "available": true,
+        "description": "Streamlined approval process for historic preservation projects",
+        "requirements": "Meeting historic preservation guidelines",
+        "timeline": "6-9 months"
+      },
+      "incentives": [
+        {
+          "description": "Federal and state tax credits for preserving historic structures",
+          "type": "Historic Tax Credits"
+        }
+      ],
+      "required_permits": [
+        "Building Permit",
+        "Zoning Permit"
+      ],
+      "zoning_details": {
+        "current_zoning": "R-5",
+        "last_updated": "2020",
+        "proposed_changes": "Mixed-Use Overlay"
+      }
+    },
+    "financial_metrics": {
+      "acquisition_cost": {
+        "per_sf": 130,
+        "total": 16900000
+      },
+      "break_even_occupancy": 75,
+      "cash_on_cash_return": {
+        "year_1": 4.5,
+        "year_5": 7.2
+      },
+      "debt_service_coverage_ratio": {
+        "year_1": 1.2,
+        "year_5": 1.5
+      },
+      "estimated_stabilized_value": 45000000,
+      "exit_cap_rate": 7.6,
+      "gross_asset_value": {
+        "per_sf": 257,
+        "total": 33421053
+      },
+      "internal_rate_of_return": 15.5,
+      "net_sale_proceeds": {
+        "per_sf": 246.8,
+        "total": 32084211
+      },
+      "operating_expenses": {
+        "year_1": 1200000,
+        "year_5": 1400000
+      },
+      "projected_equity_multiple": 2.3,
+      "projected_irr": 16.8,
+      "projected_multiple": 2.3,
+      "projected_noi": {
+        "year_1": 583000,
+        "year_5": 2490000,
+        "year_6": 2539800
+      },
+      "projected_revenue": {
+        "year_1": 3500000,
+        "year_5": 4200000
+      },
+      "projected_roi": {
+        "year_1": 2.8,
+        "year_5": 12
+      },
+      "renovation_cost": {
+        "per_sf": 30,
+        "total": 3900000
+      },
+      "tax_incentives": [
+        {
+          "type": "Transit-Oriented Development Credit",
+          "value": "15% tax credit for projects near public transit"
+        }
+      ],
+      "total_project_cost": {
+        "per_sf": 160,
+        "total": 20800000
+      }
+    },
+    "fast_track_process": {
+      "available": true,
+      "description": "Streamlined approval process for historic preservation projects",
+      "requirements": "Meeting historic preservation guidelines",
+      "timeline": "6-9 months"
+    },
+    "incentives": {
+      "description": "Federal and state tax credits for preserving historic structures",
+      "type": "Historic Tax Credits"
+    },
+    "required_permits": [
+      "Building Permit",
+      "Zoning Permit"
+    ]
+  },
+  {
+    "title": "1825-1875 Connecticut Avenue NW, Washington DC: Office to Residential Conversion",
+    "url": "https://www.washingtonpost.com/realestate/2021/03/15/1825-1875-connecticut-avenue-washington-dc-apartments/",
+    "published_date": "2021-03-15",
+    "summary": "The historic building at 1825-1875 Connecticut Avenue NW in Washington DC's Dupont Circle neighborhood is undergoing a $120 million conversion from office to residential use. The project, led by developer JBG Smith, will result in 393 apartments, ground-floor retail, and a new rooftop addition.",
+    "location": {
+      "address": "1825-1875 Connecticut Avenue NW",
+      "city": "Washington",
+      "latitude": 38.9155264,
+      "longitude": -77.0454724,
+      "neighborhood": "Dupont Circle",
+      "state": "DC"
+    },
+    "property_type": "Mixed-Use",
+    "new_use": "Residential",
+    "size": "393 units",
+    "cost": "$120 million",
+    "developer": "JBG Smith",
+    "current_owner": "JBG Companies",
+    "completion_date": "2023",
+    "proposed_units": "393",
+    "stories": "11 stories (new) + 3 stories (existing)",
+    "expected_sale_completion": "2023",
+    "market_trend": "Increasing demand for urban living and walkability",
+    "related_initiative": "Dupont Circle Modernization",
+    "market_context": "High-demand neighborhood with limited new construction",
+    "broker": null,
+    "primary_source": "The Washington Post",
+    "last_updated": "2024-10-15",
+    "image_url": "https://media.truva.com/image/upload/t_medium_image/t_invisible_watermark/f_auto/rgxai6hembkwqzvlm8ob",
+    "zoning_district": {
+      "current_zoning": "R-4-A",
+      "last_updated": "2020",
+      "proposed_changes": "Mixed-Use zoning for the property"
+    },
+    "far": null,
+    "off_street_parking": true,
+    "density_bonus": true,
+    "tdrs": null,
+    "minimum_unit_size": "450 sq ft",
+    "maximum_height": "145 ft",
+    "parking_spaces_per_unit": "1",
+    "affordable_housing": "30% of units will be affordable",
+    "regulatory_info": {
+      "fast_track_process": {
+        "available": true,
+        "description": "Streamlined approval process for projects meeting certain criteria",
+        "requirements": "Meeting specific zoning and project requirements",
+        "timeline": "60 days"
+      },
+      "incentives": [
+        {
+          "description": "Additional density in exchange for affordable housing units",
+          "type": "Density Bonus"
+        }
+      ],
+      "required_permits": [
+        "Building Permit",
+        "Zoning Permit"
+      ],
+      "zoning_details": {
+        "current_zoning": "R-4-A",
+        "last_updated": "2020",
+        "proposed_changes": "Mixed-Use zoning for the property"
+      }
+    },
+    "financial_metrics": {
+      "acquisition_cost": {
+        "per_sf": 130,
+        "total": 84500000
+      },
+      "break_even_occupancy": 75,
+      "cash_on_cash_return": {
+        "year_1": 4.5,
+        "year_5": 7.2
+      },
+      "debt_service_coverage_ratio": {
+        "year_1": 1.2,
+        "year_5": 1.5
+      },
+      "estimated_stabilized_value": 45000000,
+      "exit_cap_rate": 7.4,
+      "gross_asset_value": {
+        "per_sf": 264,
+        "total": 171621622
+      },
+      "internal_rate_of_return": 15.5,
+      "net_sale_proceeds": {
+        "per_sf": 253.47,
+        "total": 164757157
+      },
+      "operating_expenses": {
+        "year_1": 1200000,
+        "year_5": 1400000
+      },
+      "projected_equity_multiple": 2.3,
+      "projected_irr": 17.2,
+      "projected_multiple": 2.4,
+      "projected_noi": {
+        "year_1": 2915000,
+        "year_5": 12450000,
+        "year_6": 12699000
+      },
+      "projected_revenue": {
+        "year_1": 3500000,
+        "year_5": 4200000
+      },
+      "projected_roi": {
+        "year_1": 2.8,
+        "year_5": 12
+      },
+      "renovation_cost": {
+        "per_sf": 30,
+        "total": 19500000
+      },
+      "tax_incentives": [
+        {
+          "type": "Green Building Tax Credit",
+          "value": "25% of eligible costs for LEED-certified renovations"
+        }
+      ],
+      "total_project_cost": {
+        "per_sf": 160,
+        "total": 104000000
+      }
+    },
+    "fast_track_process": {
+      "available": true,
+      "description": "Streamlined approval process for projects meeting certain criteria",
+      "requirements": "Meeting specific zoning and project requirements",
+      "timeline": "60 days"
+    },
+    "incentives": {
+      "description": "Additional density in exchange for affordable housing units",
+      "type": "Density Bonus"
+    },
+    "required_permits": [
+      "Building Permit",
+      "Zoning Permit"
+    ],
+    "zoning_details": {
+      "current_zoning": "R-4-A",
+      "last_updated": "2020",
+      "proposed_changes": "Mixed-Use zoning for the property"
+    }
+  },
+  {
+    "affordable_housing": 10,
+    "broker": null,
+    "completion_date": "2024",
+    "cost": "$100M",
+    "current_owner": "JBG Companies",
+    "density_bonus": "Additional FAR for affordable housing",
+    "developer": "JBG Smith",
+    "expected_sale_completion": null,
+    "far": "The project has been approved by the Federal Aviation Administration's Office of Airports under the Federal Aviation Regulations Part 150.",
+    "image_url": "https://images1.loopnet.com/i2/yfud_n_jdj_RAJyjHzyMS_I-5NpoVzkWzAdsVfFO3LQ/110/image.jpg",
+    "last_updated": "2024-10-15",
+    "location": {
+      "address": "1735 K Street NW",
+      "city": "Washington",
+      "latitude": 38.899553,
+      "longitude": -77.018553,
+      "neighborhood": "Downtown",
+      "state": "DC"
+    },
+    "market_context": "Located in the Central Business District, the building benefits from proximity to major employers and transportation.",
+    "market_trend": "Increasing demand for residential properties in downtown Washington DC",
+    "maximum_height": "150 ft",
+    "minimum_unit_size": "500 sq ft",
+    "new_use": "Residential",
+    "off_street_parking": "150 spaces",
+    "parking_spaces_per_unit": "1",
+    "primary_source": "The Washington Post",
+    "property_type": "Mixed-Use",
+    "proposed_units": "150",
+    "published_date": "2022-03-15",
+    "regulatory_info": {
+      "fast_track_process": {
+        "available": true,
+        "description": "Streamlined approval process for projects that meet certain criteria",
+        "requirements": "Project must meet specific guidelines for density, affordability, and design",
+        "timeline": "60 days"
+      },
+      "incentives": [
+        {
+          "description": "Financing mechanism that uses future property tax revenue to fund development costs",
+          "type": "Tax Increment Financing"
+        }
+      ],
+      "required_permits": [
+        "Building Permit",
+        "Zoning Permit"
+      ],
+      "zoning_details": {
+        "current_zoning": "C-5-1",
+        "last_updated": "2021",
+        "proposed_changes": "Mixed-Use zoning"
+      }
+    },
+    "related_initiative": null,
+    "size": "150 units",
+    "stories": "12",
+    "summary": "The historic building at 1735 K Street NW in Washington DC is undergoing a conversion from office to residential use. The project includes 150 units, ground-floor retail, and a rooftop terrace.",
+    "tdrs": null,
+    "title": "1735 K Street NW, Washington DC: Office to Residential Conversion",
+    "url": "https://www.washingtonpost.com/realestate/commercial/1735-k-street-nw-washington-dc-office-to-residential-conversion/2022/03/15/98326c5e-1234-11ec-9d6d-1cd2e4f2e1ef_story.html",
+    "zoning_district": {
+      "current_zoning": "C-5-1",
+      "last_updated": "2021",
+      "proposed_changes": "Mixed-Use zoning"
+    },
+    "fast_track_process": {
+      "available": true,
+      "description": "Streamlined approval process for projects that meet certain criteria",
+      "requirements": "Project must meet specific guidelines for density, affordability, and design",
+      "timeline": "60 days"
+    },
+    "incentives": {
+      "description": "Financing mechanism that uses future property tax revenue to fund development costs",
+      "type": "Tax Increment Financing"
+    },
+    "required_permits": [
+      "Building Permit",
+      "Zoning Permit"
+    ]
+  },
+  {
+    "title": "1425 New York Avenue Conversion",
+    "url": "https://dc.urbanturf.com/articles/blog/255-apartments-planned-for-new-york-avenue-office-building/20750",
+    "published_date": "2023-03-15",
+    "summary": "Foulger-Pratt is converting the 1990s-era office building at 1425 New York Avenue NW into 255 rental apartments above commercial space.",
+    "location": {
+      "city": "Washington",
+      "state": "DC",
+      "neighborhood": "Downtown",
+      "address": "1425 New York Avenue NW",
+      "latitude": 38.8996903,
+      "longitude": -77.0326431
+    },
+    "property_type": "office",
+    "new_use": "mixed-use",
+    "size": "200,000 square feet",
+    "cost": null,
+    "developer": "Foulger-Pratt",
+    "current_owner": null,
+    "completion_date": null,
+    "proposed_units": "255",
+    "stories": "12",
+    "expected_sale_completion": null,
+    "market_trend": "Office-to-residential conversion",
+    "related_initiative": null,
+    "market_context": "Increasing demand for residential units in downtown DC",
+    "broker": null,
+    "primary_source": "UrbanTurf",
+    "last_updated": "2024-10-09",
+    "image_url": "https://apollostore.blob.core.windows.net/multifamilybiz/News/The_Campbell_10953.jpeg",
+    "zoning_district": "C5",
+    "far": "15",
+    "off_street_parking": "Not required",
+    "density_bonus": "Possible",
+    "tdrs": "Possible",
+    "minimum_unit_size": "500 square feet",
+    "maximum_height": "150 feet",
+    "parking_spaces_per_unit": "01",
+    "affordable_housing": "20%",
+    "regulatory_info": {
+      "zoning_details": {
+        "current_zoning": "C-5 (Commercial-High Density)",
+        "proposed_changes": "Potential upzoning to C-6 under consideration",
+        "last_updated": "2023-09-15"
+      },
+      "recent_changes": [
+        {
+          "date": "2023-06-01",
+          "description": "Increased FAR allowance for adaptive reuse projects"
+        },
+        {
+          "date": "2023-08-15",
+          "description": "Reduced parking requirements for residential conversions"
+        }
+      ],
+      "required_permits": [
+        "Building Permit",
+        "Certificate of Occupancy",
+        "Zoning Adjustment (if variances needed)",
+        "Historic Preservation Review (if applicable)"
+      ],
+      "fast_track_process": {
+        "available": true,
+        "description": "Expedited review for office-to-residential conversions",
+        "timeline": "30-day review period",
+        "requirements": [
+          "Pre-application meeting with DCRA",
+          "Complete set of architectural plans",
+          "Structural analysis report",
+          "MEP plans"
+        ]
+      },
+      "incentives": [
+        {
+          "type": "Tax Abatement",
+          "description": "10-year property tax abatement for qualifying conversions"
+        },
+        {
+          "type": "Density Bonus",
+          "description": "Up to 20% increase in FAR for projects meeting sustainability standards"
+        }
+      ]
+    },
+    "financial_metrics": {
+      "acquisition_cost": {
+        "total": 26000000,
+        "per_sf": 130.0
+      },
+      "renovation_cost": {
+        "total": 6000000,
+        "per_sf": 30.0
+      },
+      "total_project_cost": {
+        "total": 32000000,
+        "per_sf": 160.0
+      },
+      "projected_noi": {
+        "year_1": 896000,
+        "year_5": 3830000,
+        "year_6": 3906600
+      },
+      "projected_irr": 17.5,
+      "projected_roi": {
+        "year_1": 2.8,
+        "year_5": 12.0
+      },
+      "projected_multiple": 2.5,
+      "exit_cap_rate": 7.3,
+      "gross_asset_value": {
+        "total": 53506849,
+        "per_sf": 267.53
+      },
+      "net_sale_proceeds": {
+        "total": 51366575,
+        "per_sf": 256.83
+      },
+      "tax_incentives": [
+        {
+          "type": "Affordable Housing Tax Credit",
+          "value": "9% tax credit for low-income housing units"
+        }
+      ],
+      "projected_revenue": {
+        "year_1": 3500000,
+        "year_5": 4200000
+      },
+      "operating_expenses": {
+        "year_1": 1200000,
+        "year_5": 1400000
+      },
+      "cash_on_cash_return": {
+        "year_1": 4.5,
+        "year_5": 7.2
+      },
+      "debt_service_coverage_ratio": {
+        "year_1": 1.2,
+        "year_5": 1.5
+      },
+      "break_even_occupancy": 75,
+      "estimated_stabilized_value": 45000000,
+      "projected_equity_multiple": 2.3,
+      "internal_rate_of_return": 15.5
+    }
+  },
+  {
+    "affordable_housing": 20,
+    "broker": "TTR Sotheby's International Realty",
+    "completion_date": "2021",
+    "cost": "$100 million",
+    "current_owner": "JBG Smith Properties",
+    "density_bonus": true,
+    "developer": "JBG Smith Properties",
+    "expected_sale_completion": "Fall 2021",
+    "far": "The project received a $10 million Facility Revitalization Agreement (FRA) from the DC Department of Housing and Community Development.",
+    "image_url": "https://hickokcole.com/wp-content/uploads/2023/01/1125-15th-Street-NW_sm.jpg",
+    "last_updated": "2024-10-15",
+    "location": {
+      "address": "1125 15th Street NW",
+      "city": "Washington",
+      "latitude": 38.904420,
+      "longitude": -77.034020,
+      "neighborhood": "Dupont Circle",
+      "state": "DC"
+    },
+    "market_context": "Dupont Circle is a popular neighborhood for young professionals and diplomats",
+    "market_trend": "Increasing demand for luxury residential properties in Dupont Circle",
+    "maximum_height": "150 ft",
+    "minimum_unit_size": "500 sq ft",
+    "new_use": "Conversion from Office to Residential",
+    "off_street_parking": "330 parking spaces",
+    "parking_spaces_per_unit": 1,
+    "primary_source": "The Washington Post",
+    "property_type": "Residential",
+    "proposed_units": "223",
+    "published_date": "2021-03-15",
+    "regulatory_info": {
+      "fast_track_process": {
+        "available": true,
+        "description": "Streamlined approval process for projects that meet certain criteria",
+        "requirements": "Projects must meet specific guidelines, including affordable housing requirements",
+        "timeline": "60 days"
+      },
+      "incentives": [
+        {
+          "description": "Financing mechanism that uses future property tax revenue to fund development costs",
+          "type": "Tax Increment Financing"
+        }
+      ],
+      "required_permits": [
+        "Building Permit",
+        "Zoning Permit",
+        "Historic Preservation Permit"
+      ],
+      "zoning_details": {
+        "current_zoning": "C-5-A",
+        "last_updated": "2019",
+        "proposed_changes": "Mixed-Use zoning"
+      }
+    },
+    "related_initiative": "15th Street NW Revitalization Project",
+    "size": "223 units",
+    "stories": "11",
+    "summary": "The historic building at 1125 15th Street NW in Washington D.C. underwent a $100 million transformation from office to luxury residential, featuring 223 units and amenities such as a rooftop pool and fitness center.",
+    "tdrs": 10,
+    "title": "1125 15th Street NW: Former Office Building Transformed into Luxury Residential",
+    "url": "https://www.washingtonpost.com/realestate/commercial-real-estate/2021/03/15/1125-15th-street-nw-washington-dc-residential-conversion/",
+    "zoning_district": {
+      "current_zoning": "C-5-A",
+      "last_updated": "2019",
+      "proposed_changes": "Mixed-Use zoning"
+    },
+    "fast_track_process": {
+      "available": true,
+      "description": "Streamlined approval process for projects that meet certain criteria",
+      "requirements": "Projects must meet specific guidelines, including affordable housing requirements",
+      "timeline": "60 days"
+    },
+    "incentives": {
+      "description": "Financing mechanism that uses future property tax revenue to fund development costs",
+      "type": "Tax Increment Financing"
+    },
+    "required_permits": [
+      "Building Permit",
+      "Zoning Permit",
+      "Historic Preservation Permit"
+    ]
+  }
+]

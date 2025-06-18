@@ -1,0 +1,7 @@
+public/data_bundles/
+*.zip
+*.geojson
+*.csv
+.env
+.DS_Store
+node_modules/

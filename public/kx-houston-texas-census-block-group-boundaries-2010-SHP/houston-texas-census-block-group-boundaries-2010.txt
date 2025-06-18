@@ -1,0 +1,26 @@
+========================================================================
+ Houston, Texas Census Block Group Boundaries (2010)
+------------------------------------------------------------------------
+ https://koordinates.com/layer/13042-houston-texas-census-block-group-boundaries-2010/
+========================================================================
+From: City of Houston, Texas
+
+Region: Harris County
+
+CRS: NAD83 / Texas South Central (ftUS)
+
+------------------------------------------------------------------------
+ Processing steps applied by Koordinates
+------------------------------------------------------------------------
+
+- imported to Koordinates in Esri JSON format on 23 Aug 2016
+- reprojected from WGS 84 / Pseudo-Mercator to NAD83 / Texas South Central (ftUS)
+- clipped to (30.111°N 95.910°W)-(29.524°N 95.015°W)
+- converted by Koordinates to Shapefile on 16 Feb 2025 (reference #3880628)
+
+====================
+No license specified
+====================
+
+No license was specified for this layer. This could mean default rights under copyright law for your legal jurisdiction may apply. Please check with Koordinates if you're unsure of your right to access and use this layer.
+

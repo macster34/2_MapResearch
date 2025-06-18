@@ -1,0 +1,118 @@
+[
+    {
+        "address": "2020 12th St NW",
+        "sources": [],
+        "details": {
+            "physical_characteristics": {
+                "size": "30,000 sq ft",
+                "stories": 7,
+                "floor_plate": "default_floor_plate",
+                "window_line": "default_window_line",
+                "ceiling_height": "8-10 feet"
+            },
+            "architectural": {
+                "style": "Contemporary",
+                "materials": [
+                    "glass",
+                    "brick",
+                    "concrete",
+                    "metal"
+                ],
+                "window_pattern": "Regular grid of rectangular windows, stacked vertically and aligned horizontally",
+                "window_count": 168,
+                "facade_details": "Alternating sections of glass curtain walls and brick facade, with concrete balconies",
+                "notable_features": [
+                    "Ground-level arched entryway",
+                    "Protruding brick sections between window bays",
+                    "Rooftop trees visible",
+                    "Symmetrical facade composition"
+                ]
+            }
+        },
+        "image_url": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=AdCG2DOLhJbj_vvzXKqhgMAeDerFlXTe785Ka20ks4xZnYKZeebMwV2UNkdrIHGbzZTM1wJpD0WQ8Z2qVo9J27lJvoCL_ZStzABmyVsFX4bUY4xpyV9y41z-o8Gx5d3Y0oVry1Pqk1ozr7SzfYwKw4Hr3bmHnS8fRA80HSpMvtHTkkL9XI_a&key=AIzaSyD1vDEKyYCPPA48m6eq142Fox9e6qUUf3Q",
+        "location": {
+            "latitude": 38.9176976,
+            "longitude": -77.0282957
+        },
+        "market_analysis": {
+            "currentMarketConditions": "The neighborhood is an up-and-coming area that has seen increasing residential development and rising property values over the past 5 years. Several new condo and apartment projects have recently been completed nearby.",
+            "comparableConversions": [
+                {
+                    "address": "1050 K St NW",
+                    "pricePSF": 450,
+                    "rentPSF": 3.5
+                },
+                {
+                    "address": "1875 Connecticut Ave",
+                    "pricePSF": 525,
+                    "rentPSF": 4.1
+                }
+            ],
+            "expectedRents": {
+                "studio": 1800,
+                "oneBedroom": 2200,
+                "twoBedroom": 3000
+            },
+            "expectedSalesPrices": {
+                "studio": 350000,
+                "oneBedroom": 475000,
+                "twoBedroom": 650000
+            },
+            "targetDemographic": "Young professionals aged 25-39 working in nearby downtown offices, earning $75k-$150k per year. Mix of singles and couples."
+        },
+        "conversion_potential": {
+            "estimatedTimeline": "12-18 months",
+            "costPerSF": 250,
+            "recommendedUnits": 48,
+            "proposedMix": {
+                "studio": 12,
+                "oneBedroom": 24,
+                "twoBedroom": 12
+            },
+            "avgUnitSize": {
+                "studio": 500,
+                "oneBedroom": 750,
+                "twoBedroom": 1050
+            }
+        },
+        "risk_factors": {
+            "regulatory": [
+                "Rezoning for residential use",
+                "Historic preservation board review",
+                "Affordable housing requirements"
+            ],
+            "constructionRisks": [
+                "Unknown condition of building systems",
+                "Potential abatement of hazardous materials",
+                "Structural modifications required"
+            ],
+            "marketRisks": [
+                "Oversupply risk given pipeline of new units",
+                "Rent control policies",
+                "Economic downturn impacting demand"
+            ],
+            "financialRisks": [
+                "Rising interest rates",
+                "Cost overruns",
+                "Lease-up delays"
+            ]
+        },
+        "opportunities": {
+            "taxIncentives": [
+                "Opportunity zone tax benefits",
+                "Historic preservation tax credits"
+            ],
+            "marketAdvantages": [
+                "Walkable neighborhood with high Walk Score",
+                "Close proximity to public transit",
+                "Limited availability of condo product"
+            ],
+            "buildingFeatures": [
+                "High ceilings",
+                "Large windows",
+                "Open floor plates allow flexible layouts",
+                "Recent roof replacement"
+            ]
+        }
+    }
+]

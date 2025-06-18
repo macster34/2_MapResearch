@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Comparison</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <style>
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .comparison-table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="loading">Loading...</h1>
+        <div v-else>
+            <h1>Building Comparison ({{ index + 1 }} of {{ total }})</h1>
+            <table class="comparison-table">
+                <tr>
+                    <th>Field</th>
+                    <th>Original</th>
+                    <th>Updated</th>
+                </tr>
+                <tr v-for="key in Object.keys(original)" :key="key">
+                    <td>{{ key }}</td>
+                    <td>{{ JSON.stringify(original[key]) }}</td>
+                    <td>{{ updated[key] ? JSON.stringify(updated[key]) : 'N/A' }}</td>
+                </tr>
+            </table>
+            <div class="button-container">
+                <button class="button" @click="applyChanges">Apply Changes</button>
+                <button class="button" @click="nextBuilding">Next Building</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                original: {},
+                updated: {},
+                index: 0,
+                total: 0,
+                loading: true
+            },
+            methods: {
+                fetchData() {
+                    this.loading = true;
+                    fetch('/data')
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === 'complete') {
+                                alert('All buildings processed.');
+                                return;
+                            }
+                            this.original = data.original;
+                            this.updated = data.updated;
+                            this.index = data.index;
+                            this.total = data.total;
+                            this.loading = false;
+                        });
+                },
+                applyChanges() {
+                    fetch('/apply', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(this.updated),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            this.fetchData();
+                        }
+                    });
+                },
+                nextBuilding() {
+                    fetch('/next', {
+                        method: 'POST',
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            this.fetchData();
+                        }
+                    });
+                }
+            },
+            mounted() {
+                this.fetchData();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2775 @@
+{
+  "metadata": {
+    "timestamp": "2025-01-14T21:18:23.718772",
+    "duration_minutes": 16.432169699668883,
+    "stats": {
+      "searches_performed": 90,
+      "addresses_found": 398,
+      "successful_geocodes": 249,
+      "start_time": 1736910117.788588
+    },
+    "total_properties": 276
+  },
+  "properties": [
+    {
+      "address": "111 8th avenue, new york, ny 10011",
+      "company": "Equinix",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 40.7408359,
+      "longitude": -74.0019656,
+      "source_url": "https://cloudandcolocation.com/datacenters/equinix-new-york-data-center-ny9/"
+    },
+    {
+      "address": "111 8th avenue",
+      "company": "Equinix",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 40.7417176,
+      "longitude": -74.0041592,
+      "source_url": "https://cloudandcolocation.com/datacenters/equinix-new-york-data-center-ny9/"
+    },
+    {
+      "address": "401 fieldcrest drive, el",
+      "company": "Equinix",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 39.0051373611252,
+      "longitude": -104.7880980728827,
+      "source_url": "https://www.datacentermap.com/usa/new-york/westchester-county/equinix-ny13/"
+    },
+    {
+      "address": "10523 elmsford new york, us",
+      "company": "Equinix",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 41.05572162054483,
+      "longitude": -73.81628471668559,
+      "source_url": "https://www.datacentermap.com/usa/new-york/westchester-county/equinix-ny13/"
+    },
+    {
+      "address": "165 halsey street",
+      "company": "Equinix",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 40.6823229,
+      "longitude": -73.94693947665075,
+      "source_url": "https://cloudandcolocation.com/colocation-provider/equinix/"
+    },
+    {
+      "address": "60 hudson street",
+      "company": "Equinix",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 40.7176412,
+      "longitude": -74.00827524446427,
+      "source_url": "https://cloudandcolocation.com/datacenters/equinix-new-york-data-center-ny8/"
+    },
+    {
+      "address": "445 n douglas st. ... company email address, fi",
+      "company": "Equinix",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/los-angeles-data-centers/la4"
+    },
+    {
+      "address": "818 west 7th street",
+      "company": "Equinix",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 33.73795510204082,
+      "longitude": -118.29503263265306,
+      "source_url": "https://cloudandcolocation.com/datacenters/equinix-los-angeles-data-center-2-la2/"
+    },
+    {
+      "address": "1920 east maple avenue",
+      "company": "Equinix",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": "885",
+      "latitude": 33.9263426,
+      "longitude": -118.39405558456363,
+      "source_url": "https://datacenterhawk.com/marketplace/providers/equinix/1920-east-maple-avenue/la3"
+    },
+    {
+      "address": "1501 francisco street. ... known as the aon center and owned by shorenstein properties, th",
+      "company": "Equinix",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://baxtel.com/data-center/equinix-los-angeles-la7"
+    },
+    {
+      "address": "10960 wilshire blvd. los angeles, ca 90024",
+      "company": "Equinix",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.0579377,
+      "longitude": -118.445764,
+      "source_url": "https://www.equinox.com/clubs/southern-california/los-angeles/losangeles"
+    },
+    {
+      "address": "10960 wilshire blvd. los angeles, ca",
+      "company": "Equinix",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.0579377,
+      "longitude": -118.445764,
+      "source_url": "https://www.equinox.com/clubs/southern-california/los-angeles/losangeles"
+    },
+    {
+      "address": "350 east cermak road",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 41.85375365,
+      "longitude": -87.6183797609595,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/chicago-data-centers/ch1"
+    },
+    {
+      "address": "1905 lunt avenue elk grove, il 60007",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 42.00107525,
+      "longitude": -87.95526507465392,
+      "source_url": "https://www.equinix.lat/content/dam/eqxcorp/en_us/documents/resources/ibx-tech-specs/ibx_ch3_en_feb2021.pdf"
+    },
+    {
+      "address": "1905 lunt avenue elk grove, il",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 42.00107525,
+      "longitude": -87.95526507465392,
+      "source_url": "https://www.equinix.lat/content/dam/eqxcorp/en_us/documents/resources/ibx-tech-specs/ibx_ch3_en_feb2021.pdf"
+    },
+    {
+      "address": "350 east cermak road, chicago, il",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 41.85375365,
+      "longitude": -87.6183797609595,
+      "source_url": "https://www.datacenters.com/location_brochures/ch1-chicago-data-center-a-conduit-for-global-financial-connectivity"
+    },
+    {
+      "address": "350 east cermak rd in chicago, wh",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": "57,000",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://baxtel.com/data-center/equinix-chicago-ch1-ch2-ch4"
+    },
+    {
+      "address": "350 east cermak rd",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": "57,000",
+      "latitude": 41.85375365,
+      "longitude": -87.6183797609595,
+      "source_url": "https://baxtel.com/data-center/equinix-chicago-ch1-ch2-ch4"
+    },
+    {
+      "address": "1905 lunt avenue",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 42.00107525,
+      "longitude": -87.95526507465392,
+      "source_url": "https://www.datacenters.com/location_brochures/ch3-elk-grove-data-center-chicago-s-premier-data-center-for-global-connectivity"
+    },
+    {
+      "address": "7345 s kedzie ave, chicago, il 60629",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "172",
+      "latitude": 41.7595782,
+      "longitude": -87.70227815026539,
+      "source_url": "https://www.loopnet.com/Listing/CHICAGO-FIVE-PORTFOLIO/34481119/"
+    },
+    {
+      "address": "7345 s kedzie ave, chicago, il",
+      "company": "Equinix",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "172",
+      "latitude": 41.7595782,
+      "longitude": -87.70227815026539,
+      "source_url": "https://www.loopnet.com/Listing/CHICAGO-FIVE-PORTFOLIO/34481119/"
+    },
+    {
+      "address": "1515 aldine meadows road, houston, tx",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": "data center",
+      "square_footage": "336",
+      "latitude": 29.93519837095079,
+      "longitude": -95.35647981013989,
+      "source_url": "https://www.datacenters.com/equinix-ho1-houston"
+    },
+    {
+      "address": "1515 aldine meadows road",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": "data center",
+      "square_footage": "336",
+      "latitude": 29.93483915368172,
+      "longitude": -95.36344993277851,
+      "source_url": "https://www.datacenters.com/equinix-ho1-houston"
+    },
+    {
+      "address": "1515 aldine meadows road, houston, tx 77032",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 29.93519837095079,
+      "longitude": -95.35647981013989,
+      "source_url": "https://www.datacenters.com/location_brochures/ho1-houston-data-center-spearheading-digital-transformation-in-texas"
+    },
+    {
+      "address": "20 mins west of downtown houston, ju",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": "data center",
+      "square_footage": "27,000",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://baxtel.com/data-center/equinix-houston-ho1"
+    },
+    {
+      "address": "1515 aldine meadows road. see our interconnection options, ce",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.fi/data-centers/americas-colocation/united-states-colocation/houston-data-centers/ho1"
+    },
+    {
+      "address": "200 regency 200 regency forest drive, cary, nc 27518",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://adler-partners.com/properties/"
+    },
+    {
+      "address": "52 north 3645 trust dr, raleigh, nc 27616",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://adler-partners.com/properties/"
+    },
+    {
+      "address": "200 regency forest drive, cary, nc",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 35.73399035,
+      "longitude": -78.79340740130053,
+      "source_url": "https://adler-partners.com/properties/"
+    },
+    {
+      "address": "3645 trust dr, raleigh, nc",
+      "company": "Equinix",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 35.858922767893176,
+      "longitude": -78.580122636469,
+      "source_url": "https://adler-partners.com/properties/"
+    },
+    {
+      "address": "180 peachtree street nw, at",
+      "company": "Equinix",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.semanticnet.net/facility/ekmHgnED8MXAmszmMfPx/equinix-atlanta-at1"
+    },
+    {
+      "address": "180 peachtree street",
+      "company": "Equinix",
+      "market": "Atlanta",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 33.76317315687299,
+      "longitude": -84.38694032531373,
+      "source_url": "https://www.datacenters.com/location_brochures/at1-atlanta-ibx-data-center-transforming-digital-infrastructure-in-the-heart-of-the-south"
+    },
+    {
+      "address": "450 interstate north parkway, exemplifies innovation in digital infrastructure, of",
+      "company": "Equinix",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacenters.com/location_brochures/at4-atlanta-data-center-pioneering-advanced-data-solutions"
+    },
+    {
+      "address": "450 interstate north parkway",
+      "company": "Equinix",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.908063980933335,
+      "longitude": -84.43336732397601,
+      "source_url": "https://www.datacenters.com/location_brochures/at4-atlanta-data-center-pioneering-advanced-data-solutions"
+    },
+    {
+      "address": "56 marietta street nw, at",
+      "company": "Equinix",
+      "market": "Atlanta",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://cloudandcolocation.com/datacenters/equinix-atlanta-data-center-at2/"
+    },
+    {
+      "address": "56 marietta street",
+      "company": "Equinix",
+      "market": "Atlanta",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 33.755454900000004,
+      "longitude": -84.39156049134488,
+      "source_url": "https://cloudandcolocation.com/datacenters/equinix-atlanta-data-center-at2/"
+    },
+    {
+      "address": "2836 peterson place northwest, norcross, ga",
+      "company": "Equinix",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.93792996817697,
+      "longitude": -84.22615602386999,
+      "source_url": "https://www.datacenterdynamics.com/en/news/equinix-exiting-eight-leased-data-centers-in-us-will-move-customers-to-nearby-facilities/"
+    },
+    {
+      "address": "21721 filigree court, ashburn, va",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc11"
+    },
+    {
+      "address": "21721 filigree court",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 39.0149639,
+      "longitude": -77.45878957525659,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc11"
+    },
+    {
+      "address": "21701 filigree court, building d, as",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc5"
+    },
+    {
+      "address": "21701 filigree court",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 39.016039,
+      "longitude": -77.46117289331507,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc5"
+    },
+    {
+      "address": "7400 infantry ridge road",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 38.803673,
+      "longitude": -77.514327,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc14"
+    },
+    {
+      "address": "22175 beaumeade circle, ashburn, va 20147",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.com.au/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc21"
+    },
+    {
+      "address": "22175 beaumeade circle, ashburn, va",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.com.au/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc21"
+    },
+    {
+      "address": "22175 beaumeade circle",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 39.01154475,
+      "longitude": -77.45471800182239,
+      "source_url": "https://www.equinix.com.au/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc21"
+    },
+    {
+      "address": "44780 performance circle, ashburn, va",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc15"
+    },
+    {
+      "address": "44780 performance circle",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 39.02250015,
+      "longitude": -77.45025584999999,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc15"
+    },
+    {
+      "address": "21715 filigree court, ashburn, va",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2"
+    },
+    {
+      "address": "21715 filigree court",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 39.0163313,
+      "longitude": -77.45876232933266,
+      "source_url": "https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2"
+    },
+    {
+      "address": "21 washington dc ibx data center robust digital infrastructure services in ashburn, vi",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacenters.com/location_brochures/dc21-washington-dc-ibx-data-center-shaping-the-future-of-connectivity"
+    },
+    {
+      "address": "21 washington dc ibx data center equinix dc21 washington dc ibx data center is located at 22175 beaumeade circle, ashburn, va 20147",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": "000",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacenters.com/equinix-dc21-washington-dc-ibx"
+    },
+    {
+      "address": "22175 beaumeade circle ashburn, va",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": "000",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacenters.com/equinix-dc21-washington-dc-ibx"
+    },
+    {
+      "address": "21711 filigree court, ashburn, va",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacenters.com/location_brochures/dc1-ashburn-data-center-elevating-digital-infrastructure-in-the-capital-region"
+    },
+    {
+      "address": "21711 filigree court",
+      "company": "Equinix",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 39.015528450000005,
+      "longitude": -77.46034102573952,
+      "source_url": "https://www.datacenters.com/location_brochures/dc1-ashburn-data-center-elevating-digital-infrastructure-in-the-capital-region"
+    },
+    {
+      "address": "1 cooling new york ewr20100 delawanna avenue, clifton, nj 07014",
+      "company": "Digital Realty",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/new-york"
+    },
+    {
+      "address": "1 cooling new york ewr212 peekay drive, clifton, nj 07014",
+      "company": "Digital Realty",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/new-york"
+    },
+    {
+      "address": "1 cooling new york jfk10111 8th avenue new york, ny 10011",
+      "company": "Digital Realty",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/new-york"
+    },
+    {
+      "address": "20100 delawanna avenue, clifton, nj",
+      "company": "Digital Realty",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 40.829732620637444,
+      "longitude": -74.1272293222504,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/new-york"
+    },
+    {
+      "address": "212 peekay drive, clifton, nj",
+      "company": "Digital Realty",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 40.831722840889405,
+      "longitude": -74.12472114921765,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/new-york"
+    },
+    {
+      "address": "20 with access to hundreds of leading carriers and direct connections to financial exchange networks, in",
+      "company": "Digital Realty",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/new-york/ewr20"
+    },
+    {
+      "address": "12 our digital piscataway campus is situated along major fiber routes, lo",
+      "company": "Digital Realty",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/new-york/ewr12"
+    },
+    {
+      "address": "600 west 7th st",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 34.0473499,
+      "longitude": -118.256999,
+      "source_url": "https://www.digitalrealty.com/resources/articles/digital-realtys-600-west-7th-street-facility-proud-to-be-an-la-green-business"
+    },
+    {
+      "address": "4 data centers los angeles lax11200 north nash street, el segundo, ca 90245",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "1 cooling los angeles lax122260 east el segundo boulevard, el segundo, ca 90245",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "11200 north nash street, el segundo, ca",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 33.928322449999996,
+      "longitude": -118.38748355,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "22260 east el segundo boulevard, el segundo, ca",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 33.91628490943748,
+      "longitude": -118.39393608221768,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "10 3015 winona avenue, burbank, ca 91504",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://ch.digitalrealty.com/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "3015 winona avenue, burbank, ca",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 34.19932857849869,
+      "longitude": -118.34276329126149,
+      "source_url": "https://ch.digitalrealty.com/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "600 w 7th street, los angeles, ca 90017",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 34.0473499,
+      "longitude": -118.256999,
+      "source_url": "https://cloudandcolocation.com/datacenters/digital-realty-los-angeles-data-center-los1/"
+    },
+    {
+      "address": "600 w 7th street",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 34.0473499,
+      "longitude": -118.256999,
+      "source_url": "https://cloudandcolocation.com/datacenters/digital-realty-los-angeles-data-center-los1/"
+    },
+    {
+      "address": "600 west 7th street",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 34.0473499,
+      "longitude": -118.256999,
+      "source_url": "https://www.datacenters.com/digital-realty-los-angeles-lax10"
+    },
+    {
+      "address": "12 2260 east el segundo boulevard, el segundo, ca 90245",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.91628490943748,
+      "longitude": -118.39393608221768,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "2260 east el segundo boulevard, el segundo, ca",
+      "company": "Digital Realty",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.915514,
+      "longitude": -118.384618492729,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/los-angeles"
+    },
+    {
+      "address": "2200 busse road, elk grove village, il",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 41.994230099999996,
+      "longitude": -87.96223156699811,
+      "source_url": "https://ch.digitalrealty.com/data-centers/americas/chicago"
+    },
+    {
+      "address": "350 east cermak data center, th",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/data-centers/americas/chicago/ord11"
+    },
+    {
+      "address": "505 north railroad is located in suburban chicago with close proximity to our franklin park campus, el",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacentermap.com/usa/illinois/chicago/505-north-railroad-avenue/"
+    },
+    {
+      "address": "600 south federal street, chicago, il",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": "000",
+      "latitude": 41.87430605,
+      "longitude": -87.62994041963549,
+      "source_url": "https://www.datacenters.com/digital-realty-chicago-ord011"
+    },
+    {
+      "address": "600 south federal street",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": "000",
+      "latitude": 41.87430605,
+      "longitude": -87.62994041963549,
+      "source_url": "https://www.datacenters.com/digital-realty-chicago-ord011"
+    },
+    {
+      "address": "350 east cermak road, chicago, st",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacenters.com/location_brochures/chicago-ord10-data-center-chicago-s-premier-data-center-at-350-east-cermak-road"
+    },
+    {
+      "address": "1 cooling chicago ord129333 grand avenue, franklin park, il 60131",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "1 cooling chicago ord139355 grand avenue, franklin park, il 60131",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "1 cooling chicago ord149377 grand avenue, franklin park, il 60131",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "1 cooling chicago ord23505 north railroad avenue, northlake, il 60164",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "31400 east devon avenue elk grove village, il",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 41.9928627,
+      "longitude": -87.9856109,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "29333 grand avenue, franklin park, il",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "39355 grand avenue, franklin park, il",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "49377 grand avenue, franklin park, il",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "23505 north railroad avenue, northlake, il",
+      "company": "Digital Realty",
+      "market": "Chicago",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 41.912866597881944,
+      "longitude": -87.91333793964417,
+      "source_url": "https://www.digitalrealty.co.uk/data-centers/americas/chicago"
+    },
+    {
+      "address": "12001 north freeway ... where companies, te",
+      "company": "Digital Realty",
+      "market": "Houston",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://ch.digitalrealty.com/data-centers/americas/houston"
+    },
+    {
+      "address": "12235 north freeway in houst",
+      "company": "Digital Realty",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "87,500",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://datacenterhawk.com/marketplace/providers/digital-realty/12235-north-freeway/1601"
+    },
+    {
+      "address": "12231 north freeway in houst",
+      "company": "Digital Realty",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "53,910",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://datacenterhawk.com/marketplace/providers/digital-realty/12231-north-freeway/1478"
+    },
+    {
+      "address": "12031 north freeway power provider by providing your information, yo",
+      "company": "Digital Realty",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://datacenterhawk.com/marketplace/providers/digital-realty/12031-north-freeway/1418"
+    },
+    {
+      "address": "33 chun choi street, tseung kwan o industrial estate, ho",
+      "company": "Digital Realty",
+      "market": "Houston",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacenters.com/providers/digital-realty/data-center-locations"
+    },
+    {
+      "address": "1919 n shepherd dr houston, tx 77008",
+      "company": "Digital Realty",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.8034543,
+      "longitude": -95.4107996035651,
+      "source_url": "https://www.realhoustonproperties.com/"
+    },
+    {
+      "address": "1919 n shepherd dr houston, tx",
+      "company": "Digital Realty",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.8034543,
+      "longitude": -95.4107996035651,
+      "source_url": "https://www.realhoustonproperties.com/"
+    },
+    {
+      "address": "11 101 aquila way austell, ga 30168",
+      "company": "Digital Realty",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://ch.digitalrealty.com/data-centers/americas/atlanta"
+    },
+    {
+      "address": "101 aquila way austell, ga",
+      "company": "Digital Realty",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.74656255,
+      "longitude": -84.57973928392062,
+      "source_url": "https://ch.digitalrealty.com/data-centers/americas/atlanta"
+    },
+    {
+      "address": "14 250 williams street nw atlanta, ga 30303",
+      "company": "Digital Realty",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.75787612213199,
+      "longitude": -84.38909345866611,
+      "source_url": "https://www.digitalrealty.asia/data-centers/americas/atlanta"
+    },
+    {
+      "address": "250 williams street nw atlanta, ga",
+      "company": "Digital Realty",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.76163914285714,
+      "longitude": -84.39064993877551,
+      "source_url": "https://www.digitalrealty.asia/data-centers/americas/atlanta"
+    },
+    {
+      "address": "10 forsyth street nw, th",
+      "company": "Digital Realty",
+      "market": "Atlanta",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.datacentermap.com/usa/georgia/atlanta/10-forsyth-street-nw/"
+    },
+    {
+      "address": "10 forsyth street",
+      "company": "Digital Realty",
+      "market": "Atlanta",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": 40.7145267,
+      "longitude": -73.9941065,
+      "source_url": "https://www.datacentermap.com/usa/georgia/atlanta/10-forsyth-street-nw/"
+    },
+    {
+      "address": "1759 w street, se, wa",
+      "company": "Digital Realty",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 39.75278066097135,
+      "longitude": -75.54541857431099,
+      "source_url": "https://www.mirrorrealestate.com/homes/details/1751-w-st-street-se-washington-district-of-columbia-county-dc-20020-washington-dc-us4602"
+    },
+    {
+      "address": "1775 k st nw, wa",
+      "company": "Digital Realty",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 38.9028821,
+      "longitude": -77.0412732,
+      "source_url": "https://usearch.com/property/1775-k-st-nw-washington-dc"
+    },
+    {
+      "address": "30 ice house street, central, ho",
+      "company": "Digital Realty",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.digitalrealty.com/contact"
+    },
+    {
+      "address": "20 miles west of washington, dc",
+      "company": "Digital Realty",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://baxtel.com/data-center/digital-realty-iad51"
+    },
+    {
+      "address": "15 miles east of ashburn, va",
+      "company": "Digital Realty",
+      "market": "Washington DC",
+      "property_type": "data center",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://baxtel.com/data-center/digital-realty-iad51"
+    },
+    {
+      "address": "3230 wheeler rd se, wa",
+      "company": "Digital Realty",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": "1,794",
+      "latitude": 38.8425737,
+      "longitude": -76.99370349815034,
+      "source_url": "https://www.zillow.com/district-of-columbia-dc/"
+    },
+    {
+      "address": "3500 new york avenue, arlington, te",
+      "company": "Prologis",
+      "market": "New York",
+      "property_type": "data center",
+      "square_footage": "76014",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-logistics-warehouse-space/americas/united-states/dallas-texas"
+    },
+    {
+      "address": "59 international airport center blvd springfield gardens , ne",
+      "company": "Prologis",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/nyc00303-prologis-jfk-logistics-center-c"
+    },
+    {
+      "address": "12 twelfth street long island city in long island city, ny 11101",
+      "company": "Prologis",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": "21",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.commercialsearch.com/commercial-property/us/ny/long-island-city/prologis-queensboro-crossing/"
+    },
+    {
+      "address": "12 twelfth street long island city in long island city, ny",
+      "company": "Prologis",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": "21",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.commercialsearch.com/commercial-property/us/ny/long-island-city/prologis-queensboro-crossing/"
+    },
+    {
+      "address": "12 twelfth street long island city, lo",
+      "company": "Prologis",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.propertyshark.com/cre/commercial-property/us/ny/long-island-city/prologis-queensboro-crossing/"
+    },
+    {
+      "address": "5540 century blvd los angeles, ca 90045",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.94515296329226,
+      "longitude": -118.37714606536017,
+      "source_url": "https://www.prologis.com/industrial-properties/building/lax07710-prologis-aviation-logistics-center"
+    },
+    {
+      "address": "5540 century blvd los angeles, ca",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.945494984906915,
+      "longitude": -118.37735293726452,
+      "source_url": "https://www.prologis.com/industrial-properties/building/lax07710-prologis-aviation-logistics-center"
+    },
+    {
+      "address": "6545 caballero blvd. buena park, ca",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.86536224157666,
+      "longitude": -118.01885316862612,
+      "source_url": "https://www.prologis.com/industrial-properties/building/lax07710-prologis-aviation-logistics-center"
+    },
+    {
+      "address": "5540 century blvd",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.420987,
+      "longitude": -95.02012040468227,
+      "source_url": "https://www.prologis.com/industrial-properties/building/lax07710-prologis-aviation-logistics-center"
+    },
+    {
+      "address": "20 miles east of the ports of long beach and los angeles and the los angeles international airport, ma",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": "warehouse",
+      "square_footage": "760",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/lax07201-prologis-eaves-distribution-center"
+    },
+    {
+      "address": "5795 west imperial highway, los angeles, ca",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.930841,
+      "longitude": -118.37880101020409,
+      "source_url": "https://property.compstak.com/5795-West-Imperial-Highway-Los-Angeles/p/833490"
+    },
+    {
+      "address": "5795 west imperial highway is located in los angeles, ca",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://property.compstak.com/5795-West-Imperial-Highway-Los-Angeles/p/833490"
+    },
+    {
+      "address": "4910 west rosecrans avenue, ha",
+      "company": "Prologis",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://property.compstak.com/5795-West-Imperial-Highway-Los-Angeles/p/833490"
+    },
+    {
+      "address": "10351 rising court woodridge , il",
+      "company": "Prologis",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "41470",
+      "latitude": 41.697590039035205,
+      "longitude": -88.01651072276967,
+      "source_url": "https://www.prologis.com/industrial-properties/building/chi03221-prologis-internationale-center-21"
+    },
+    {
+      "address": "2235 corporate lane naperville , il",
+      "company": "Prologis",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 41.81214285,
+      "longitude": -88.19340856474818,
+      "source_url": "https://www.prologis.com/industrial-properties/building/chi06724-prologis-naperville-2"
+    },
+    {
+      "address": "250 east old chicago road bolingbrook , il",
+      "company": "Prologis",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/building/chi06724-prologis-naperville-2"
+    },
+    {
+      "address": "6725 business parkway elkridge , ma",
+      "company": "Prologis",
+      "market": "Chicago",
+      "property_type": "warehouse",
+      "square_footage": "84000",
+      "latitude": 39.1852042,
+      "longitude": -76.76947114484234,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/bal01601-prologis-meadowridge"
+    },
+    {
+      "address": "2059 w hastings street, unit d chicago , il",
+      "company": "Prologis",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "10210",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/united-states/chicago-industrial-logistics-and-warehouses"
+    },
+    {
+      "address": "335 crossroads parkway bolingbrook , il",
+      "company": "Prologis",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "190080",
+      "latitude": 41.67476237992065,
+      "longitude": -88.07155063388211,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/chi02033-prologis-bolingbrook-33"
+    },
+    {
+      "address": "15550 milner road houston , te",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "656658",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/building/hou04704-prologis-presidents-park-bldg-4"
+    },
+    {
+      "address": "1401 rankin road houston , te",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "656658",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/building/hou04704-prologis-presidents-park-bldg-4"
+    },
+    {
+      "address": "845 greens parkway houston , te",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "45185",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/building/hou06008-prologis-greens-crossing-ii"
+    },
+    {
+      "address": "4835 sirona drive charlotte , no",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "32320",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/cha01401-prologis-shopton-ridge-park-4835"
+    },
+    {
+      "address": "1000 parliament court durham , no",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "32320",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/cha01401-prologis-shopton-ridge-park-4835"
+    },
+    {
+      "address": "8323 n eldridge parkway houston , te",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/hou09002-prologis-westland-1"
+    },
+    {
+      "address": "16303 air center blvd. houston , te",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/hou09002-prologis-westland-1"
+    },
+    {
+      "address": "850 greens parkway houston , te",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/hou06008-prologis-greens-crossing-ii"
+    },
+    {
+      "address": "2928 greens rd, houston, tx 77032",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.951239444444443,
+      "longitude": -95.34367771717172,
+      "source_url": "https://www.loopnet.com/Listing/2928-Greens-Rd-Houston-TX/22713816/"
+    },
+    {
+      "address": "2928 greens rd, houston, tx",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.951239444444443,
+      "longitude": -95.34367771717172,
+      "source_url": "https://www.loopnet.com/Listing/2928-Greens-Rd-Houston-TX/22713816/"
+    },
+    {
+      "address": "14200 hollister rd, houston, tx 77066",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.93289614884513,
+      "longitude": -95.50758833303787,
+      "source_url": "https://www.loopnet.com/Listing/14200-Hollister-Rd-Houston-TX/27927409/"
+    },
+    {
+      "address": "14200 hollister rd, houston, tx",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.83419825207702,
+      "longitude": -95.50865404384722,
+      "source_url": "https://www.loopnet.com/Listing/14200-Hollister-Rd-Houston-TX/27927409/"
+    },
+    {
+      "address": "21 - 10425 okanella street, houston, tx 77041",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.propertyshark.com/cre/commercial-property/us/tx/houston/prologis-park-west-by-northwest-industrial-park-21/"
+    },
+    {
+      "address": "10425 okanella street, houston, tx",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.858985,
+      "longitude": -95.553523,
+      "source_url": "https://www.propertyshark.com/cre/commercial-property/us/tx/houston/prologis-park-west-by-northwest-industrial-park-21/"
+    },
+    {
+      "address": "290 freeway in the attractive cypress community, pr",
+      "company": "Prologis",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/build-suit/hou06490-prologis-legacy-point"
+    },
+    {
+      "address": "637 gibraltar court milpitas, ca",
+      "company": "Prologis",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 37.42262609740753,
+      "longitude": -121.89599409957522,
+      "source_url": "https://www.prologis.com/industrial-properties/building/sba05501-prologis-power-building-1"
+    },
+    {
+      "address": "9550 parksouth court orlando, fl",
+      "company": "Prologis",
+      "market": "Atlanta",
+      "property_type": "warehouse",
+      "square_footage": "900",
+      "latitude": 28.42858417670974,
+      "longitude": -81.41353156077105,
+      "source_url": "https://www.prologis.com/industrial-properties/building/orl01810-parksouth-dist-ctr-9550"
+    },
+    {
+      "address": "6070 fulton industrial boulevard, atlanta, ga 30336",
+      "company": "Prologis",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.78803141642696,
+      "longitude": -84.50178919832247,
+      "source_url": "https://www.propertyshark.com/mason/Property/34095665/6070-Fulton-Industrial-Blvd-Atlanta-GA-30336/"
+    },
+    {
+      "address": "6070 fulton industrial boulevard, atlanta, ga",
+      "company": "Prologis",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.7160749,
+      "longitude": -84.586102,
+      "source_url": "https://www.propertyshark.com/mason/Property/34095665/6070-Fulton-Industrial-Blvd-Atlanta-GA-30336/"
+    },
+    {
+      "address": "9 miles from east point marta station, gi",
+      "company": "Prologis",
+      "market": "Atlanta",
+      "property_type": "warehouse",
+      "square_footage": "200",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/building/atl01304-prologis-atlanta-airport-4"
+    },
+    {
+      "address": "13 kilometers away, and dortmund port is connected to the entire national network by water, ra",
+      "company": "Prologis",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/building/de000628-dortmund-dc2-kaiserstuhl-strasse"
+    },
+    {
+      "address": "6100 columbia park road hyattsville , ma",
+      "company": "Prologis",
+      "market": "Washington DC",
+      "property_type": "industrial facility",
+      "square_footage": "860",
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.prologis.com/industrial-properties/building/sum00406-prologis-washington-gateway"
+    },
+    {
+      "address": "9405 livingston road fort washington, ma",
+      "company": "Prologis",
+      "market": "Washington DC",
+      "property_type": "warehouse",
+      "square_footage": null,
+      "latitude": 38.75043572182783,
+      "longitude": -77.00053448629647,
+      "source_url": "https://www.prologis.com/industrial-properties/build-suit/g-iig172-prologis-capital-beltway-ii"
+    },
+    {
+      "address": "8301 patuxent range road jessup, ma",
+      "company": "Prologis",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": "71983",
+      "latitude": 39.148841450000006,
+      "longitude": -76.80063440172697,
+      "source_url": "https://beta.prologis.com/industrial-properties/building/bal02401-prologis-baltimore-washington-industrial-park"
+    },
+    {
+      "address": "1223 e new york ave brooklyn, ny 11212",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.6676784,
+      "longitude": -73.92212176038319,
+      "source_url": "https://www.publicstorage.com/self-storage-ny-brooklyn/cheap-storage-units"
+    },
+    {
+      "address": "1223 e new york ave brooklyn, ny",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.6676784,
+      "longitude": -73.92212176038319,
+      "source_url": "https://www.publicstorage.com/self-storage-ny-brooklyn/cheap-storage-units"
+    },
+    {
+      "address": "60 e kingsbridge road mount vernon, ny 10550",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.89157165,
+      "longitude": -73.82776971574381,
+      "source_url": "https://www.publicstorage.com/self-storage-ny-mount-vernon/1248.html"
+    },
+    {
+      "address": "60 e kingsbridge road mount vernon, ny",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.89157165,
+      "longitude": -73.82776971574381,
+      "source_url": "https://www.publicstorage.com/self-storage-ny-mount-vernon/1248.html"
+    },
+    {
+      "address": "490 eastern ave. in malden, ma",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.radiusplus.com/post/public-storage-snags-big-properties-in-nyc-and-boston/"
+    },
+    {
+      "address": "5002 2nd ave",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.64910055,
+      "longitude": -74.01755800000001,
+      "source_url": "https://www.radiusplus.com/post/public-storage-snags-big-properties-in-nyc-and-boston/"
+    },
+    {
+      "address": "5002 second ave. in brooklyn, ch",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.commercialsearch.com/news/public-storage-expands-with-528m-portfolio-acquisition/"
+    },
+    {
+      "address": "262 mott st, new york, ny 10012",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.7238034,
+      "longitude": -73.994312281428,
+      "source_url": "https://www.chamberofcommerce.com/business-directory/new-york/new-york/self-storage-facility/2012976546-public-storage"
+    },
+    {
+      "address": "262 mott st, new york, ny",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.7238034,
+      "longitude": -73.994312281428,
+      "source_url": "https://www.chamberofcommerce.com/business-directory/new-york/new-york/self-storage-facility/2012976546-public-storage"
+    },
+    {
+      "address": "1223 e new york ave in brooklyn, ny",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/on/demandware.store/Sites-publicstorage-Site/default/ListingPage-State?state=ny"
+    },
+    {
+      "address": "269 gold st in brooklyn, ny",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/on/demandware.store/Sites-publicstorage-Site/default/ListingPage-State?state=ny"
+    },
+    {
+      "address": "951 horseblock road, farmingville, ny",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 40.831850349999996,
+      "longitude": -73.0226995,
+      "source_url": "https://www.publicstorage.com/self-storage-ny-farmingville/1521.html"
+    },
+    {
+      "address": "701 western ave. glendale, ca 91201",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.165927,
+      "longitude": -118.295305,
+      "source_url": "https://pscommercialrealestate.com/corporate_info.php"
+    },
+    {
+      "address": "701 western ave. glendale, ca",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.165927,
+      "longitude": -118.295305,
+      "source_url": "https://pscommercialrealestate.com/corporate_info.php"
+    },
+    {
+      "address": "513 new york ave. vanilla box, av",
+      "company": "Public Storage",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.crexi.com/properties/NY/Self-Storage"
+    },
+    {
+      "address": "11200 w pico blvd, los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.036066,
+      "longitude": -118.436737,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/305.html"
+    },
+    {
+      "address": "300 avery st, los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.045177699999996,
+      "longitude": -118.23447547130624,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/2223.html"
+    },
+    {
+      "address": "620 east arques ave, sunnyvale, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 37.38156091098237,
+      "longitude": -122.01727255491186,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-sunnyvale/363.html"
+    },
+    {
+      "address": "42101 albrae street, fremont, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 37.51182335,
+      "longitude": -121.97480279999999,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-fremont/451.html"
+    },
+    {
+      "address": "5917 burchard ave los angeles, ca 90034",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.036568900536324,
+      "longitude": -118.37326793832152,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/7.html"
+    },
+    {
+      "address": "5917 burchard ave los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.036568900536324,
+      "longitude": -118.37326793832152,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/7.html"
+    },
+    {
+      "address": "4002 n mission rd los angeles, ca 90032",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.06050143883692,
+      "longitude": -118.2145765795537,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/89.html"
+    },
+    {
+      "address": "4002 n mission rd los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.056786317153765,
+      "longitude": -118.21966725488245,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/89.html"
+    },
+    {
+      "address": "365 w manchester ave los angeles, ca 90003",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.960219,
+      "longitude": -118.2799332244898,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/25.html"
+    },
+    {
+      "address": "365 w manchester ave los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.960219,
+      "longitude": -118.2799332244898,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/25.html"
+    },
+    {
+      "address": "3770 crenshaw blvd los angeles, ca 90016",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.01759880612245,
+      "longitude": -118.335411,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/134.html"
+    },
+    {
+      "address": "3770 crenshaw blvd los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.0187662755102,
+      "longitude": -118.33519629591837,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/134.html"
+    },
+    {
+      "address": "3773 s durango ave, los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.026959204081635,
+      "longitude": -118.39374485714286,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/2058.html"
+    },
+    {
+      "address": "1712 glendale blvd, los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.08656725149348,
+      "longitude": -118.2596848250918,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/17.html"
+    },
+    {
+      "address": "1712 glendale blvd los angeles, ca 90026",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.08656725149348,
+      "longitude": -118.2596848250918,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "29 admin fee view all units 323-426-5768 view all units 4583 huntington drive south los angeles, ca 90032",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "29 admin fee view all units 323-825-3831 view all units 3017 n san fernando rd los angeles, ca 90065",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "29 admin fee view all units 323-391-3964 view all units 4174 w pico blvd los angeles, ca 90019",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "29 admin fee view all units 323-709-5787 view all units 2370 colorado blvd los angeles, ca 90041",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "1712 glendale blvd los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.08656725149348,
+      "longitude": -118.2596848250918,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "4583 huntington drive south los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.10013090429063,
+      "longitude": -118.15537674848906,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "3017 n san fernando rd los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.113772814814816,
+      "longitude": -118.24461451851852,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "4174 w pico blvd los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.047515000000004,
+      "longitude": -118.32653090320889,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "2370 colorado blvd los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.13979472222222,
+      "longitude": -118.21832266666667,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles"
+    },
+    {
+      "address": "5570 airdrome street, los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.04448941316665,
+      "longitude": -118.36190331668516,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/4.html"
+    },
+    {
+      "address": "4101 north figueroa street, los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.0933344,
+      "longitude": -118.2097602,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/80.html"
+    },
+    {
+      "address": "5917 burchard ave, los angeles, ca",
+      "company": "Public Storage",
+      "market": "Los Angeles",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 34.036568900536324,
+      "longitude": -118.37326793832152,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-los-angeles/7.html"
+    },
+    {
+      "address": "362 w chicago ave, chicago, il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 41.8967741,
+      "longitude": -87.63809481275814,
+      "source_url": "https://www.publicstorage.com/self-storage-il-chicago/1268.html"
+    },
+    {
+      "address": "4 orben drive ledgewood, nj 07852",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.891685100000004,
+      "longitude": -74.66206453975454,
+      "source_url": "https://www.publicstorage.com/self-storage-nj-ledgewood/999.html"
+    },
+    {
+      "address": "4 orben drive ledgewood, nj",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.891685100000004,
+      "longitude": -74.66206453975454,
+      "source_url": "https://www.publicstorage.com/self-storage-nj-ledgewood/999.html"
+    },
+    {
+      "address": "512 castle shannon blvd., pittsburgh, pa",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 40.371469,
+      "longitude": -80.033298,
+      "source_url": "https://www.publicstorage.com/self-storage-pa-pittsburgh/5462.html"
+    },
+    {
+      "address": "1600 southwood drive, nashua, nh",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 42.78809495,
+      "longitude": -71.50043285000001,
+      "source_url": "https://www.publicstorage.com/self-storage-nh-nashua/908.html"
+    },
+    {
+      "address": "15 self storage units near west covina, ca",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-west-covina/10x15-storage-units"
+    },
+    {
+      "address": "362 w chicago ave chicago, il 60654",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 41.8967741,
+      "longitude": -87.63809481275814,
+      "source_url": "https://www.publicstorage.com/self-storage-il-chicago/1268.html"
+    },
+    {
+      "address": "362 w chicago ave chicago, il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 41.8967741,
+      "longitude": -87.63809481275814,
+      "source_url": "https://www.publicstorage.com/self-storage-il-chicago/1268.html"
+    },
+    {
+      "address": "362 w chicago ave , chicago , il 60654",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 41.8967741,
+      "longitude": -87.63809481275814,
+      "source_url": "https://www.storageseeker.com/self-storage/IL/chicago/public-storage-chicago-362-w-chicago-ave/215092"
+    },
+    {
+      "address": "362 w chicago ave in chicago, il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.storageseeker.com/self-storage/IL/chicago/public-storage-chicago-362-w-chicago-ave/215092"
+    },
+    {
+      "address": "362 w chicago ave , chicago , il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 41.8967741,
+      "longitude": -87.63809481275814,
+      "source_url": "https://www.storageseeker.com/self-storage/IL/chicago/public-storage-chicago-362-w-chicago-ave/215092"
+    },
+    {
+      "address": "5733 north broadway st, chicago, il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 41.97250523317407,
+      "longitude": -87.65976225083517,
+      "source_url": "https://www.publicstorage.com/self-storage-il-chicago/1223.html"
+    },
+    {
+      "address": "5251 n kedzie ave, chicago, il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 41.97690350037775,
+      "longitude": -87.70859963528754,
+      "source_url": "https://www.publicstorage.com/self-storage-il-chicago/6209.html"
+    },
+    {
+      "address": "2638 n pulaski road, chicago, il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 41.9294334,
+      "longitude": -87.7271769487626,
+      "source_url": "https://www.publicstorage.com/self-storage-il-chicago/1501.html"
+    },
+    {
+      "address": "4343 s ashland ave chicago, il 60609",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "696",
+      "latitude": 41.81440005,
+      "longitude": -87.66472130065466,
+      "source_url": "https://www.crexi.com/properties/IL/Self-Storage"
+    },
+    {
+      "address": "2601 laughlin view dr bullhead city, az 86429",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "696",
+      "latitude": 35.166306048392634,
+      "longitude": -114.53974606668766,
+      "source_url": "https://www.crexi.com/properties/IL/Self-Storage"
+    },
+    {
+      "address": "4343 s ashland ave chicago, il",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "696",
+      "latitude": 41.81440005,
+      "longitude": -87.66472130065466,
+      "source_url": "https://www.crexi.com/properties/IL/Self-Storage"
+    },
+    {
+      "address": "2601 laughlin view dr bullhead city, az",
+      "company": "Public Storage",
+      "market": "Chicago",
+      "property_type": null,
+      "square_footage": "696",
+      "latitude": 35.16513776418413,
+      "longitude": -114.55405325193458,
+      "source_url": "https://www.crexi.com/properties/IL/Self-Storage"
+    },
+    {
+      "address": "9420 s main street houston, tx 77025",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.66186751615351,
+      "longitude": -95.43986138995,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/802.html"
+    },
+    {
+      "address": "9420 s main street houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.66186751615351,
+      "longitude": -95.43986138995,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/802.html"
+    },
+    {
+      "address": "72150 fred waring drive, palm desert, ca",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-palm-desert/2064.html"
+    },
+    {
+      "address": "15 self storage units near west creek, nj",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-nj-west-creek/10x15-storage-units"
+    },
+    {
+      "address": "8514 liberty rd, randallstown, md",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 39.3613444,
+      "longitude": -76.7754295,
+      "source_url": "https://www.publicstorage.com/self-storage-md-randallstown/5527.html"
+    },
+    {
+      "address": "30 self storage units near west covina, ca",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ca-west-covina/10x30-storage-units"
+    },
+    {
+      "address": "4121 greenbriar st houston, tx 77098",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.698737084684467,
+      "longitude": -95.40572161906006,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/2014.html"
+    },
+    {
+      "address": "4121 greenbriar st houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.698737084684467,
+      "longitude": -95.40572161906006,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/2014.html"
+    },
+    {
+      "address": "2801 hullsmith drive houston, tx 77063",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.736395161966918,
+      "longitude": -95.50704118536724,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/2002.html"
+    },
+    {
+      "address": "2801 hullsmith drive houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.736395161966918,
+      "longitude": -95.50704118536724,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/2002.html"
+    },
+    {
+      "address": "10944 millridge north drive houston, tx 77070",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/782.html"
+    },
+    {
+      "address": "10944 millridge north drive houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/782.html"
+    },
+    {
+      "address": "8633 west airport blvd, houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.6422858199528,
+      "longitude": -95.52892937135552,
+      "source_url": "https://www.storagecafe.com/storage/tx/houston/public-storage-8633-west-airport-blvd/"
+    },
+    {
+      "address": "8633 west airport blvd storage facility in houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.storagecafe.com/storage/tx/houston/public-storage-8633-west-airport-blvd/"
+    },
+    {
+      "address": "8100 main st, houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.693316292929293,
+      "longitude": -95.41537607070707,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/6113.html"
+    },
+    {
+      "address": "1611 s dairy ashford rd, houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.75002867346939,
+      "longitude": -95.60596369387756,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/6111.html"
+    },
+    {
+      "address": "9333 s main st, houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.66186751615351,
+      "longitude": -95.43986138995,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/5786.html"
+    },
+    {
+      "address": "9710 plainfield road, houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/672.html"
+    },
+    {
+      "address": "6400 w little york rd, houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 29.865839,
+      "longitude": -95.483984,
+      "source_url": "https://www.publicstorage.com/self-storage-tx-houston/2356.html"
+    },
+    {
+      "address": "7365 antoine dr, houston, tx 77088",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "1,734",
+      "latitude": 29.86824248014583,
+      "longitude": -95.47309968726562,
+      "source_url": "https://www.zillow.com/houston-tx/storage-unit_att/"
+    },
+    {
+      "address": "7365 antoine dr, houston, tx",
+      "company": "Public Storage",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": "1,734",
+      "latitude": 29.86824248014583,
+      "longitude": -95.47309968726562,
+      "source_url": "https://www.zillow.com/houston-tx/storage-unit_att/"
+    },
+    {
+      "address": "2115 monroe drive ne atlanta, ga 30324",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.809962299999995,
+      "longitude": -84.3713523329647,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/1609.html"
+    },
+    {
+      "address": "2115 monroe drive ne atlanta, ga",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.809962299999995,
+      "longitude": -84.3713523329647,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/1609.html"
+    },
+    {
+      "address": "2519 chantilly drive, atlanta, ga",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 33.82393581523147,
+      "longitude": -84.35023013533414,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/643.html"
+    },
+    {
+      "address": "5711 roswell road ne atlanta, ga 30342",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 33.87345821857795,
+      "longitude": -84.38101700880465,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/624.html"
+    },
+    {
+      "address": "5711 roswell road ne atlanta, ga",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 33.87345821857795,
+      "longitude": -84.38101700880465,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/624.html"
+    },
+    {
+      "address": "268 westminster drive ne 268 westminster drive ne atlanta , ga 30309",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.selfstorage.com/self-storage/georgia/atlanta/public-storage-atlanta-268-westminster-drive-ne-214894/"
+    },
+    {
+      "address": "268 westminster drive ne atlanta , ga",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 33.79402915,
+      "longitude": -84.37152520000001,
+      "source_url": "https://www.selfstorage.com/self-storage/georgia/atlanta/public-storage-atlanta-268-westminster-drive-ne-214894/"
+    },
+    {
+      "address": "5301 s cobb drive se atlanta, ga 30339",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/594.html"
+    },
+    {
+      "address": "5301 s cobb drive se atlanta, ga",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/594.html"
+    },
+    {
+      "address": "5301 s cobb dr se, at",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://businessyab.com/explore/united_states/georgia/cobb_county/atlanta/south_cobb_drive_southeast/5301/public-storage-678-951-8333.html"
+    },
+    {
+      "address": "5711 roswell road ne, at",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.selfstorage.com/self-storage/georgia/atlanta/public-storage-atlanta-5711-roswell-road-ne-215572/"
+    },
+    {
+      "address": "1506 howell mill road nw, at",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/1602.html"
+    },
+    {
+      "address": "4300 peachtree road ne, at",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/1961.html"
+    },
+    {
+      "address": "268 westminster drive ne, at",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/1960.html"
+    },
+    {
+      "address": "2436 bolton road nw, at",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/695.html"
+    },
+    {
+      "address": "3692 clairmont road, atlanta, ga",
+      "company": "Public Storage",
+      "market": "Atlanta",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/self-storage-ga-atlanta/1726.html"
+    },
+    {
+      "address": "1230 s capitol street se, wa",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 38.8755483,
+      "longitude": -77.00857309164613,
+      "source_url": "https://www.publicstorage.com/self-storage-dc-washington/1081.html"
+    },
+    {
+      "address": "12423 middlebrook road, germantown, md",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 39.1756696,
+      "longitude": -77.25747319418795,
+      "source_url": "https://www.publicstorage.com/self-storage-md-germantown/1752.html"
+    },
+    {
+      "address": "4628 northwestern dr, zionsville, in",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 39.9380407,
+      "longitude": -86.2388822,
+      "source_url": "https://www.publicstorage.com/self-storage-in-zionsville/5916.html"
+    },
+    {
+      "address": "701 western avenue glendale, ca 91201",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.165927,
+      "longitude": -118.295305,
+      "source_url": "https://s1.q4cdn.com/588671402/files/doc_news/2021/04/721.3.pdf"
+    },
+    {
+      "address": "701 western avenue glendale, ca",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 34.165927,
+      "longitude": -118.295305,
+      "source_url": "https://s1.q4cdn.com/588671402/files/doc_news/2021/04/721.3.pdf"
+    },
+    {
+      "address": "1618 bladensburg road ne 1618 bladensburg road ne washington , dc 20002",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.selfstorage.com/self-storage/district-of-columbia/washington/public-storage-washington-1618-bladensburg-road-ne-214051/"
+    },
+    {
+      "address": "1618 bladensburg road ne washington , dc",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 38.9121658,
+      "longitude": -76.9767416,
+      "source_url": "https://www.selfstorage.com/self-storage/district-of-columbia/washington/public-storage-washington-1618-bladensburg-road-ne-214051/"
+    },
+    {
+      "address": "2301 lawrence ave ne in washington, di",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.chamberofcommerce.com/business-directory/district-of-columbia/washington/self-storage-facility/2013741754-public-storage"
+    },
+    {
+      "address": "2301 lawrence ave",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 39.70489335,
+      "longitude": -86.12182760682445,
+      "source_url": "https://www.chamberofcommerce.com/business-directory/district-of-columbia/washington/self-storage-facility/2013741754-public-storage"
+    },
+    {
+      "address": "1230 s capitol street se in washington, dc",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/on/demandware.store/Sites-publicstorage-Site/default/ListingPage-State?state=dc"
+    },
+    {
+      "address": "1618 bladensburg road ne in washington, dc",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/on/demandware.store/Sites-publicstorage-Site/default/ListingPage-State?state=dc"
+    },
+    {
+      "address": "2308 chillum road in washington, dc",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/on/demandware.store/Sites-publicstorage-Site/default/ListingPage-State?state=dc"
+    },
+    {
+      "address": "2301 lawrence ave ne in washington, dc",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/on/demandware.store/Sites-publicstorage-Site/default/ListingPage-State?state=dc"
+    },
+    {
+      "address": "1618 bladensburg road ne, wa",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 38.9121658,
+      "longitude": -76.9767416,
+      "source_url": "https://www.publicstorage.com/self-storage-dc-washington/2195.html"
+    },
+    {
+      "address": "2301 lawrence ave ne, wa",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": "storage facility",
+      "square_footage": null,
+      "latitude": 38.92014785,
+      "longitude": -76.9761389111619,
+      "source_url": "https://www.publicstorage.com/self-storage-dc-washington/5422.html"
+    },
+    {
+      "address": "398 long bridge drive in washington, dc",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.publicstorage.com/on/demandware.store/Sites-publicstorage-Site/default/ListingPage-State?state=dc"
+    },
+    {
+      "address": "1618 bladensburg rd ne, wa",
+      "company": "Public Storage",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 38.9121658,
+      "longitude": -76.9767416,
+      "source_url": "https://reviews.birdeye.com/public-storage-156047490959014"
+    },
+    {
+      "address": "225 west washington street indianapolis, in",
+      "company": "Simon Property Group",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 39.7669316,
+      "longitude": -86.1619915,
+      "source_url": "https://www.simon.com/contact"
+    },
+    {
+      "address": "60 columbia road, building b morristown, ne",
+      "company": "Simon Property Group",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://www.simon.com/contact"
+    },
+    {
+      "address": "225 w washington st, united states, an",
+      "company": "Simon Property Group",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": null,
+      "longitude": null,
+      "source_url": "https://craft.co/simon-property-group/locations"
+    },
+    {
+      "address": "225 west washington street indianapolis, in 46204",
+      "company": "Simon Property Group",
+      "market": "New York",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 39.7669316,
+      "longitude": -86.1619915,
+      "source_url": "https://business.simon.com/contact"
+    },
+    {
+      "address": "2300 e lincoln highway . langhorne, pa 19047",
+      "company": "Simon Property Group",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": "170,000",
+      "latitude": 40.17547664999999,
+      "longitude": -74.88667385,
+      "source_url": "https://fillogic.com/locations"
+    },
+    {
+      "address": "8500 beverly blvd. los angeles, ca 90048",
+      "company": "Simon Property Group",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": "170,000",
+      "latitude": 34.075718,
+      "longitude": -118.3770471,
+      "source_url": "https://fillogic.com/locations"
+    },
+    {
+      "address": "2300 e lincoln highway . langhorne, pa",
+      "company": "Simon Property Group",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": "170,000",
+      "latitude": 40.178017566135125,
+      "longitude": -74.88210166355805,
+      "source_url": "https://fillogic.com/locations"
+    },
+    {
+      "address": "8500 beverly blvd. los angeles, ca",
+      "company": "Simon Property Group",
+      "market": "Los Angeles",
+      "property_type": null,
+      "square_footage": "170,000",
+      "latitude": 34.075718,
+      "longitude": -118.3770471,
+      "source_url": "https://fillogic.com/locations"
+    },
+    {
+      "address": "5075 westheimer rd houston, tx 77056",
+      "company": "Simon Property Group",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.740860533483392,
+      "longitude": -95.46345590406445,
+      "source_url": "https://www.mapquest.com/us/texas/simon-property-group-534754062"
+    },
+    {
+      "address": "5075 westheimer rd houston, tx",
+      "company": "Simon Property Group",
+      "market": "Houston",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 29.740608515151514,
+      "longitude": -95.46289769696969,
+      "source_url": "https://www.mapquest.com/us/texas/simon-property-group-534754062"
+    },
+    {
+      "address": "1015 15th st",
+      "company": "Simon Property Group",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 40.0058893,
+      "longitude": -105.2742619,
+      "source_url": "https://www.bizapedia.com/dc/simon-property-group-inc.html"
+    },
+    {
+      "address": "225 w washington street, indianapolis, in",
+      "company": "Simon Property Group",
+      "market": "Washington DC",
+      "property_type": null,
+      "square_footage": null,
+      "latitude": 39.7669316,
+      "longitude": -86.1619915,
+      "source_url": "https://www.globaldata.com/company-profile/simon-property-group-inc/locations/"
+    }
+  ]
+}
