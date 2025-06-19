@@ -90,11 +90,30 @@ export function useCommunityCentersLayer(map, showLayer, onMarkerClick) {
         type: 'circle',
         source: sourceId,
         paint: {
-          'circle-radius': 10,
+          'circle-radius': [
+            'case',
+            ['all', ['has', 'Square_Foo'], ['>', ['to-number', ['get', 'Square_Foo']], 0]],
+              [
+                'interpolate',
+                ['linear'],
+                ['to-number', ['get', 'Square_Foo'], 0],
+                0, 4.8,         // 6 * 0.8
+                2000, 6.4,      // 8 * 0.8
+                5000, 9.6,      // 12 * 0.8
+                10000, 14.4,    // 18 * 0.8
+                20000, 19.2     // 24 * 0.8
+              ],
+              6.4 // Default size if Square_Foo is missing or not a number (8 * 0.8)
+          ],
           'circle-color': '#FF00B7',
           'circle-stroke-width': 2,
           'circle-stroke-color': '#fff',
-          'circle-opacity': 0.95
+          'circle-opacity': [
+            'case',
+            ['all', ['has', 'Square_Foo'], ['>', ['to-number', ['get', 'Square_Foo']], 0]],
+              0.95, // Normal opacity if Square_Foo is present
+              0.4   // Lower opacity if missing
+          ]
         }
       });
       attachHandlers();
