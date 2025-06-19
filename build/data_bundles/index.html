@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houston Map Visualization - Data Bundles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+        }
+        .file-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .file-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #0066cc;
+        }
+        .file-description {
+            margin: 10px 0;
+        }
+        .file-size {
+            color: #666;
+            font-style: italic;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Houston Map Visualization - Data Bundles</h1>
+    
+    <p>This page provides access to the GeoJSON data files required for the Houston Map Visualization project. 
+       Since these files are too large to be included in the GitHub repository, they are made available here for download.</p>
+    
+    <h2>Available Bundles</h2>
+    
+    <div class="file-item">
+        <div class="file-name">Option 1: Complete Dataset</div>
+        <div class="file-description">
+            Contains all GeoJSON files needed for the project in a single bundle.
+        </div>
+        <div class="file-size">Size: ~191 MB compressed</div>
+        <a href="houston_all_geojson.zip" class="download-btn">Download</a>
+    </div>
+    
+    <div class="file-item">
+        <div class="file-name">Option 2: Large Files Only</div>
+        <div class="file-description">
+            Contains only the largest GeoJSON files:
+            <ul>
+                <li>houston_buildings.geojson (~276 MB uncompressed)</li>
+                <li>Pipelines.geojson (~417 MB uncompressed)</li>
+            </ul>
+        </div>
+        <div class="file-size">Size: ~129 MB compressed</div>
+        <a href="houston_large_files.zip" class="download-btn">Download</a>
+    </div>
+    
+    <div class="file-item">
+        <div class="file-name">Option 3: Medium-sized Files</div>
+        <div class="file-description">
+            Contains medium-sized GeoJSON files including segments, boundaries, and surface water data.
+        </div>
+        <div class="file-size">Size: ~87 MB compressed</div>
+        <a href="houston_medium_files.zip" class="download-btn">Download</a>
+    </div>
+    
+    <div class="file-item">
+        <div class="file-name">Option 4: Small Files</div>
+        <div class="file-description">
+            Contains all smaller GeoJSON files (under 10 MB each), including points of interest, census blocks, 
+            and other smaller datasets.
+        </div>
+        <div class="file-size">Size: ~11 MB compressed</div>
+        <a href="houston_small_files.zip" class="download-btn">Download</a>
+    </div>
+    
+    <h2>Installation Instructions</h2>
+    
+    <p>After downloading, extract the zip file(s) to the <code>remote/public</code> directory of your Houston Map Visualization project.</p>
+    
+    <p>You can also use the provided <code>download_data.sh</code> script in the project which will automatically download 
+       and extract these files for you.</p>
+    
+    <h2>Additional Resources</h2>
+    
+    <p>For more detailed information about these data files, please refer to the 
+       <a href="README.md">README</a> file in this directory.</p>
+</body>
+</html> 

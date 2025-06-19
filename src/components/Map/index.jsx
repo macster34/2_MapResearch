@@ -29,6 +29,8 @@ import { useCensusBlockDemographicLayer } from '../../hooks/useCensusBlockDemogr
 import { useCommunityCentersLayer } from '../../hooks/useCommunityCentersLayer';
 import styled from 'styled-components';
 import { useFloodPlainsLayer } from '../../hooks/useFloodPlainsLayer';
+import { useFloodplainDistanceLinesLayer } from '../../hooks/useFloodplainDistanceLinesLayer';
+import { calcFloodplainDistanceLines } from '../../utils/calcFloodplainDistanceLines';
 
 // Set mapbox access token
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
@@ -88,6 +90,11 @@ const MapComponent = () => {
   const [showCommunityCenters, setShowCommunityCenters] = useState(false);
   const [showFlood100, setShowFlood100] = useState(false);
   const [showFlood500, setShowFlood500] = useState(false);
+  const [showFloodplainDistanceLines, setShowFloodplainDistanceLines] = useState(false);
+  const [communityCentersData, setCommunityCentersData] = useState(null);
+  const [floodplain100Data, setFloodplain100Data] = useState(null);
+  const [selectedCenter, setSelectedCenter] = useState(null);
+  const [isCalculating, setIsCalculating] = useState(false);
 
   // Add these refs for drag functionality
   const isDraggingRef = useRef(false);
@@ -528,8 +535,58 @@ const MapComponent = () => {
   useCensusBlockDemographicLayer(map, showCensusBlockDemographic, handleCensusBlockDemographicClick);
 
   function handleCommunityCenterClick(feature, lngLat) {
-    // Zoom and center the map on the marker
+    // Remove any existing popups
+    const existingPopups = document.getElementsByClassName('mapboxgl-popup');
+    Array.from(existingPopups).forEach(popup => popup.remove());
+
+    console.log('Clicked community center:', feature, 'Floodplain toggle:', showFloodplainDistanceLines, 'Floodplain data:', floodplain100Data);
+
+    setIsCalculating(true);
     map.current.flyTo({ center: lngLat, zoom: 15 });
+    setSelectedCenter(feature); // Track the selected center
+    if (showFloodplainDistanceLines && floodplain100Data && floodplain100Data.features?.length) {
+      // Calculate the distance to the nearest point on the floodplain
+      const singleCenter = {
+        type: 'FeatureCollection',
+        features: [feature]
+      };
+      const linesGeojson = calcFloodplainDistanceLines(singleCenter, floodplain100Data);
+      let distanceMiles = null;
+      let midpoint = null;
+      if (linesGeojson.features.length) {
+        // distance_km is stored in the properties of the line
+        const distanceKm = linesGeojson.features[0].properties?.distance_km;
+        if (typeof distanceKm === 'number') {
+          distanceMiles = (distanceKm * 0.621371).toFixed(2);
+        }
+        // Calculate midpoint between community center and nearest point
+        const coords = linesGeojson.features[0].geometry.coordinates;
+        if (coords && coords.length === 2) {
+          const [start, end] = coords;
+          midpoint = [
+            (start[0] + end[0]) / 2,
+            (start[1] + end[1]) / 2
+          ];
+        }
+      }
+      console.log('Distance line midpoint:', midpoint, 'Distance (miles):', distanceMiles);
+      // Show a popup with the distance in miles at the midpoint
+      if (midpoint) {
+        console.log('Adding midpoint popup at', midpoint, 'with distance', distanceMiles);
+        new mapboxgl.Popup({ closeOnClick: false, offset: 12 })
+          .setLngLat(midpoint)
+          .setHTML(
+            `<div style='min-width:180px'>` +
+            `<h3 style='margin:0 0 4px 0; color:#00BFFF'>Distance to Floodplain</h3>` +
+            `<div><b>Distance:</b> ${distanceMiles !== null ? distanceMiles + ' miles' : 'N/A'}</div>` +
+            `</div>`
+          )
+          .addTo(map.current);
+      } else {
+        console.log('No midpoint calculated, not adding popup.');
+      }
+    }
+    // Always show the default popup at the marker
     const props = feature.properties;
     new mapboxgl.Popup({ closeOnClick: true })
       .setLngLat(lngLat)
@@ -546,6 +603,94 @@ const MapComponent = () => {
   useCommunityCentersLayer(map, showCommunityCenters, handleCommunityCenterClick);
 
   useFloodPlainsLayer(map, showFlood100, showFlood500);
+
+  // Load community centers and floodplain data once
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [ccRes, fpRes] = await Promise.all([
+          fetch('/houston-texas-community-centers.geojson'),
+          fetch('/houston-texas-flood-100-500.geojson')
+        ]);
+        if (!ccRes.ok || !fpRes.ok) {
+          throw new Error('One or both data files not found or not accessible');
+        }
+        const ccData = await ccRes.json();
+        const fpData = await fpRes.json();
+        // Only keep 100-year floodplain polygons
+        const flood100 = {
+          ...fpData,
+          features: fpData.features.filter(f =>
+            ['AE', 'A', 'AO', 'VE'].includes(f.properties.FLD_ZONE)
+          )
+        };
+        setCommunityCentersData(ccData);
+        setFloodplain100Data(flood100);
+        console.log('Floodplain data loaded:', flood100);
+      } catch (e) {
+        console.error('Error loading community centers or floodplain data:', e);
+        setCommunityCentersData(null);
+        setFloodplain100Data(null);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Effect to draw/remove the line for the selected center
+  useEffect(() => {
+    if (!map.current) return;
+    const sourceId = 'floodplain-distance-line';
+    const layerId = 'floodplain-distance-line';
+    if (map.current.getLayer(layerId)) map.current.removeLayer(layerId);
+    if (map.current.getSource(sourceId)) map.current.removeSource(sourceId);
+    if (
+      showFloodplainDistanceLines &&
+      selectedCenter &&
+      communityCentersData &&
+      floodplain100Data &&
+      floodplain100Data.features?.length
+    ) {
+      setIsCalculating(true);
+      setTimeout(() => {
+        const singleCenter = {
+          type: 'FeatureCollection',
+          features: [selectedCenter]
+        };
+        const linesGeojson = calcFloodplainDistanceLines(singleCenter, floodplain100Data);
+        if (linesGeojson.features.length) {
+          map.current.addSource(sourceId, { type: 'geojson', data: linesGeojson });
+          map.current.addLayer({
+            id: layerId,
+            type: 'line',
+            source: sourceId,
+            paint: {
+              'line-color': '#00BFFF',
+              'line-width': 2,
+              'line-dasharray': [2, 2]
+            }
+          });
+        }
+        setIsCalculating(false);
+      }, 10); // Let the spinner render
+    } else {
+      setIsCalculating(false);
+    }
+    return () => {
+      if (map.current.getLayer(layerId)) map.current.removeLayer(layerId);
+      if (map.current.getSource(sourceId)) map.current.removeSource(sourceId);
+    };
+  }, [showFloodplainDistanceLines, selectedCenter, communityCentersData, floodplain100Data, map]);
+
+  useEffect(() => {
+    if (showFloodplainDistanceLines) {
+      setShowCommunityCenters(true);
+      setShowFlood100(true);
+    }
+  }, [showFloodplainDistanceLines]);
+
+  useEffect(() => {
+    console.log('Floodplain Distance Lines toggle changed:', showFloodplainDistanceLines);
+  }, [showFloodplainDistanceLines]);
 
   return (
     <MapContainer>
@@ -599,6 +744,8 @@ const MapComponent = () => {
         setShowFlood100={setShowFlood100}
         showFlood500={showFlood500}
         setShowFlood500={setShowFlood500}
+        showFloodplainDistanceLines={showFloodplainDistanceLines}
+        setShowFloodplainDistanceLines={setShowFloodplainDistanceLines}
         fetchErcotData={() => ercotManagerRef.current?.fetchErcotData()}
         loadHarveyData={loadHarveyData}
       />
@@ -650,6 +797,25 @@ const MapComponent = () => {
         map={map.current}
         initialCollapsed={true}
       />
+
+      {isCalculating && (
+        <div style={{
+          position: 'absolute',
+          top: 80,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 1000,
+          background: 'rgba(0,0,0,0.8)',
+          color: '#fff',
+          padding: '16px 32px',
+          borderRadius: 8,
+          fontSize: 18,
+          fontWeight: 600,
+          boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+        }}>
+          Calculating distance line...
+        </div>
+      )}
     </MapContainer>
   );
 };

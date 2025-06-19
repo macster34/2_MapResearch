@@ -125,7 +125,9 @@ const LayerToggle = ({
   showFlood100,
   setShowFlood100,
   showFlood500,
-  setShowFlood500
+  setShowFlood500,
+  showFloodplainDistanceLines,
+  setShowFloodplainDistanceLines
 }) => {
   console.log('[LayerToggle] Rendered with showMUDLayer:', showMUDLayer);
   const { showZipCodes: showZipCodesLayer, hideZipCodes: hideZipCodesLayer } = useZipCodeLayer(map, showZipCodes);
@@ -373,6 +375,14 @@ const LayerToggle = ({
         style={{ height: '32px', padding: '0 12px', fontSize: '14px', marginBottom: '8px' }}
       >
         Community Centers
+      </ToggleButton>
+
+      <ToggleButton
+        $active={showFloodplainDistanceLines}
+        onClick={() => setShowFloodplainDistanceLines(!showFloodplainDistanceLines)}
+        style={{ height: '32px', padding: '0 12px', fontSize: '14px', marginBottom: '8px', background: showFloodplainDistanceLines ? '#00BFFF' : '#666' }}
+      >
+        Floodplain Distance Lines
       </ToggleButton>
 
       <FloodDropdown>
