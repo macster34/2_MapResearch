@@ -31,37 +31,13 @@ import styled from 'styled-components';
 import { useFloodPlainsLayer } from '../../hooks/useFloodPlainsLayer';
 import { useFloodplainDistanceLinesLayer } from '../../hooks/useFloodplainDistanceLinesLayer';
 import { calcFloodplainDistanceLines } from '../../utils/calcFloodplainDistanceLines';
+import { createCommunityCenterPopup, createFloodplainDistancePopup } from './popupUtils';
+import { formatCensusBlockPopup, formatTop3Ethnicities, formatCensusBlockDemographicPopup } from './popupFormatters';
+import Legend from './Legend';
+import { handleCommunityCenterClick as handleCommunityCenterClickEvent, handleCensusBlockClick as handleCensusBlockClickEvent, handleCensusBlockDemographicClick as handleCensusBlockDemographicClickEvent } from './handlers/mapEventHandlers';
 
 // Set mapbox access token
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
-
-// Add a styled component for the legend
-const LegendContainer = styled.div`
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  background: rgba(0,0,0,0.85);
-  color: #fff;
-  padding: 16px 20px 12px 20px;
-  border-radius: 8px;
-  z-index: 10;
-  min-width: 220px;
-  font-size: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-`;
-const LegendBar = styled.div`
-  height: 18px;
-  width: 320px;
-  background: linear-gradient(to right, rgba(196,30,58,0.1) 0%, rgba(196,30,58,0.55) 50%, rgba(196,30,58,1) 100%);
-  margin: 8px 0 4px 0;
-  border-radius: 4px;
-`;
-const LegendLabels = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  margin-top: 2px;
-`;
 
 const MapComponent = () => {
   const mapContainer = useRef(null);
@@ -477,148 +453,39 @@ const MapComponent = () => {
     setCurrentRotation(newRotation);
   };
 
-  // Popup formatter for census block
-  function formatCensusBlockPopup(props) {
-    return `
-      <strong>Block Group: ${props.GEOID}</strong><br/>
-      Median Income: $${props.Median_HHI || 'N/A'}<br/>
-      Population: ${props.SUM_TotPop || 'N/A'}<br/>
-      County: ${props.COUNTY || 'N/A'}<br/>
-      State: ${props.STATE || 'N/A'}<br/>
-    `;
-  }
-
   // Handler for census block click
-  function handleCensusBlockClick(feature, lngLat) {
-    console.log('Census block clicked', feature, lngLat);
+  useCensusBlocksLayer(map, showCensusBlocks, (feature, lngLat) =>
+    handleCensusBlockClickEvent({
+      map,
+      formatCensusBlockPopup,
+      feature,
+      lngLat
+    })
+  );
 
-    const html = formatCensusBlockPopup(feature.properties);
-    new mapboxgl.Popup()
-      .setLngLat(lngLat)
-      .setHTML(html)
-      .addTo(map.current);
-  }
+  useCensusBlockDemographicLayer(map, showCensusBlockDemographic, (feature, lngLat) =>
+    handleCensusBlockDemographicClickEvent({
+      map,
+      formatCensusBlockDemographicPopup,
+      feature,
+      lngLat
+    })
+  );
 
-  useCensusBlocksLayer(map, showCensusBlocks, handleCensusBlockClick);
-
-  function formatTop3Ethnicities(props) {
-    const total = props.SUM_TotPop || 0;
-    const raceFields = [
-      { key: 'SUM_HispPo', label: 'Hispanic' },
-      { key: 'SUM_NH_Whi', label: 'Non-Hispanic White' },
-      { key: 'SUM_NH_Bla', label: 'Non-Hispanic Black' },
-      { key: 'SUM_NH_Asi', label: 'Non-Hispanic Asian' },
-      { key: 'SUM_NH_AmI', label: 'Non-Hispanic American Indian' },
-      { key: 'SUM_NH_Haw', label: 'Non-Hispanic Hawaiian' },
-      { key: 'SUM_NH_Oth', label: 'Non-Hispanic Other' },
-      { key: 'SUM_NH_2or', label: 'Non-Hispanic 2+ Races' }
-    ];
-    const raceCounts = raceFields.map(f => ({ label: f.label, value: props[f.key] || 0 }));
-    const top3 = raceCounts.sort((a, b) => b.value - a.value).slice(0, 3);
-    return top3.map(r => {
-      const pct = total > 0 ? ((r.value / total) * 100).toFixed(1) : '0.0';
-      return `${r.label}: ${pct}% (${r.value})`;
-    }).join('<br/>');
-  }
-
-  function formatCensusBlockDemographicPopup(props) {
-    return `
-      <strong>Block Group: ${props.GEOID}</strong><br/>
-      <strong>Median Income:</strong> $${props.Median_HHI || 'N/A'}<br/>
-      <strong>Top 3 Race/Ethnicities:</strong><br/>
-      ${formatTop3Ethnicities(props)}
-    `;
-  }
-
-  function handleCensusBlockDemographicClick(feature, lngLat) {
-    const html = formatCensusBlockDemographicPopup(feature.properties);
-    new mapboxgl.Popup()
-      .setLngLat(lngLat)
-      .setHTML(html)
-      .addTo(map.current);
-  }
-
-  useCensusBlockDemographicLayer(map, showCensusBlockDemographic, handleCensusBlockDemographicClick);
-
-  function handleCommunityCenterClick(feature, lngLat) {
-    // Remove any existing popups
-    const existingPopups = document.getElementsByClassName('mapboxgl-popup');
-    Array.from(existingPopups).forEach(popup => popup.remove());
-
-    const currentToggle = floodplainToggleRef.current;
-    const currentFloodplainData = floodplainDataRef.current;
-
-    console.log('Clicked community center:', feature, 'Floodplain toggle:', currentToggle, 'Floodplain data:', currentFloodplainData);
-
-    setIsCalculating(true);
-    map.current.flyTo({ center: lngLat, zoom: 15 });
-    setSelectedCenter(feature); // Track the selected center
-    if (currentToggle && currentFloodplainData && currentFloodplainData.features?.length) {
-      // Calculate the distance to the nearest point on the floodplain
-      const singleCenter = {
-        type: 'FeatureCollection',
-        features: [feature]
-      };
-      const linesGeojson = calcFloodplainDistanceLines(singleCenter, currentFloodplainData);
-      let distanceMiles = null;
-      let midpoint = null;
-      if (linesGeojson.features.length) {
-        // distance_km is stored in the properties of the line
-        const distanceKm = linesGeojson.features[0].properties?.distance_km;
-        if (typeof distanceKm === 'number') {
-          distanceMiles = (distanceKm * 0.621371).toFixed(2);
-        }
-        // Calculate midpoint between community center and nearest point
-        const coords = linesGeojson.features[0].geometry.coordinates;
-        if (coords && coords.length === 2) {
-          const [start, end] = coords;
-          midpoint = [
-            (start[0] + end[0]) / 2,
-            (start[1] + end[1]) / 2
-          ];
-        }
-      }
-      console.log('Distance line midpoint:', midpoint, 'Distance (miles):', distanceMiles);
-      console.log('Midpoint coordinates:', midpoint);
-      if (midpoint) {
-        console.log('Adding midpoint popup at', midpoint, 'with distance', distanceMiles);
-        new mapboxgl.Popup({ closeOnClick: false, offset: 12 })
-          .setLngLat(midpoint)
-          .setHTML(
-            `<div style='min-width:180px'>` +
-            `<h3 style='margin:0 0 4px 0; color:#00BFFF'>Distance to Floodplain</h3>` +
-            `<div><b>Distance:</b> ${distanceMiles !== null ? distanceMiles + ' miles' : 'N/A'}</div>` +
-            `</div>`
-          )
-          .addTo(map.current);
-      } else {
-        console.log('No midpoint calculated, showing distance popup at marker instead.');
-        new mapboxgl.Popup({ closeOnClick: false, offset: 12 })
-          .setLngLat(lngLat)
-          .setHTML(
-            `<div style='min-width:180px'>` +
-            `<h3 style='margin:0 0 4px 0; color:#00BFFF'>Distance to Floodplain</h3>` +
-            `<div><b>Distance:</b> ${distanceMiles !== null ? distanceMiles + ' miles' : 'N/A'}</div>` +
-            `</div>`
-          )
-          .addTo(map.current);
-      }
-    }
-    // Always show the default popup at the marker
-    const props = feature.properties;
-    new mapboxgl.Popup({ closeOnClick: true })
-      .setLngLat(lngLat)
-      .setHTML(`
-        <div style=\"min-width:220px\">
-          <h3 style=\"margin:0 0 4px 0; color:#FF00B7\">${props.Name || ''}</h3>
-          <div><b>Address:</b> ${props.Address || ''}, ${props.Zip_Code || ''}</div>
-          <div><b>Phone:</b> ${props.Phone || ''}</div>
-          <div><b>Supervisor:</b> ${props.SUPERVISOR || ''}</div>
-        </div>
-      `)
-      .addTo(map.current);
-  }
-  useCommunityCentersLayer(map, showCommunityCenters, handleCommunityCenterClick);
+  useCommunityCentersLayer(map, showCommunityCenters, (feature, lngLat) =>
+    handleCommunityCenterClickEvent({
+      map,
+      floodplainToggleRef,
+      floodplainDataRef,
+      setIsCalculating,
+      setSelectedCenter,
+      calcFloodplainDistanceLines,
+      createFloodplainDistancePopup,
+      createCommunityCenterPopup,
+      feature,
+      lngLat
+    })
+  );
 
   useFloodPlainsLayer(map, showFlood100, showFlood500);
 
@@ -715,20 +582,7 @@ const MapComponent = () => {
       <div ref={mapContainer} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
       <PopupManager map={map} />
       <ErcotManager ref={ercotManagerRef} map={map} isErcotMode={isErcotMode} setIsErcotMode={setIsErcotMode} />
-      {/* Median Income Legend: only show when 2010 Census Block Demographics is toggled on */}
-      {showCensusBlockDemographic && (
-        <LegendContainer>
-          <div style={{ fontWeight: 600, marginBottom: 2 }}>2010 Median Income</div>
-          <LegendBar />
-          <LegendLabels>
-            <span>$0</span>
-            <span>$30,000</span>
-            <span>$60,000</span>
-            <span>$90,000</span>
-            <span>$120,000+</span>
-          </LegendLabels>
-        </LegendContainer>
-      )}
+      <Legend visible={showCensusBlockDemographic} />
       
       <LayerToggle
         map={map}
