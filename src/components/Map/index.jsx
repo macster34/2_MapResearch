@@ -111,6 +111,12 @@ const MapComponent = () => {
 
   const ercotManagerRef = useRef(null);
 
+  const floodplainToggleRef = useRef(showFloodplainDistanceLines);
+  const floodplainDataRef = useRef(floodplain100Data);
+
+  useEffect(() => { floodplainToggleRef.current = showFloodplainDistanceLines; }, [showFloodplainDistanceLines]);
+  useEffect(() => { floodplainDataRef.current = floodplain100Data; }, [floodplain100Data]);
+
   useEffect(() => {
     if (map.current) {
       if (showRoadGrid) {
@@ -539,18 +545,21 @@ const MapComponent = () => {
     const existingPopups = document.getElementsByClassName('mapboxgl-popup');
     Array.from(existingPopups).forEach(popup => popup.remove());
 
-    console.log('Clicked community center:', feature, 'Floodplain toggle:', showFloodplainDistanceLines, 'Floodplain data:', floodplain100Data);
+    const currentToggle = floodplainToggleRef.current;
+    const currentFloodplainData = floodplainDataRef.current;
+
+    console.log('Clicked community center:', feature, 'Floodplain toggle:', currentToggle, 'Floodplain data:', currentFloodplainData);
 
     setIsCalculating(true);
     map.current.flyTo({ center: lngLat, zoom: 15 });
     setSelectedCenter(feature); // Track the selected center
-    if (showFloodplainDistanceLines && floodplain100Data && floodplain100Data.features?.length) {
+    if (currentToggle && currentFloodplainData && currentFloodplainData.features?.length) {
       // Calculate the distance to the nearest point on the floodplain
       const singleCenter = {
         type: 'FeatureCollection',
         features: [feature]
       };
-      const linesGeojson = calcFloodplainDistanceLines(singleCenter, floodplain100Data);
+      const linesGeojson = calcFloodplainDistanceLines(singleCenter, currentFloodplainData);
       let distanceMiles = null;
       let midpoint = null;
       if (linesGeojson.features.length) {
@@ -570,7 +579,7 @@ const MapComponent = () => {
         }
       }
       console.log('Distance line midpoint:', midpoint, 'Distance (miles):', distanceMiles);
-      // Show a popup with the distance in miles at the midpoint
+      console.log('Midpoint coordinates:', midpoint);
       if (midpoint) {
         console.log('Adding midpoint popup at', midpoint, 'with distance', distanceMiles);
         new mapboxgl.Popup({ closeOnClick: false, offset: 12 })
@@ -583,7 +592,16 @@ const MapComponent = () => {
           )
           .addTo(map.current);
       } else {
-        console.log('No midpoint calculated, not adding popup.');
+        console.log('No midpoint calculated, showing distance popup at marker instead.');
+        new mapboxgl.Popup({ closeOnClick: false, offset: 12 })
+          .setLngLat(lngLat)
+          .setHTML(
+            `<div style='min-width:180px'>` +
+            `<h3 style='margin:0 0 4px 0; color:#00BFFF'>Distance to Floodplain</h3>` +
+            `<div><b>Distance:</b> ${distanceMiles !== null ? distanceMiles + ' miles' : 'N/A'}</div>` +
+            `</div>`
+          )
+          .addTo(map.current);
       }
     }
     // Always show the default popup at the marker
