@@ -3,55 +3,92 @@ import mapboxgl from 'mapbox-gl';
 // Event handler for community center clicks
 export function handleCommunityCenterClick({
   map,
-  floodplainToggleRef,
-  floodplainDataRef,
-  setIsCalculating,
+  showFloodplainDistanceLines,
   setSelectedCenter,
-  calcFloodplainDistanceLines,
   createFloodplainDistancePopup,
   createCommunityCenterPopup,
   feature,
-  lngLat
+  lngLat,
+  distanceLinesData
 }) {
+  console.log('[DEBUG] Community center click handler called', {
+    showFloodplainDistanceLines,
+    feature,
+    lngLat,
+    distanceLinesDataLoaded: !!distanceLinesData
+  });
   // Remove any existing popups
   const existingPopups = document.getElementsByClassName('mapboxgl-popup');
   Array.from(existingPopups).forEach(popup => popup.remove());
 
-  const currentToggle = floodplainToggleRef.current;
-  const currentFloodplainData = floodplainDataRef.current;
-
-  setIsCalculating(true);
-  map.current.flyTo({ center: lngLat, zoom: 15 });
   setSelectedCenter(feature); // Track the selected center
-  if (currentToggle && currentFloodplainData && currentFloodplainData.features?.length) {
-    // Calculate the distance to the nearest point on the floodplain
-    const singleCenter = {
-      type: 'FeatureCollection',
-      features: [feature]
-    };
-    const linesGeojson = calcFloodplainDistanceLines(singleCenter, currentFloodplainData);
-    let distanceMiles = null;
-    let midpoint = null;
-    if (linesGeojson.features.length) {
-      // distance_km is stored in the properties of the line
-      const distanceKm = linesGeojson.features[0].properties?.distance_km;
-      if (typeof distanceKm === 'number') {
-        distanceMiles = (distanceKm * 0.621371).toFixed(2);
-      }
-      // Calculate midpoint between community center and nearest point
-      const coords = linesGeojson.features[0].geometry.coordinates;
-      if (coords && coords.length === 2) {
-        const [start, end] = coords;
-        midpoint = [
-          (start[0] + end[0]) / 2,
-          (start[1] + end[1]) / 2
-        ];
+
+  // Store the feature and lngLat in closure
+  const runPopupLogic = () => {
+    console.log('[DEBUG] runPopupLogic called', { showFloodplainDistanceLines });
+    // Always show the community center info popup at the marker
+    createCommunityCenterPopup(map.current, lngLat, feature.properties);
+    console.log('[DEBUG] Created community center popup');
+
+    // If toggle is on, also show the line and distance popup
+    if (showFloodplainDistanceLines && distanceLinesData?.features.length) {
+      const centerCoords = feature.geometry.coordinates;
+      const centerProps = feature.properties;
+      console.log('[DEBUG] Clicked feature properties:', centerProps);
+      console.log('[DEBUG] All line features properties:', distanceLinesData.features.map(f => f.properties));
+      const lineFeature = distanceLinesData.features.find(f => {
+        // Try to match by unique property first (e.g., ORIG_FID or Name/centerName)
+        if (f.properties.ORIG_FID && centerProps.ORIG_FID && f.properties.ORIG_FID === centerProps.ORIG_FID) {
+          return true;
+        }
+        if (
+          (f.properties.Name && centerProps.Name && f.properties.Name === centerProps.Name) ||
+          (f.properties.centerName && centerProps.Name && f.properties.centerName === centerProps.Name)
+        ) {
+          return true;
+        }
+        // Fallback: match by coordinates (as before)
+        const c0 = f.properties.center_coords;
+        return (
+          c0 &&
+          Math.abs(c0[0] - centerCoords[0]) < 1e-6 &&
+          Math.abs(c0[1] - centerCoords[1]) < 1e-6
+        );
+      });
+      
+      if (lineFeature) {
+        const distanceKm = lineFeature.properties.distance_km;
+        const distanceMiles = typeof distanceKm === 'number' ? (distanceKm * 0.621371).toFixed(2) : null;
+        
+        const coords = lineFeature.geometry.coordinates;
+        const midpoint = coords?.length === 2 ? [(coords[0][0] + coords[1][0]) / 2, (coords[0][1] + coords[1][1]) / 2] : null;
+        
+        // Draw the line on the map
+        const sourceId = 'floodplain-distance-line';
+        const layerId = 'floodplain-distance-line';
+        if (map.current.getLayer(layerId)) map.current.removeLayer(layerId);
+        if (map.current.getSource(sourceId)) map.current.removeSource(sourceId);
+        map.current.addSource(sourceId, { type: 'geojson', data: lineFeature });
+        map.current.addLayer({
+          id: layerId,
+          type: 'line',
+          source: sourceId,
+          paint: { 'line-color': '#00BFFF', 'line-width': 2, 'line-dasharray': [2, 2] }
+        });
+        
+        // Show the distance popup at the midpoint
+        createFloodplainDistancePopup(map.current, midpoint || lngLat, distanceMiles);
+        console.log('[DEBUG] Created distance line and popup', { midpoint, distanceMiles });
+      } else {
+        console.log('[DEBUG] No lineFeature found for this center');
       }
     }
-    createFloodplainDistancePopup(map.current, midpoint || lngLat, distanceMiles);
-  }
-  // Always show the default popup at the marker
-  createCommunityCenterPopup(map.current, lngLat, feature.properties);
+    map.current.off('moveend', runPopupLogic); // Clean up the event listener
+  };
+
+  // Always fly to the marker, even if already centered
+  map.current.flyTo({ center: lngLat, zoom: 15 });
+  map.current.once('moveend', runPopupLogic);
 }
 
 // Event handler for census block click

@@ -67,6 +67,10 @@ export function useCensusBlockDemographicLayer(map, showDemographicLayer, onBloc
       map.current.setLayoutProperty(layerId, 'visibility', 'visible');
       attachHandlers();
     }
+    // Always move community center markers to the top
+    if (map.current.getLayer('community-centers')) {
+      map.current.moveLayer('community-centers');
+    }
     loaded.current = true;
   }, [map]);
 
@@ -77,6 +81,10 @@ export function useCensusBlockDemographicLayer(map, showDemographicLayer, onBloc
       map.current.setLayoutProperty(layerId, 'visibility', 'none');
     }
     detachHandlers();
+    // Always move community center markers to the top
+    if (map.current.getLayer('community-centers')) {
+      map.current.moveLayer('community-centers');
+    }
   }, [map]);
 
   useEffect(() => {

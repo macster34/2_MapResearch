@@ -52,6 +52,10 @@ export function useFloodPlainsLayer(map, show100, show500) {
     } else {
       map.current.setLayoutProperty(layer500Id, 'visibility', show500 ? 'visible' : 'none');
     }
+    // Always move community center markers to the top
+    if (map.current.getLayer('community-centers')) {
+      map.current.moveLayer('community-centers');
+    }
     loaded.current = true;
   }, [map, show100, show500]);
 
@@ -62,6 +66,10 @@ export function useFloodPlainsLayer(map, show100, show500) {
     }
     if (map.current.getLayer(layer500Id)) {
       map.current.setLayoutProperty(layer500Id, 'visibility', 'none');
+    }
+    // Always move community center markers to the top
+    if (map.current.getLayer('community-centers')) {
+      map.current.moveLayer('community-centers');
     }
   }, [map]);
 

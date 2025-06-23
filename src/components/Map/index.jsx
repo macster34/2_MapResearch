@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { MAP_CONFIG } from './constants';
@@ -34,7 +34,7 @@ import { calcFloodplainDistanceLines } from '../../utils/calcFloodplainDistanceL
 import { createCommunityCenterPopup, createFloodplainDistancePopup } from './popupUtils';
 import { formatCensusBlockPopup, formatTop3Ethnicities, formatCensusBlockDemographicPopup } from './popupFormatters';
 import Legend from './Legend';
-import { handleCommunityCenterClick as handleCommunityCenterClickEvent, handleCensusBlockClick as handleCensusBlockClickEvent, handleCensusBlockDemographicClick as handleCensusBlockDemographicClickEvent } from './handlers/mapEventHandlers';
+import { handleCommunityCenterClick as handleCommunityCenterClickEvent, handleCensusBlockClick as handleCensusBlockClickEvent, handleCensusBlockDemographicClick as handleCensusBlockDemographicClickEvent } from './handlers/popupHandlers';
 
 // Set mapbox access token
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
@@ -71,6 +71,7 @@ const MapComponent = () => {
   const [floodplain100Data, setFloodplain100Data] = useState(null);
   const [selectedCenter, setSelectedCenter] = useState(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  const [distanceLinesData, setDistanceLinesData] = useState(null);
 
   // Add these refs for drag functionality
   const isDraggingRef = useRef(false);
@@ -82,31 +83,97 @@ const MapComponent = () => {
   const yOffsetRef = useRef(0);
   const popupRef = useRef(null);
 
+  // --- DERIVED STATE: Determine visibility based on toggles ---
+  const isCommunityCentersVisible = showCommunityCenters || showFloodplainDistanceLines;
+  const isFlood100Visible = showFlood100 || showFloodplainDistanceLines;
+
   const { initializeParticleLayer, generateParticles } = useAIConsensusAnimation(map, showAIConsensus, mockDisagreementData);
   useMapInitialization(map, mapContainer);
 
   const ercotManagerRef = useRef(null);
 
-  const floodplainToggleRef = useRef(showFloodplainDistanceLines);
-  const floodplainDataRef = useRef(floodplain100Data);
+  const handleCommunityCenterClick = useCallback((feature, lngLat, showFloodplainDistanceLinesArg) => {
+    handleCommunityCenterClickEvent({
+      map,
+      showFloodplainDistanceLines: showFloodplainDistanceLinesArg,
+      setIsCalculating,
+      setSelectedCenter,
+      createFloodplainDistancePopup,
+      createCommunityCenterPopup,
+      feature,
+      lngLat,
+      distanceLinesData
+    });
+  }, [map, distanceLinesData, setSelectedCenter, setIsCalculating]);
 
-  useEffect(() => { floodplainToggleRef.current = showFloodplainDistanceLines; }, [showFloodplainDistanceLines]);
-  useEffect(() => { floodplainDataRef.current = floodplain100Data; }, [floodplain100Data]);
+  // Handler for census block click
+  useCensusBlocksLayer(map, showCensusBlocks, (feature, lngLat) =>
+    handleCensusBlockClickEvent({
+      map,
+      formatCensusBlockPopup,
+      feature,
+      lngLat
+    })
+  );
+
+  useCensusBlockDemographicLayer(map, showCensusBlockDemographic, (feature, lngLat) =>
+    handleCensusBlockDemographicClickEvent({
+      map,
+      formatCensusBlockDemographicPopup,
+      feature,
+      lngLat
+    })
+  );
+
+  useCommunityCentersLayer(
+    map,
+    isCommunityCentersVisible,
+    communityCentersData,
+    handleCommunityCenterClick,
+    showFloodplainDistanceLines
+  );
+
+  useFloodPlainsLayer(map, isFlood100Visible, showFlood500);
+
+  // Load community centers, floodplain data, and precomputed lines once
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [ccRes, fpRes, linesRes] = await Promise.all([
+          fetch('/houston-community-centers-vulnerability-4326.geojson'),
+          fetch('/houston-texas-flood-100-500.geojson'),
+          fetch('/houston-texas-community-centers-distance-lines.geojson')
+        ]);
+        if (!ccRes.ok || !fpRes.ok || !linesRes.ok) {
+          throw new Error('One or more data files not found or not accessible');
+        }
+        const ccData = await ccRes.json();
+        const fpData = await fpRes.json();
+        const linesData = await linesRes.json();
+        // Only keep 100-year floodplain polygons
+        const flood100 = {
+          ...fpData,
+          features: fpData.features.filter(f =>
+            ['AE', 'A', 'AO', 'VE'].includes(f.properties.FLD_ZONE)
+          )
+        };
+        setCommunityCentersData(ccData);
+        setFloodplain100Data(flood100);
+        setDistanceLinesData(linesData);
+        console.log('Floodplain data loaded:', flood100);
+      } catch (e) {
+        console.error('Error loading community centers, floodplain, or lines data:', e);
+        setCommunityCentersData(null);
+        setFloodplain100Data(null);
+        setDistanceLinesData(null);
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
-    if (map.current) {
-      if (showRoadGrid) {
-        initializeRoadGrid(map.current, {
-          minzoom: 5,
-          maxzoom: 22
-        });
-      } else {
-        if (map.current.getLayer('road-grid')) {
-          map.current.removeLayer('road-grid');
-        }
-      }
-    }
-  }, [showRoadGrid]);
+    console.log('Floodplain Distance Lines toggle changed:', showFloodplainDistanceLines);
+  }, [showFloodplainDistanceLines]);
 
   // Add this effect for road particles
   useEffect(() => {
@@ -453,136 +520,18 @@ const MapComponent = () => {
     setCurrentRotation(newRotation);
   };
 
-  // Handler for census block click
-  useCensusBlocksLayer(map, showCensusBlocks, (feature, lngLat) =>
-    handleCensusBlockClickEvent({
-      map,
-      formatCensusBlockPopup,
-      feature,
-      lngLat
-    })
-  );
-
-  useCensusBlockDemographicLayer(map, showCensusBlockDemographic, (feature, lngLat) =>
-    handleCensusBlockDemographicClickEvent({
-      map,
-      formatCensusBlockDemographicPopup,
-      feature,
-      lngLat
-    })
-  );
-
-  useCommunityCentersLayer(map, showCommunityCenters, (feature, lngLat) =>
-    handleCommunityCenterClickEvent({
-      map,
-      floodplainToggleRef,
-      floodplainDataRef,
-      setIsCalculating,
-      setSelectedCenter,
-      calcFloodplainDistanceLines,
-      createFloodplainDistancePopup,
-      createCommunityCenterPopup,
-      feature,
-      lngLat
-    })
-  );
-
-  useFloodPlainsLayer(map, showFlood100, showFlood500);
-
-  // Load community centers and floodplain data once
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [ccRes, fpRes] = await Promise.all([
-          fetch('/houston-texas-community-centers.geojson'),
-          fetch('/houston-texas-flood-100-500.geojson')
-        ]);
-        if (!ccRes.ok || !fpRes.ok) {
-          throw new Error('One or both data files not found or not accessible');
-        }
-        const ccData = await ccRes.json();
-        const fpData = await fpRes.json();
-        // Only keep 100-year floodplain polygons
-        const flood100 = {
-          ...fpData,
-          features: fpData.features.filter(f =>
-            ['AE', 'A', 'AO', 'VE'].includes(f.properties.FLD_ZONE)
-          )
-        };
-        setCommunityCentersData(ccData);
-        setFloodplain100Data(flood100);
-        console.log('Floodplain data loaded:', flood100);
-      } catch (e) {
-        console.error('Error loading community centers or floodplain data:', e);
-        setCommunityCentersData(null);
-        setFloodplain100Data(null);
-      }
-    };
-    fetchData();
-  }, []);
-
-  // Effect to draw/remove the line for the selected center
-  useEffect(() => {
-    if (!map.current) return;
-    const sourceId = 'floodplain-distance-line';
-    const layerId = 'floodplain-distance-line';
-    if (map.current.getLayer(layerId)) map.current.removeLayer(layerId);
-    if (map.current.getSource(sourceId)) map.current.removeSource(sourceId);
-    if (
-      showFloodplainDistanceLines &&
-      selectedCenter &&
-      communityCentersData &&
-      floodplain100Data &&
-      floodplain100Data.features?.length
-    ) {
-      setIsCalculating(true);
-      setTimeout(() => {
-        const singleCenter = {
-          type: 'FeatureCollection',
-          features: [selectedCenter]
-        };
-        const linesGeojson = calcFloodplainDistanceLines(singleCenter, floodplain100Data);
-        if (linesGeojson.features.length) {
-          map.current.addSource(sourceId, { type: 'geojson', data: linesGeojson });
-          map.current.addLayer({
-            id: layerId,
-            type: 'line',
-            source: sourceId,
-            paint: {
-              'line-color': '#00BFFF',
-              'line-width': 2,
-              'line-dasharray': [2, 2]
-            }
-          });
-        }
-        setIsCalculating(false);
-      }, 10); // Let the spinner render
-    } else {
-      setIsCalculating(false);
-    }
-    return () => {
-      if (map.current.getLayer(layerId)) map.current.removeLayer(layerId);
-      if (map.current.getSource(sourceId)) map.current.removeSource(sourceId);
-    };
-  }, [showFloodplainDistanceLines, selectedCenter, communityCentersData, floodplain100Data, map]);
-
-  useEffect(() => {
-    if (showFloodplainDistanceLines) {
-      setShowCommunityCenters(true);
-      setShowFlood100(true);
-    }
-  }, [showFloodplainDistanceLines]);
-
-  useEffect(() => {
-    console.log('Floodplain Distance Lines toggle changed:', showFloodplainDistanceLines);
-  }, [showFloodplainDistanceLines]);
-
   return (
     <MapContainer>
       <div ref={mapContainer} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
       <PopupManager map={map} />
       <ErcotManager ref={ercotManagerRef} map={map} isErcotMode={isErcotMode} setIsErcotMode={setIsErcotMode} />
-      <Legend visible={showCensusBlockDemographic} />
+      {/* Render both legends if both are visible */}
+      {(isCommunityCentersVisible || showCensusBlockDemographic) && (
+        <div style={{ position: 'absolute', bottom: 24, left: 24, zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          {isCommunityCentersVisible && <Legend visible={false} showVulnerability={true} slideUp={showCensusBlockDemographic} position="left" />}
+          {showCensusBlockDemographic && <Legend visible={true} showVulnerability={false} position="left" />}
+        </div>
+      )}
       
       <LayerToggle
         map={map}
