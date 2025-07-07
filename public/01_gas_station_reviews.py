@@ -3,8 +3,17 @@ import requests
 import time
 from datetime import datetime
 import csv
+import os
 
-API_KEY = 'AIzaSyCMQm-l7OjgBf8N3N2BPbJlBPryvbQvT5Q'  # Hardcoded API key
+# Try to import from config file first, then fall back to environment variable
+try:
+    from config import GOOGLE_API_KEY
+except ImportError:
+    GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+
+if not GOOGLE_API_KEY:
+    raise Exception('GOOGLE_API_KEY not found in config.py or environment variable')
+
 NEARBY_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
 DETAILS_URL = 'https://maps.googleapis.com/maps/api/place/details/json'
 RADIUS_METERS = 1609  # 1 mile
@@ -30,7 +39,7 @@ def get_gas_stations(lat, lon):
         'location': f'{lat},{lon}',
         'radius': RADIUS_METERS,
         'type': 'gas_station',
-        'key': API_KEY
+        'key': GOOGLE_API_KEY
     }
     results = []
     next_page_token = None
@@ -52,7 +61,7 @@ def get_reviews(place_id):
     params = {
         'place_id': place_id,
         'fields': 'name,reviews,formatted_address,geometry',
-        'key': API_KEY
+        'key': GOOGLE_API_KEY
     }
     resp = requests.get(DETAILS_URL, params=params)
     data = resp.json()
