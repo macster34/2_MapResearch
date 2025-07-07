@@ -178,5 +178,15 @@ def main():
     else:
         print("\nNo data points found in the response")
 
+    if ercot.id_token:
+        # Print a ready-to-use curl command
+        print("\nReady-to-use curl command:")
+        print(f"curl -H 'Authorization: Bearer {ercot.id_token}' \\")
+        print(f"     -H 'Ocp-Apim-Subscription-Key: {ercot.primary_key}' \\")
+        print("     -H 'Accept: application/json' \\")
+        print("     'https://api.ercot.com/api/public-reports/np3-911-er/2d_agg_as_offers_ecrsm?deliveryDateFrom=2025-02-08&deliveryDateTo=2025-02-22&size=10'")
+    else:
+        print("Failed to obtain access token. Cannot generate curl command.")
+
 if __name__ == "__main__":
     main()

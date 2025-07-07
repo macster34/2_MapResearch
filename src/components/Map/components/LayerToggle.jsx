@@ -127,7 +127,11 @@ const LayerToggle = ({
   showFlood500,
   setShowFlood500,
   showFloodplainDistanceLines,
-  setShowFloodplainDistanceLines
+  setShowFloodplainDistanceLines,
+  showGasStations,
+  setShowGasStations,
+  showGasStations1Mile,
+  setShowGasStations1Mile
 }) => {
   console.log('[LayerToggle] Rendered with showMUDLayer:', showMUDLayer);
   const { showZipCodes: showZipCodesLayer, hideZipCodes: hideZipCodesLayer } = useZipCodeLayer(map, showZipCodes);
@@ -383,6 +387,22 @@ const LayerToggle = ({
         style={{ height: '32px', padding: '0 12px', fontSize: '14px', marginBottom: '8px', background: showFloodplainDistanceLines ? '#00BFFF' : '#666' }}
       >
         Floodplain Distance Lines
+      </ToggleButton>
+
+      <ToggleButton 
+        $active={showGasStations}
+        onClick={() => setShowGasStations(!showGasStations)}
+        style={{ height: '32px', padding: '0 12px', fontSize: '14px', marginBottom: '8px', background: showGasStations ? '#00BFFF' : '#666' }}
+      >
+        Gas Stations
+      </ToggleButton>
+
+      <ToggleButton 
+        $active={showGasStations1Mile}
+        onClick={() => setShowGasStations1Mile(!showGasStations1Mile)}
+        style={{ height: '32px', padding: '0 12px', fontSize: '14px', marginBottom: '8px', background: showGasStations1Mile ? '#00BFFF' : '#666' }}
+      >
+        Gas Stations (1 Mile)
       </ToggleButton>
 
       <FloodDropdown>

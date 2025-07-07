@@ -72,6 +72,9 @@ const MapComponent = () => {
   const [selectedCenter, setSelectedCenter] = useState(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [distanceLinesData, setDistanceLinesData] = useState(null);
+  const [showGasStations, setShowGasStations] = useState(false);
+  const [showGasStations1Mile, setShowGasStations1Mile] = useState(false);
+  const [showGasStations2Mile, setShowGasStations2Mile] = useState(false);
 
   // Add these refs for drag functionality
   const isDraggingRef = useRef(false);
@@ -520,6 +523,498 @@ const MapComponent = () => {
     setCurrentRotation(newRotation);
   };
 
+  // Add 2-mile radius circles for community centers
+  useEffect(() => {
+    if (!map.current) return;
+    const sourceId = 'community-center-2mile-circles';
+    const layerId = 'community-center-2mile-circles';
+
+    if (showGasStations) {
+      // Add source/layer if not exists
+      if (!map.current.getSource(sourceId)) {
+        fetch('/community_center_2mile_circles.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(sourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: layerId,
+              type: 'line',
+              source: sourceId,
+              paint: {
+                'line-color': '#fff',
+                'line-width': 2,
+                'line-dasharray': [2, 4],
+                'line-opacity': 1
+              },
+              layout: { visibility: 'visible' }
+            });
+          });
+      } else {
+        map.current.setLayoutProperty(layerId, 'visibility', 'visible');
+      }
+    } else {
+      // Hide or remove the layer/source
+      if (map.current.getLayer(layerId)) {
+        map.current.removeLayer(layerId);
+      }
+      if (map.current.getSource(sourceId)) {
+        map.current.removeSource(sourceId);
+      }
+    }
+  }, [showGasStations, map]);
+
+  // Gas Stations (1 Mile) markers and circles
+  useEffect(() => {
+    console.log('1-mile gas station useEffect running, showGasStations1Mile:', showGasStations1Mile);
+    if (!map.current) return;
+    const sourceId = 'gas-stations-1mile';
+    const layerId = 'gas-stations-1mile';
+    const circleSourceId = 'community-center-1mile-circles';
+    const circleLayerId = 'community-center-1mile-circles';
+    const reviewedSourceId = 'gas-stations-1mile-reviewed';
+    const reviewedLayerId = 'gas-stations-1mile-reviewed';
+
+    if (showGasStations1Mile) {
+      // Add gas stations source/layer if not exists (semi-transparent blue markers - no July reviews)
+      if (!map.current.getSource(sourceId)) {
+        fetch('/gas_stations_1mile_no_july_reviews.geojson')
+          .then(res => {
+            console.log('Fetched no_july_reviews.geojson:', res);
+            return res.json();
+          })
+          .then(data => {
+            console.log('Loaded no_july_reviews.geojson data:', data);
+            map.current.addSource(sourceId, {
+              type: 'geojson',
+              data
+            });
+            console.log('Added source:', sourceId);
+            map.current.addLayer({
+              id: layerId,
+              type: 'circle',
+              source: sourceId,
+              paint: {
+                'circle-radius': 7,
+                'circle-color': '#005577',
+                'circle-blur': 0.2,
+                'circle-opacity': 0.6, // Semi-transparent
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#fff',
+                'circle-stroke-opacity': 0.4
+              },
+              layout: { visibility: 'visible' }
+            });
+            console.log('Added layer:', layerId);
+          });
+      } else {
+        map.current.setLayoutProperty(layerId, 'visibility', 'visible');
+      }
+      // Add 1-mile circles source/layer if not exists
+      if (!map.current.getSource(circleSourceId)) {
+        fetch('/community_center_1mile_circles.geojson')
+          .then(res => {
+            console.log('Fetched 1mile_circles.geojson:', res);
+            return res.json();
+          })
+          .then(data => {
+            console.log('Loaded 1mile_circles.geojson data:', data);
+            map.current.addSource(circleSourceId, {
+              type: 'geojson',
+              data
+            });
+            console.log('Added source:', circleSourceId);
+            map.current.addLayer({
+              id: circleLayerId,
+              type: 'line',
+              source: circleSourceId,
+              paint: {
+                'line-color': '#fff',
+                'line-width': 2,
+                'line-dasharray': [2, 4],
+                'line-opacity': 1
+              },
+              layout: { visibility: 'visible' }
+            });
+            console.log('Added layer:', circleLayerId);
+          });
+      } else {
+        map.current.setLayoutProperty(circleLayerId, 'visibility', 'visible');
+      }
+      // Add reviewed gas stations source/layer if not exists (glowing blue markers - with July reviews)
+      if (!map.current.getSource(reviewedSourceId)) {
+        fetch('/gas_stations_1mile_july_reviews.geojson')
+          .then(res => {
+            console.log('Fetched july_reviews.geojson:', res);
+            return res.json();
+          })
+          .then(data => {
+            console.log('Loaded july_reviews.geojson data:', data);
+            map.current.addSource(reviewedSourceId, {
+              type: 'geojson',
+              data
+            });
+            console.log('Added source:', reviewedSourceId);
+            map.current.addLayer({
+              id: reviewedLayerId,
+              type: 'circle',
+              source: reviewedSourceId,
+              paint: {
+                'circle-radius': 8,
+                'circle-color': '#00eaff', // Glowing blue
+                'circle-blur': 0.8, // More blur for glow effect
+                'circle-opacity': 0.95,
+                'circle-stroke-width': 3,
+                'circle-stroke-color': '#fff',
+                'circle-stroke-opacity': 0.9
+              },
+              layout: { visibility: 'visible' }
+            });
+            console.log('Added layer:', reviewedLayerId);
+            // Move reviewed layer above blue markers
+            map.current.moveLayer(reviewedLayerId);
+          });
+      } else {
+        map.current.setLayoutProperty(reviewedLayerId, 'visibility', 'visible');
+        map.current.moveLayer(reviewedLayerId);
+      }
+    } else {
+      // Remove/hide gas stations layer/source
+      if (map.current.getLayer(layerId)) {
+        map.current.removeLayer(layerId);
+      }
+      if (map.current.getSource(sourceId)) {
+        map.current.removeSource(sourceId);
+      }
+      // Remove/hide 1-mile circles layer/source
+      if (map.current.getLayer(circleLayerId)) {
+        map.current.removeLayer(circleLayerId);
+      }
+      if (map.current.getSource(circleSourceId)) {
+        map.current.removeSource(circleSourceId);
+      }
+      // Remove/hide reviewed gas stations layer/source
+      if (map.current.getLayer(reviewedLayerId)) {
+        map.current.removeLayer(reviewedLayerId);
+      }
+      if (map.current.getSource(reviewedSourceId)) {
+        map.current.removeSource(reviewedSourceId);
+      }
+    }
+  }, [showGasStations1Mile, map]);
+
+  // Add click handler for reviewed gas stations
+  useEffect(() => {
+    if (!map.current || !showGasStations1Mile) return;
+
+    const handleReviewedGasStationClick = (e) => {
+      console.log('--- Popup Click Handler Triggered ---');
+      const feature = e.features && e.features[0];
+      if (!feature) {
+        console.log('No feature found in click event:', e);
+        return;
+      }
+      console.log('Clicked feature:', feature);
+      // Log the layer id and properties for debugging
+      console.log('DEBUG: feature.layer.id:', feature.layer.id);
+      console.log('DEBUG: feature.properties:', feature.properties);
+      if (feature.layer.id === 'gas-stations-1mile-reviewed') {
+        const properties = feature.properties;
+        let reviews = [];
+        console.log('Before parsing, properties.july_reviews:', properties.july_reviews, 'type:', typeof properties.july_reviews);
+        if (properties.july_reviews) {
+          if (typeof properties.july_reviews === 'string') {
+            try {
+              reviews = JSON.parse(properties.july_reviews);
+              console.log('Parsed reviews from string:', reviews);
+            } catch (err) {
+              console.log('Error parsing july_reviews:', err);
+              reviews = [];
+            }
+          } else if (Array.isArray(properties.july_reviews)) {
+            reviews = properties.july_reviews;
+            console.log('july_reviews is already an array:', reviews);
+          }
+        }
+        if (!Array.isArray(reviews)) {
+          console.log('reviews is not an array after parsing, setting to []');
+          reviews = [];
+        }
+        console.log('Final reviews array:', reviews);
+        
+        if (reviews.length > 0) {
+          // Create popup content
+          let popupContent = `
+            <div style=\"max-width: 300px; font-family: Arial, sans-serif;\">
+              <h3 style=\"margin: 0 0 10px 0; color: #333; font-size: 16px;\">${properties.name}</h3>
+              <p style=\"margin: 0 0 8px 0; color: #666; font-size: 12px;\">${properties.address}</p>
+              <p style=\"margin: 0 0 12px 0; color: #00eaff; font-weight: bold; font-size: 14px;\">
+                ${reviews.length} July 2024 Review${reviews.length > 1 ? 's' : ''}
+              </p>
+          `;
+          
+          reviews.forEach((review, index) => {
+            popupContent += `
+              <div style=\"border-left: 3px solid #00eaff; padding-left: 10px; margin-bottom: 10px;\">
+                <p style=\"margin: 0 0 5px 0; font-size: 12px; color: #888;\">
+                  <strong>${review.author_name}</strong> • ${review.date} • ⭐ ${review.rating}/5
+                </p>
+                <p style=\"margin: 0; font-size: 13px; line-height: 1.4; color: #333;\">
+                  \"${review.text}\"
+                </p>
+              </div>
+            `;
+          });
+          
+          popupContent += '</div>';
+          
+          // Create and show popup
+          console.log('Showing popup with reviews');
+          new mapboxgl.Popup({
+            closeButton: true,
+            closeOnClick: false,
+            maxWidth: '350px'
+          })
+          .setLngLat(e.lngLat)
+          .setHTML(popupContent)
+          .addTo(map.current);
+        } else {
+          // Fallback popup if no reviews
+          console.log('No reviews found, showing fallback popup');
+          new mapboxgl.Popup({
+            closeButton: true,
+            closeOnClick: false,
+            maxWidth: '350px'
+          })
+          .setLngLat(e.lngLat)
+          .setHTML(`<div style=\"max-width: 300px; font-family: Arial, sans-serif;\"><h3 style=\"margin: 0 0 10px 0; color: #333; font-size: 16px;\">${properties.name}</h3><p style=\"margin: 0 0 8px 0; color: #666; font-size: 12px;\">${properties.address}</p><p style=\"margin: 0 0 12px 0; color: #00eaff; font-weight: bold; font-size: 14px;\">No July 2024 reviews found for this station.</p></div>`)
+          .addTo(map.current);
+        }
+      }
+    };
+
+    // Attach click event only to the reviewed layer
+    map.current.on('click', 'gas-stations-1mile-reviewed', handleReviewedGasStationClick);
+    
+    // Change cursor on hover for reviewed gas stations
+    map.current.on('mouseenter', 'gas-stations-1mile-reviewed', () => {
+      map.current.getCanvas().style.cursor = 'pointer';
+    });
+    
+    map.current.on('mouseleave', 'gas-stations-1mile-reviewed', () => {
+      map.current.getCanvas().style.cursor = '';
+    });
+
+    return () => {
+      if (map.current) {
+        map.current.off('click', 'gas-stations-1mile-reviewed', handleReviewedGasStationClick);
+        map.current.off('mouseenter', 'gas-stations-1mile-reviewed');
+        map.current.off('mouseleave', 'gas-stations-1mile-reviewed');
+      }
+    };
+  }, [showGasStations1Mile, map]);
+
+  // Gas Stations (2 Mile) markers and circles
+  useEffect(() => {
+    console.log('2-mile gas station useEffect running, showGasStations2Mile:', showGasStations2Mile);
+    if (!map.current) return;
+    const sourceId = 'gas-stations-2mile';
+    const layerId = 'gas-stations-2mile';
+    const circleSourceId = 'community-center-2mile-circles';
+    const circleLayerId = 'community-center-2mile-circles';
+    const reviewedSourceId = 'gas-stations-2mile-reviewed';
+    const reviewedLayerId = 'gas-stations-2mile-reviewed';
+
+    if (showGasStations2Mile) {
+      // Add gas stations source/layer if not exists (semi-transparent blue markers - no July reviews)
+      if (!map.current.getSource(sourceId)) {
+        fetch('/gas_stations_2mile_no_july_reviews.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(sourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: layerId,
+              type: 'circle',
+              source: sourceId,
+              paint: {
+                'circle-radius': 7,
+                'circle-color': '#005577',
+                'circle-blur': 0.2,
+                'circle-opacity': 0.6, // Semi-transparent
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#fff',
+                'circle-stroke-opacity': 0.4
+              },
+              layout: { visibility: 'visible' }
+            });
+          });
+      } else {
+        map.current.setLayoutProperty(layerId, 'visibility', 'visible');
+      }
+      // Add 2-mile circles source/layer if not exists
+      if (!map.current.getSource(circleSourceId)) {
+        fetch('/community_center_2mile_circles.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(circleSourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: circleLayerId,
+              type: 'line',
+              source: circleSourceId,
+              paint: {
+                'line-color': '#fff',
+                'line-width': 2,
+                'line-dasharray': [2, 4],
+                'line-opacity': 1
+              },
+              layout: { visibility: 'visible' }
+            });
+          });
+      } else {
+        map.current.setLayoutProperty(circleLayerId, 'visibility', 'visible');
+      }
+      // Add reviewed gas stations source/layer if not exists (glowing blue markers - with July reviews)
+      if (!map.current.getSource(reviewedSourceId)) {
+        fetch('/gas_stations_2mile_july_reviews.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(reviewedSourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: reviewedLayerId,
+              type: 'circle',
+              source: reviewedSourceId,
+              paint: {
+                'circle-radius': 8,
+                'circle-color': '#00eaff', // Glowing blue
+                'circle-blur': 0.8, // More blur for glow effect
+                'circle-opacity': 0.95,
+                'circle-stroke-width': 3,
+                'circle-stroke-color': '#fff',
+                'circle-stroke-opacity': 0.9
+              },
+              layout: { visibility: 'visible' }
+            });
+            map.current.moveLayer(reviewedLayerId);
+          });
+      } else {
+        map.current.setLayoutProperty(reviewedLayerId, 'visibility', 'visible');
+        map.current.moveLayer(reviewedLayerId);
+      }
+    } else {
+      // Remove/hide gas stations layer/source
+      if (map.current.getLayer(layerId)) {
+        map.current.removeLayer(layerId);
+      }
+      if (map.current.getSource(sourceId)) {
+        map.current.removeSource(sourceId);
+      }
+      // Remove/hide 2-mile circles layer/source
+      if (map.current.getLayer(circleLayerId)) {
+        map.current.removeLayer(circleLayerId);
+      }
+      if (map.current.getSource(circleSourceId)) {
+        map.current.removeSource(circleSourceId);
+      }
+      // Remove/hide reviewed gas stations layer/source
+      if (map.current.getLayer(reviewedLayerId)) {
+        map.current.removeLayer(reviewedLayerId);
+      }
+      if (map.current.getSource(reviewedSourceId)) {
+        map.current.removeSource(reviewedSourceId);
+      }
+    }
+  }, [showGasStations2Mile, map]);
+
+  // Add click handler for reviewed 2-mile gas stations
+  useEffect(() => {
+    if (!map.current || !showGasStations2Mile) return;
+    const handleReviewedGasStationClick = (e) => {
+      const feature = e.features && e.features[0];
+      if (!feature) return;
+      if (feature.layer.id === 'gas-stations-2mile-reviewed') {
+        const properties = feature.properties;
+        let reviews = [];
+        if (properties.july_reviews) {
+          if (typeof properties.july_reviews === 'string') {
+            try {
+              reviews = JSON.parse(properties.july_reviews);
+            } catch (err) {
+              reviews = [];
+            }
+          } else if (Array.isArray(properties.july_reviews)) {
+            reviews = properties.july_reviews;
+          }
+        }
+        if (!Array.isArray(reviews)) reviews = [];
+        if (reviews.length > 0) {
+          let popupContent = `
+            <div style=\"max-width: 300px; font-family: Arial, sans-serif;\">
+              <h3 style=\"margin: 0 0 10px 0; color: #333; font-size: 16px;\">${properties.name}</h3>
+              <p style=\"margin: 0 0 8px 0; color: #666; font-size: 12px;\">${properties.address}</p>
+              <p style=\"margin: 0 0 12px 0; color: #00eaff; font-weight: bold; font-size: 14px;\">
+                ${reviews.length} July 2024 Review${reviews.length > 1 ? 's' : ''}
+              </p>
+          `;
+          reviews.forEach((review, index) => {
+            popupContent += `
+              <div style=\"border-left: 3px solid #00eaff; padding-left: 10px; margin-bottom: 10px;\">
+                <p style=\"margin: 0 0 5px 0; font-size: 12px; color: #888;\">
+                  <strong>${review.author_name}</strong> • ${review.date} • ⭐ ${review.rating}/5
+                </p>
+                <p style=\"margin: 0; font-size: 13px; line-height: 1.4; color: #333;\">
+                  \"${review.text}\"
+                </p>
+              </div>
+            `;
+          });
+          popupContent += '</div>';
+          new mapboxgl.Popup({
+            closeButton: true,
+            closeOnClick: false,
+            maxWidth: '350px'
+          })
+          .setLngLat(e.lngLat)
+          .setHTML(popupContent)
+          .addTo(map.current);
+        } else {
+          new mapboxgl.Popup({
+            closeButton: true,
+            closeOnClick: false,
+            maxWidth: '350px'
+          })
+          .setLngLat(e.lngLat)
+          .setHTML(`<div style=\"max-width: 300px; font-family: Arial, sans-serif;\"><h3 style=\"margin: 0 0 10px 0; color: #333; font-size: 16px;\">${properties.name}</h3><p style=\"margin: 0 0 8px 0; color: #666; font-size: 12px;\">${properties.address}</p><p style=\"margin: 0 0 12px 0; color: #00eaff; font-weight: bold; font-size: 14px;\">No July 2024 reviews found for this station.</p></div>`)
+          .addTo(map.current);
+        }
+      }
+    };
+    map.current.on('click', 'gas-stations-2mile-reviewed', handleReviewedGasStationClick);
+    map.current.on('mouseenter', 'gas-stations-2mile-reviewed', () => {
+      map.current.getCanvas().style.cursor = 'pointer';
+    });
+    map.current.on('mouseleave', 'gas-stations-2mile-reviewed', () => {
+      map.current.getCanvas().style.cursor = '';
+    });
+    return () => {
+      if (map.current) {
+        map.current.off('click', 'gas-stations-2mile-reviewed', handleReviewedGasStationClick);
+        map.current.off('mouseenter', 'gas-stations-2mile-reviewed');
+        map.current.off('mouseleave', 'gas-stations-2mile-reviewed');
+      }
+    };
+  }, [showGasStations2Mile, map]);
+
   return (
     <MapContainer>
       <div ref={mapContainer} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
@@ -569,6 +1064,12 @@ const MapComponent = () => {
         setShowFloodplainDistanceLines={setShowFloodplainDistanceLines}
         fetchErcotData={() => ercotManagerRef.current?.fetchErcotData()}
         loadHarveyData={loadHarveyData}
+        showGasStations={showGasStations2Mile}
+        setShowGasStations={setShowGasStations2Mile}
+        showGasStations1Mile={showGasStations1Mile}
+        setShowGasStations1Mile={setShowGasStations1Mile}
+        showGasStations2Mile={showGasStations2Mile}
+        setShowGasStations2Mile={setShowGasStations2Mile}
       />
 
         <ToggleButton 
@@ -642,4 +1143,5 @@ const MapComponent = () => {
 };
 
 export default MapComponent;
+
 
