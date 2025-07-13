@@ -75,6 +75,14 @@ const MapComponent = () => {
   const [showGasStations, setShowGasStations] = useState(false);
   const [showGasStations1Mile, setShowGasStations1Mile] = useState(false);
   const [showGasStations2Mile, setShowGasStations2Mile] = useState(false);
+  const [showPowerOutages, setShowPowerOutages] = useState(false);
+  const [showChurches1Mile, setShowChurches1Mile] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationTime, setAnimationTime] = useState(null);
+  const [animationRange, setAnimationRange] = useState([null, null]);
+  const [all311Features, setAll311Features] = useState([]);
+  const animationTimerRef = useRef(null);
+  const [uniqueDays, setUniqueDays] = useState([]);
 
   // Add these refs for drag functionality
   const isDraggingRef = useRef(false);
@@ -89,6 +97,9 @@ const MapComponent = () => {
   // --- DERIVED STATE: Determine visibility based on toggles ---
   const isCommunityCentersVisible = showCommunityCenters || showFloodplainDistanceLines;
   const isFlood100Visible = showFlood100 || showFloodplainDistanceLines;
+
+  // Derived state: show 1-mile circles if either toggle is on
+  const show1MileCircles = showGasStations1Mile || showPowerOutages;
 
   const { initializeParticleLayer, generateParticles } = useAIConsensusAnimation(map, showAIConsensus, mockDisagreementData);
   useMapInitialization(map, mapContainer);
@@ -572,8 +583,6 @@ const MapComponent = () => {
     if (!map.current) return;
     const sourceId = 'gas-stations-1mile';
     const layerId = 'gas-stations-1mile';
-    const circleSourceId = 'community-center-1mile-circles';
-    const circleLayerId = 'community-center-1mile-circles';
     const reviewedSourceId = 'gas-stations-1mile-reviewed';
     const reviewedLayerId = 'gas-stations-1mile-reviewed';
 
@@ -611,37 +620,6 @@ const MapComponent = () => {
           });
       } else {
         map.current.setLayoutProperty(layerId, 'visibility', 'visible');
-      }
-      // Add 1-mile circles source/layer if not exists
-      if (!map.current.getSource(circleSourceId)) {
-        fetch('/community_center_1mile_circles.geojson')
-          .then(res => {
-            console.log('Fetched 1mile_circles.geojson:', res);
-            return res.json();
-          })
-          .then(data => {
-            console.log('Loaded 1mile_circles.geojson data:', data);
-            map.current.addSource(circleSourceId, {
-              type: 'geojson',
-              data
-            });
-            console.log('Added source:', circleSourceId);
-            map.current.addLayer({
-              id: circleLayerId,
-              type: 'line',
-              source: circleSourceId,
-              paint: {
-                'line-color': '#fff',
-                'line-width': 2,
-                'line-dasharray': [2, 4],
-                'line-opacity': 1
-              },
-              layout: { visibility: 'visible' }
-            });
-            console.log('Added layer:', circleLayerId);
-          });
-      } else {
-        map.current.setLayoutProperty(circleLayerId, 'visibility', 'visible');
       }
       // Add reviewed gas stations source/layer if not exists (glowing blue markers - with July reviews)
       if (!map.current.getSource(reviewedSourceId)) {
@@ -688,13 +666,6 @@ const MapComponent = () => {
       if (map.current.getSource(sourceId)) {
         map.current.removeSource(sourceId);
       }
-      // Remove/hide 1-mile circles layer/source
-      if (map.current.getLayer(circleLayerId)) {
-        map.current.removeLayer(circleLayerId);
-      }
-      if (map.current.getSource(circleSourceId)) {
-        map.current.removeSource(circleSourceId);
-      }
       // Remove/hide reviewed gas stations layer/source
       if (map.current.getLayer(reviewedLayerId)) {
         map.current.removeLayer(reviewedLayerId);
@@ -704,6 +675,51 @@ const MapComponent = () => {
       }
     }
   }, [showGasStations1Mile, map]);
+
+  // Update the 1-mile circles useEffect to use show1MileCircles
+  useEffect(() => {
+    console.log('1-mile circle useEffect running, show1MileCircles:', show1MileCircles);
+    if (!map.current) return;
+    const circleSourceId = 'community-center-1mile-circles';
+    const circleLayerId = 'community-center-1mile-circles';
+
+    if (show1MileCircles) {
+      // Add 1-mile circles source/layer if not exists
+      if (!map.current.getSource(circleSourceId)) {
+        fetch('/community_center_1mile_circles.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(circleSourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: circleLayerId,
+              type: 'line',
+              source: circleSourceId,
+              paint: {
+                'line-color': '#fff',
+                'line-width': 2,
+                'line-dasharray': [2, 4],
+                'line-opacity': 1
+              },
+              layout: { visibility: 'visible' }
+            });
+            console.log('Added 1-mile circle layer');
+          });
+      } else {
+        map.current.setLayoutProperty(circleLayerId, 'visibility', 'visible');
+      }
+    } else {
+      // Remove/hide 1-mile circles layer/source
+      if (map.current.getLayer(circleLayerId)) {
+        map.current.removeLayer(circleLayerId);
+      }
+      if (map.current.getSource(circleSourceId)) {
+        map.current.removeSource(circleSourceId);
+      }
+    }
+  }, [show1MileCircles, map]);
 
   // Add click handler for reviewed gas stations
   useEffect(() => {
@@ -1015,6 +1031,322 @@ const MapComponent = () => {
     };
   }, [showGasStations2Mile, map]);
 
+  // Add 311 Power Outage GeoJSON layer
+  useEffect(() => {
+    if (!map.current) return;
+    const sourceId = 'power-outages-beryl';
+    const layerId = 'power-outages-beryl';
+
+    if (showPowerOutages) {
+      if (!map.current.getSource(sourceId)) {
+        fetch('/311_power_outages_Beryl_refined.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(sourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: layerId,
+              type: 'circle',
+              source: sourceId,
+              paint: {
+                'circle-radius': 7,
+                'circle-color': '#ff3333',
+                'circle-blur': 0.2,
+                'circle-opacity': 0.7,
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#fff',
+                'circle-stroke-opacity': 0.7
+              },
+              layout: { visibility: 'visible' }
+            });
+          });
+      } else {
+        map.current.setLayoutProperty(layerId, 'visibility', 'visible');
+      }
+    } else {
+      if (map.current.getLayer(layerId)) {
+        map.current.removeLayer(layerId);
+      }
+      if (map.current.getSource(sourceId)) {
+        map.current.removeSource(sourceId);
+      }
+    }
+  }, [showPowerOutages, map]);
+
+  // Add Churches within 1 mile GeoJSON layer
+  useEffect(() => {
+    if (!map.current) return;
+    const sourceId = 'churches-1mile';
+    const layerId = 'churches-1mile';
+
+    if (showChurches1Mile) {
+      if (!map.current.getSource(sourceId)) {
+        fetch('/houston_churches_1mile_community_centers.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(sourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: layerId,
+              type: 'circle',
+              source: sourceId,
+              paint: {
+                'circle-color': '#8e44ad',
+                'circle-radius': [
+                  'case',
+                  ['all', ['has', 'area_sqft'], ['>', ['to-number', ['get', 'area_sqft']], 0]],
+                  [
+                    'interpolate',
+                    ['linear'],
+                    ['to-number', ['get', 'area_sqft'], 0],
+                    0, 4.8,
+                    2000, 6.4,
+                    5000, 9.6,
+                    10000, 14.4,
+                    20000, 19.2
+                  ],
+                  6.4
+                ],
+                'circle-blur': 0.2,
+                'circle-opacity': 0.7,
+                'circle-stroke-width': 1,
+                'circle-stroke-color': '#fff',
+                'circle-stroke-opacity': 0.7
+              }
+            });
+          });
+      }
+    } else {
+      if (map.current.getLayer(layerId)) {
+        map.current.removeLayer(layerId);
+      }
+      if (map.current.getSource(sourceId)) {
+        map.current.removeSource(sourceId);
+      }
+    }
+  }, [showChurches1Mile]);
+
+  // Helper to get min/max created_date from 311 data and store all features and unique days
+  useEffect(() => {
+    fetch('/311_power_outages_Beryl_refined.geojson')
+      .then(res => res.json())
+      .then(data => {
+        const dates = data.features.map(f => new Date(f.properties.created_date));
+        const minDate = new Date(Math.min(...dates));
+        const maxDate = new Date(Math.max(...dates));
+        setAnimationRange([minDate, maxDate]);
+        setAnimationTime(null); // Start with no markers visible
+        setAll311Features(data.features);
+        // Calculate unique days
+        const daySet = new Set(dates.map(d => d.toISOString().slice(0, 10)));
+        const sortedDays = Array.from(daySet).sort();
+        setUniqueDays(sortedDays);
+        console.log('[311 Animation] Data loaded, starting with no markers visible');
+      });
+  }, []);
+
+  // 1. Create source/layer when map and data are ready
+  useEffect(() => {
+    if (!map.current || !all311Features.length) return;
+    const sourceId = 'power-outages-beryl';
+    const layerId = 'power-outages-beryl';
+    
+    // Only create if source doesn't exist
+    if (!map.current.getSource(sourceId)) {
+      const geojson = { type: 'FeatureCollection', features: [] };
+      
+      // Wait for style to be loaded
+      if (map.current.isStyleLoaded()) {
+        map.current.addSource(sourceId, { type: 'geojson', data: geojson });
+        map.current.addLayer({
+          id: layerId,
+          type: 'circle',
+          source: sourceId,
+          paint: {
+            'circle-radius': 7,
+            'circle-color': '#ff3333',
+            'circle-blur': 0.2,
+            'circle-opacity': 0.7,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#fff',
+            'circle-stroke-opacity': 0.7
+          },
+          layout: { visibility: 'visible' }
+        });
+        console.log('[311 Animation] Source/layer created');
+      } else {
+        map.current.once('style.load', () => {
+          map.current.addSource(sourceId, { type: 'geojson', data: geojson });
+          map.current.addLayer({
+            id: layerId,
+            type: 'circle',
+            source: sourceId,
+            paint: {
+              'circle-radius': 7,
+              'circle-color': '#ff3333',
+              'circle-blur': 0.2,
+              'circle-opacity': 0.7,
+              'circle-stroke-width': 1,
+              'circle-stroke-color': '#fff',
+              'circle-stroke-opacity': 0.7
+            },
+            layout: { visibility: 'visible' }
+          });
+          console.log('[311 Animation] Source/layer created after style load');
+        });
+      }
+    }
+  }, [map, all311Features]);
+
+  // Alternative source creation when map is ready
+  useEffect(() => {
+    if (!map.current) return;
+    
+    const createSourceIfNeeded = () => {
+      const sourceId = 'power-outages-beryl';
+      const layerId = 'power-outages-beryl';
+      
+      if (!map.current.getSource(sourceId) && all311Features.length > 0) {
+        const geojson = { type: 'FeatureCollection', features: [] };
+        map.current.addSource(sourceId, { type: 'geojson', data: geojson });
+        map.current.addLayer({
+          id: layerId,
+          type: 'circle',
+          source: sourceId,
+          paint: {
+            'circle-radius': 7,
+            'circle-color': '#ff3333',
+            'circle-blur': 0.2,
+            'circle-opacity': 0.7,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#fff',
+            'circle-stroke-opacity': 0.7
+          },
+          layout: { visibility: 'visible' }
+        });
+        console.log('[311 Animation] Source/layer created in alternative effect');
+      }
+    };
+
+    if (map.current.isStyleLoaded()) {
+      createSourceIfNeeded();
+    } else {
+      map.current.once('style.load', createSourceIfNeeded);
+    }
+  }, [map, all311Features]);
+
+  // 2. Update data when animationTime changes
+  useEffect(() => {
+    if (!map.current || !all311Features.length) return;
+    const sourceId = 'power-outages-beryl';
+    const source = map.current.getSource(sourceId);
+    
+    // Only update if source exists
+    if (source) {
+      // If animationTime is null, show no markers (empty feature collection)
+      const filtered = animationTime
+        ? all311Features.filter(f => new Date(f.properties.created_date) <= animationTime)
+        : [];
+      const geojson = { type: 'FeatureCollection', features: filtered };
+      source.setData(geojson);
+      console.log(`[311 Animation] Setting ${filtered.length} features at ${animationTime}`);
+      if (filtered.length > 0) {
+        console.log('[311 Animation] First feature:', filtered[0]);
+      }
+    } else {
+      console.log('[311 Animation] Source not found, skipping update');
+    }
+    console.log('[311 Animation] Current animationTime:', animationTime, 'Unique days:', uniqueDays);
+  }, [animationTime, all311Features, map, uniqueDays]);
+
+  // 3. Animation logic: by day, stop at end, hide all markers when finished
+  useEffect(() => {
+    if (!isAnimating || !animationRange[0] || !animationRange[1] || uniqueDays.length === 0) return;
+    
+    // Check if source exists before starting animation
+    const sourceId = 'power-outages-beryl';
+    if (!map.current || !map.current.getSource(sourceId)) {
+      console.log('[311 Animation] Source not found, cannot start animation');
+      setIsAnimating(false);
+      return;
+    }
+    
+    const steps = uniqueDays.length;
+    const stepMs = 1000;
+    let currentStep = uniqueDays.findIndex(day => animationTime && animationTime.toISOString().slice(0, 10) === day);
+
+    function animateStep() {
+      if (!isAnimating) return;
+      
+      // Check if source still exists
+      if (!map.current || !map.current.getSource(sourceId)) {
+        console.log('[311 Animation] Source lost during animation, stopping');
+        setIsAnimating(false);
+        return;
+      }
+      
+      currentStep++;
+      if (currentStep >= steps) {
+        setIsAnimating(false);
+        setAnimationTime(null); // Hide all markers when animation ends
+        console.log('[311 Animation] Animation finished. All markers hidden. User must hit play to restart.');
+        return;
+      }
+      setAnimationTime(new Date(uniqueDays[currentStep] + 'T23:59:59'));
+      animationTimerRef.current = setTimeout(animateStep, stepMs);
+    }
+    animationTimerRef.current = setTimeout(animateStep, stepMs);
+    return () => clearTimeout(animationTimerRef.current);
+  }, [isAnimating, animationRange, animationTime, uniqueDays, map]);
+
+  // Slider: snap to days (end of day)
+  const handleSliderChange = (e) => {
+    const idx = Number(e.target.value);
+    setAnimationTime(new Date(uniqueDays[idx] + 'T23:59:59'));
+    setIsAnimating(false);
+  };
+
+  const handlePlayPause = () => {
+    if (!isAnimating) {
+      // Ensure source exists before starting animation
+      const sourceId = 'power-outages-beryl';
+      const layerId = 'power-outages-beryl';
+      
+      if (!map.current.getSource(sourceId) && all311Features.length > 0) {
+        console.log('[311 Animation] Creating source on play button click');
+        const geojson = { type: 'FeatureCollection', features: [] };
+        map.current.addSource(sourceId, { type: 'geojson', data: geojson });
+        map.current.addLayer({
+          id: layerId,
+          type: 'circle',
+          source: sourceId,
+          paint: {
+            'circle-radius': 7,
+            'circle-color': '#ff3333',
+            'circle-blur': 0.2,
+            'circle-opacity': 0.7,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#fff',
+            'circle-stroke-opacity': 0.7
+          },
+          layout: { visibility: 'visible' }
+        });
+      }
+      
+      // If animationTime is null (no markers showing), start from the first day
+      if (animationTime === null && uniqueDays.length > 0) {
+        setAnimationTime(new Date(uniqueDays[0] + 'T23:59:59'));
+      }
+      setIsAnimating(true);
+    } else {
+      setIsAnimating(false);
+    }
+  };
+
   return (
     <MapContainer>
       <div ref={mapContainer} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
@@ -1070,6 +1402,10 @@ const MapComponent = () => {
         setShowGasStations1Mile={setShowGasStations1Mile}
         showGasStations2Mile={showGasStations2Mile}
         setShowGasStations2Mile={setShowGasStations2Mile}
+        showPowerOutages={showPowerOutages}
+        setShowPowerOutages={setShowPowerOutages}
+        showChurches1Mile={showChurches1Mile}
+        setShowChurches1Mile={setShowChurches1Mile}
       />
 
         <ToggleButton 
@@ -1138,6 +1474,57 @@ const MapComponent = () => {
           Calculating distance line...
         </div>
       )}
+
+      {/* Animation Panel */}
+      <div style={{
+        position: 'fixed',
+        left: 24,
+        bottom: 24,
+        zIndex: 1001,
+        background: 'rgba(20,20,30,0.95)',
+        color: '#fff',
+        borderRadius: 12,
+        boxShadow: '0 2px 8px rgba(0,0,0,0.25)',
+        padding: '20px 28px 18px 28px',
+        minWidth: 340,
+        maxWidth: 420,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        gap: 12
+      }}>
+        <div style={{ fontWeight: 700, fontSize: 20, marginBottom: 4 }}>Beryl 311 Outage Reports</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%' }}>
+          <button
+            onClick={handlePlayPause}
+            style={{
+              background: isAnimating ? '#e74c3c' : '#27ae60',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 6,
+              padding: '8px 18px',
+              fontWeight: 600,
+              fontSize: 16,
+              cursor: 'pointer',
+              marginRight: 8
+            }}
+          >
+            {isAnimating ? 'Pause' : 'Play'}
+          </button>
+          <input
+            type="range"
+            min={0}
+            max={uniqueDays.length - 1}
+            value={animationTime ? uniqueDays.findIndex(day => animationTime.toISOString().slice(0, 10) === day) : 0}
+            onChange={handleSliderChange}
+            style={{ flex: 1 }}
+            disabled={uniqueDays.length === 0}
+          />
+        </div>
+        <div style={{ fontSize: 13, color: '#aaa', marginTop: 2 }}>
+          {animationTime ? animationTime.toLocaleDateString() : 'No data shown'}
+        </div>
+      </div>
     </MapContainer>
   );
 };
