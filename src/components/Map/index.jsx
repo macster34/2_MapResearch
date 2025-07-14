@@ -83,6 +83,8 @@ const MapComponent = () => {
   const [all311Features, setAll311Features] = useState([]);
   const animationTimerRef = useRef(null);
   const [uniqueDays, setUniqueDays] = useState([]);
+  // 1. Add state for all debris features
+  const [allDebrisFeatures, setAllDebrisFeatures] = useState([]);
 
   // Add these refs for drag functionality
   const isDraggingRef = useRef(false);
@@ -93,6 +95,9 @@ const MapComponent = () => {
   const xOffsetRef = useRef(0);
   const yOffsetRef = useRef(0);
   const popupRef = useRef(null);
+
+  // 1. Add state for Tree Debris toggle
+  const [showTreeDebris, setShowTreeDebris] = useState(false);
 
   // --- DERIVED STATE: Determine visibility based on toggles ---
   const isCommunityCentersVisible = showCommunityCenters || showFloodplainDistanceLines;
@@ -1149,6 +1154,83 @@ const MapComponent = () => {
       });
   }, []);
 
+  // Load debris GeoJSON for animation (on mount)
+  useEffect(() => {
+    fetch('/debris_calls_2024-07-08_to_2024-07-30.geojson')
+      .then(res => res.json())
+      .then(data => {
+        setAllDebrisFeatures(data.features);
+        console.log('[DEBUG] Loaded debris features:', data.features.length, data.features.slice(0, 2));
+      });
+  }, []);
+
+  // Log uniqueDays on mount and after set
+  useEffect(() => {
+    console.log('[DEBUG] (mount) uniqueDays:', uniqueDays);
+  }, []);
+  useEffect(() => {
+    console.log('[DEBUG] (after set) uniqueDays:', uniqueDays);
+  }, [uniqueDays]);
+
+  // Debug: Log debris features and source existence each frame
+  useEffect(() => {
+    if (!map.current) return;
+    if (allDebrisFeatures.length) {
+      const source = map.current.getSource('debris-animation');
+      console.log('[DEBUG] debris-animation source exists:', !!source);
+      if (source) {
+        const filtered = animationTime
+          ? allDebrisFeatures.filter(f => new Date(f.properties.created_date) <= animationTime)
+          : [];
+        console.log(`[DEBUG] Setting ${filtered.length} debris features at`, animationTime);
+      }
+    } else {
+      console.log('[DEBUG] allDebrisFeatures is empty');
+    }
+  }, [animationTime, allDebrisFeatures, map]);
+
+  // 1. Create debris animation source/layer when map and data are ready
+  useEffect(() => {
+    if (!map.current || !allDebrisFeatures.length) return;
+    const sourceId = 'debris-animation';
+    const layerId = 'debris-animation';
+    // Only create if source doesn't exist
+    if (!map.current.getSource(sourceId)) {
+      const geojson = { type: 'FeatureCollection', features: [] };
+      if (map.current.isStyleLoaded()) {
+        map.current.addSource(sourceId, { type: 'geojson', data: geojson });
+        map.current.addLayer({
+          id: layerId,
+          type: 'circle',
+          source: sourceId,
+          paint: {
+            'circle-radius': 4,
+            'circle-color': '#39FF14',
+            'circle-blur': 0.2,
+            'circle-opacity': 0.85
+          },
+          layout: { visibility: 'visible' }
+        });
+      } else {
+        map.current.once('style.load', () => {
+          map.current.addSource(sourceId, { type: 'geojson', data: geojson });
+          map.current.addLayer({
+            id: layerId,
+            type: 'circle',
+            source: sourceId,
+            paint: {
+              'circle-radius': 4,
+              'circle-color': '#39FF14',
+              'circle-blur': 0.2,
+              'circle-opacity': 0.85
+            },
+            layout: { visibility: 'visible' }
+          });
+        });
+      }
+    }
+  }, [map, allDebrisFeatures]);
+
   // 1. Create source/layer when map and data are ready
   useEffect(() => {
     if (!map.current || !all311Features.length) return;
@@ -1239,29 +1321,34 @@ const MapComponent = () => {
     }
   }, [map, all311Features]);
 
-  // 2. Update data when animationTime changes
+  // 2. Update data for both power outage and debris animation layers when animationTime changes
   useEffect(() => {
-    if (!map.current || !all311Features.length) return;
-    const sourceId = 'power-outages-beryl';
-    const source = map.current.getSource(sourceId);
-    
-    // Only update if source exists
-    if (source) {
-      // If animationTime is null, show no markers (empty feature collection)
-      const filtered = animationTime
-        ? all311Features.filter(f => new Date(f.properties.created_date) <= animationTime)
-        : [];
-      const geojson = { type: 'FeatureCollection', features: filtered };
-      source.setData(geojson);
-      console.log(`[311 Animation] Setting ${filtered.length} features at ${animationTime}`);
-      if (filtered.length > 0) {
-        console.log('[311 Animation] First feature:', filtered[0]);
+    if (!map.current) return;
+    // Power outage layer
+    if (all311Features.length) {
+      const sourceId = 'power-outages-beryl';
+      const source = map.current.getSource(sourceId);
+      if (source) {
+        const filtered = animationTime
+          ? all311Features.filter(f => new Date(f.properties.created_date) <= animationTime)
+          : [];
+        const geojson = { type: 'FeatureCollection', features: filtered };
+        source.setData(geojson);
       }
-    } else {
-      console.log('[311 Animation] Source not found, skipping update');
     }
-    console.log('[311 Animation] Current animationTime:', animationTime, 'Unique days:', uniqueDays);
-  }, [animationTime, all311Features, map, uniqueDays]);
+    // Debris layer
+    if (allDebrisFeatures.length) {
+      const sourceId = 'debris-animation';
+      const source = map.current.getSource(sourceId);
+      if (source) {
+        const filtered = animationTime
+          ? allDebrisFeatures.filter(f => new Date(f.properties.created_date) <= animationTime)
+          : [];
+        const geojson = { type: 'FeatureCollection', features: filtered };
+        source.setData(geojson);
+      }
+    }
+  }, [animationTime, all311Features, allDebrisFeatures, map]);
 
   // 3. Animation logic: by day, stop at end, hide all markers when finished
   useEffect(() => {
@@ -1303,6 +1390,67 @@ const MapComponent = () => {
     return () => clearTimeout(animationTimerRef.current);
   }, [isAnimating, animationRange, animationTime, uniqueDays, map]);
 
+  // --- Cumulative call count logic for sliders ---
+  const [outageCumulativeCounts, setOutageCumulativeCounts] = useState([]);
+  const [debrisCumulativeCounts, setDebrisCumulativeCounts] = useState([]);
+  const [outageDayToCount, setOutageDayToCount] = useState([]);
+  const [debrisDayToCount, setDebrisDayToCount] = useState([]);
+
+  // Compute unique days and cumulative counts for each dataset
+  useEffect(() => {
+    if (!all311Features.length) return;
+    const days = Array.from(new Set(all311Features.map(f => f.properties.created_date.slice(0, 10)))).sort();
+    let cum = 0;
+    const counts = days.map(day => {
+      const count = all311Features.filter(f => f.properties.created_date.slice(0, 10) === day).length;
+      cum += count;
+      return cum;
+    });
+    setOutageCumulativeCounts(counts);
+    setOutageDayToCount(days.map((day, i) => ({ day, count: counts[i] })));
+  }, [all311Features]);
+
+  useEffect(() => {
+    if (!allDebrisFeatures.length) return;
+    const days = Array.from(new Set(allDebrisFeatures.map(f => f.properties.created_date.slice(0, 10)))).sort();
+    let cum = 0;
+    const counts = days.map(day => {
+      const count = allDebrisFeatures.filter(f => f.properties.created_date.slice(0, 10) === day).length;
+      cum += count;
+      return cum;
+    });
+    setDebrisCumulativeCounts(counts);
+    setDebrisDayToCount(days.map((day, i) => ({ day, count: counts[i] })));
+  }, [allDebrisFeatures]);
+
+  // Helper to get the day for a given cumulative count (for slider interaction)
+  function getDayForCumulativeCount(dayToCountArr, value) {
+    for (let i = 0; i < dayToCountArr.length; i++) {
+      if (value <= dayToCountArr[i].count) {
+        return dayToCountArr[i].day;
+      }
+    }
+    return dayToCountArr[dayToCountArr.length - 1]?.day;
+  }
+
+  // --- Slider change handlers ---
+  const handleOutageSliderChange = (e) => {
+    const value = Number(e.target.value);
+    setIsAnimating(false);
+    if (outageDayToCount.length) {
+      const day = getDayForCumulativeCount(outageDayToCount, value);
+      if (day) setAnimationTime(new Date(day + 'T23:59:59'));
+    }
+  };
+  const handleDebrisSliderChange = (e) => {
+    const value = Number(e.target.value);
+    setIsAnimating(false);
+    if (debrisDayToCount.length) {
+      const day = getDayForCumulativeCount(debrisDayToCount, value);
+      if (day) setAnimationTime(new Date(day + 'T23:59:59'));
+    }
+  };
+
   // Slider: snap to days (end of day)
   const handleSliderChange = (e) => {
     const idx = Number(e.target.value);
@@ -1310,12 +1458,158 @@ const MapComponent = () => {
     setIsAnimating(false);
   };
 
-  const handlePlayPause = () => {
+  // Utility to set layer visibility
+  const setLayerVisibility = (layerId, visible) => {
+    if (map.current && map.current.getLayer(layerId)) {
+      map.current.setLayoutProperty(layerId, 'visibility', visible ? 'visible' : 'none');
+    }
+  };
+
+  // Show/hide animation-related layers
+  const showAnimationLayers = () => {
+    setLayerVisibility('community-center-1mile-circles', true);
+    setLayerVisibility('churches-1mile', true);
+    setLayerVisibility('community-centers', true); // Updated to 'community-centers'
+  };
+  const hideAnimationLayers = () => {
+    setLayerVisibility('community-center-1mile-circles', false);
+    setLayerVisibility('churches-1mile', false);
+    setLayerVisibility('community-centers', false); // Updated to 'community-centers'
+  };
+
+  // --- Animation-specific marker logic (independent of sidebar) ---
+  const ANIMATION_LAYERS = [
+    {
+      sourceId: 'animation-community-centers',
+      layerId: 'animation-community-centers',
+      url: '/houston-community-centers-vulnerability-4326.geojson',
+      type: 'circle',
+      paint: {
+        'circle-radius': [
+          'case',
+          ['all', ['has', 'Square_Foo'], ['>', ['to-number', ['get', 'Square_Foo']], 0]],
+            [
+              'interpolate',
+              ['linear'],
+              ['to-number', ['get', 'Square_Foo'], 0],
+              0, 4.8,
+              2000, 6.4,
+              5000, 9.6,
+              10000, 14.4,
+              20000, 19.2
+            ],
+            6.4
+        ],
+        'circle-color': '#FF00B7',
+        'circle-stroke-width': 0,
+        'circle-opacity': [
+          'interpolate',
+          ['linear'],
+          ['get', 'vulnerability'],
+          0, 0.1,
+          1, 1.0
+        ]
+      }
+    },
+    {
+      sourceId: 'animation-churches-1mile',
+      layerId: 'animation-churches-1mile',
+      url: '/houston_churches_1mile_community_centers.geojson',
+      type: 'circle',
+      paint: {
+        'circle-color': '#8e44ad',
+        'circle-radius': [
+          'case',
+          ['all', ['has', 'area_sqft'], ['>', ['to-number', ['get', 'area_sqft']], 0]],
+          [
+            'interpolate',
+            ['linear'],
+            ['to-number', ['get', 'area_sqft'], 0],
+            0, 4.8,
+            2000, 6.4,
+            5000, 9.6,
+            10000, 14.4,
+            20000, 19.2
+          ],
+          6.4
+        ],
+        'circle-blur': 0.2,
+        'circle-opacity': 0.7,
+        'circle-stroke-width': 1,
+        'circle-stroke-color': '#fff',
+        'circle-stroke-opacity': 0.7
+      }
+    },
+    {
+      sourceId: 'animation-1mile-circles',
+      layerId: 'animation-1mile-circles',
+      url: '/community_center_1mile_circles.geojson',
+      type: 'line',
+      paint: {
+        'line-color': '#fff',
+        'line-width': 2,
+        'line-dasharray': [2, 4],
+        'line-opacity': 1
+      }
+    }
+  ];
+
+  // Add animation layers
+  const addAnimationLayers = async () => {
+    if (!map.current) return;
+    for (const { sourceId, layerId, url, type, paint } of ANIMATION_LAYERS) {
+      // Fetch data
+      let data;
+      try {
+        const res = await fetch(url);
+        data = await res.json();
+      } catch (e) {
+        console.error(`[Animation] Failed to fetch ${url}:`, e);
+        continue;
+      }
+      // Add source if not present
+      if (!map.current.getSource(sourceId)) {
+        map.current.addSource(sourceId, { type: 'geojson', data });
+      } else {
+        map.current.getSource(sourceId).setData(data);
+      }
+      // Add layer if not present
+      if (!map.current.getLayer(layerId)) {
+        map.current.addLayer({
+          id: layerId,
+          type,
+          source: sourceId,
+          paint,
+          layout: { visibility: 'visible' }
+        });
+      } else {
+        map.current.setLayoutProperty(layerId, 'visibility', 'visible');
+      }
+    }
+  };
+
+  // Remove animation layers
+  const removeAnimationLayers = () => {
+    if (!map.current) return;
+    for (const { sourceId, layerId } of ANIMATION_LAYERS) {
+      if (map.current.getLayer(layerId)) {
+        map.current.removeLayer(layerId);
+      }
+      if (map.current.getSource(sourceId)) {
+        map.current.removeSource(sourceId);
+      }
+    }
+    // Remove debris animation layer
+    if (map.current.getLayer('debris-animation')) map.current.removeLayer('debris-animation');
+    if (map.current.getSource('debris-animation')) map.current.removeSource('debris-animation');
+  };
+
+  // Update handlePlayPause to use new logic
+  const handlePlayPause = async () => {
     if (!isAnimating) {
-      // Ensure source exists before starting animation
+      // Ensure power outage source exists before starting animation
       const sourceId = 'power-outages-beryl';
       const layerId = 'power-outages-beryl';
-      
       if (!map.current.getSource(sourceId) && all311Features.length > 0) {
         console.log('[311 Animation] Creating source on play button click');
         const geojson = { type: 'FeatureCollection', features: [] };
@@ -1336,7 +1630,28 @@ const MapComponent = () => {
           layout: { visibility: 'visible' }
         });
       }
-      
+      // Ensure debris animation source/layer exists before starting animation
+      const debrisSourceId = 'debris-animation';
+      const debrisLayerId = 'debris-animation';
+      if (!map.current.getSource(debrisSourceId) && allDebrisFeatures.length > 0) {
+        console.log('[Debris Animation] Creating source on play button click');
+        const geojson = { type: 'FeatureCollection', features: [] };
+        map.current.addSource(debrisSourceId, { type: 'geojson', data: geojson });
+        map.current.addLayer({
+          id: debrisLayerId,
+          type: 'circle',
+          source: debrisSourceId,
+          paint: {
+            'circle-radius': 4,
+            'circle-color': '#39FF14',
+            'circle-blur': 0.2,
+            'circle-opacity': 0.85
+          },
+          layout: { visibility: 'visible' }
+        });
+      }
+      // Add animation marker layers
+      await addAnimationLayers();
       // If animationTime is null (no markers showing), start from the first day
       if (animationTime === null && uniqueDays.length > 0) {
         setAnimationTime(new Date(uniqueDays[0] + 'T23:59:59'));
@@ -1344,8 +1659,103 @@ const MapComponent = () => {
       setIsAnimating(true);
     } else {
       setIsAnimating(false);
+      // Remove animation marker layers
+      removeAnimationLayers();
     }
   };
+
+  // Also remove animation layers when animation ends
+  useEffect(() => {
+    if (!isAnimating) {
+      removeAnimationLayers();
+    }
+  }, [isAnimating]);
+
+  // 2. Add useEffect for Tree Debris markers and 1-mile circles
+  useEffect(() => {
+    if (!map.current) return;
+    const debrisSourceId = 'tree-debris';
+    const debrisLayerId = 'tree-debris';
+    const circleSourceId = 'tree-debris-1mile-circles';
+    const circleLayerId = 'tree-debris-1mile-circles';
+
+    if (showTreeDebris) {
+      // Add debris markers without clustering
+      if (!map.current.getSource(debrisSourceId)) {
+        fetch('/debris_calls_2024-07-08_to_2024-07-30.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(debrisSourceId, {
+              type: 'geojson',
+              data
+            });
+            map.current.addLayer({
+              id: debrisLayerId,
+              type: 'circle',
+              source: debrisSourceId,
+              paint: {
+                'circle-radius': 4, // 50% smaller
+                'circle-color': '#39FF14', // Highlight green
+                'circle-blur': 0.2,
+                'circle-opacity': 0.85
+              },
+              layout: { visibility: 'visible' }
+            });
+          });
+      } else {
+        map.current.setLayoutProperty(debrisLayerId, 'visibility', 'visible');
+      }
+      // Add 1-mile circles
+      if (!map.current.getSource(circleSourceId)) {
+        fetch('/community_center_1mile_circles.geojson')
+          .then(res => res.json())
+          .then(data => {
+            map.current.addSource(circleSourceId, { type: 'geojson', data });
+            map.current.addLayer({
+              id: circleLayerId,
+              type: 'line',
+              source: circleSourceId,
+              paint: {
+                'line-color': '#fff',
+                'line-width': 2,
+                'line-dasharray': [2, 4],
+                'line-opacity': 1
+              },
+              layout: { visibility: 'visible' }
+            });
+          });
+      } else {
+        map.current.setLayoutProperty(circleLayerId, 'visibility', 'visible');
+      }
+    } else {
+      // Remove/hide debris markers and circles
+      if (map.current.getLayer(debrisLayerId)) map.current.removeLayer(debrisLayerId);
+      if (map.current.getSource(debrisSourceId)) map.current.removeSource(debrisSourceId);
+      if (map.current.getLayer(circleLayerId)) map.current.removeLayer(circleLayerId);
+      if (map.current.getSource(circleSourceId)) map.current.removeSource(circleSourceId);
+    }
+  }, [showTreeDebris, map]);
+
+  // Debug: Log uniqueDays and animationTime
+  useEffect(() => {
+    console.log('[DEBUG] uniqueDays:', uniqueDays);
+  }, [uniqueDays]);
+  useEffect(() => {
+    console.log('[DEBUG] animationTime:', animationTime);
+  }, [animationTime]);
+  // Debug: Log debris features being set each frame
+  useEffect(() => {
+    if (!map.current) return;
+    if (allDebrisFeatures.length) {
+      const source = map.current.getSource('debris-animation');
+      if (source) {
+        const filtered = animationTime
+          ? allDebrisFeatures.filter(f => new Date(f.properties.created_date) <= animationTime)
+          : [];
+        console.log(`[DEBUG] Setting ${filtered.length} debris features at`, animationTime);
+      }
+    }
+  }, [animationTime, allDebrisFeatures, map]);
 
   return (
     <MapContainer>
@@ -1406,6 +1816,8 @@ const MapComponent = () => {
         setShowPowerOutages={setShowPowerOutages}
         showChurches1Mile={showChurches1Mile}
         setShowChurches1Mile={setShowChurches1Mile}
+        showTreeDebris={showTreeDebris}
+        setShowTreeDebris={setShowTreeDebris}
       />
 
         <ToggleButton 
@@ -1493,37 +1905,64 @@ const MapComponent = () => {
         alignItems: 'flex-start',
         gap: 12
       }}>
-        <div style={{ fontWeight: 700, fontSize: 20, marginBottom: 4 }}>Beryl 311 Outage Reports</div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%' }}>
-          <button
-            onClick={handlePlayPause}
-            style={{
-              background: isAnimating ? '#e74c3c' : '#27ae60',
-              color: '#fff',
-              border: 'none',
-              borderRadius: 6,
-              padding: '8px 18px',
-              fontWeight: 600,
-              fontSize: 16,
-              cursor: 'pointer',
-              marginRight: 8
-            }}
-          >
-            {isAnimating ? 'Pause' : 'Play'}
-          </button>
-          <input
-            type="range"
-            min={0}
-            max={uniqueDays.length - 1}
-            value={animationTime ? uniqueDays.findIndex(day => animationTime.toISOString().slice(0, 10) === day) : 0}
-            onChange={handleSliderChange}
-            style={{ flex: 1 }}
-            disabled={uniqueDays.length === 0}
-          />
+        <div style={{ fontWeight: 700, fontSize: 20, marginBottom: 4 }}>Power Outage Calls</div>
+        <input
+          type="range"
+          min={0}
+          max={outageCumulativeCounts.length ? outageCumulativeCounts[outageCumulativeCounts.length - 1] : 0}
+          value={(() => {
+            if (!animationTime || !outageDayToCount.length) return 0;
+            const idx = outageDayToCount.findIndex(d => new Date(d.day + 'T23:59:59').getTime() >= animationTime.getTime());
+            return idx >= 0 ? outageCumulativeCounts[idx] : 0;
+          })()}
+          onChange={handleOutageSliderChange}
+          style={{ flex: 1, marginBottom: 8 }}
+          disabled={!outageCumulativeCounts.length}
+        />
+        <div style={{ fontSize: 16, color: '#aaa', marginBottom: 12, fontWeight: 500 }}>
+          {(() => {
+            if (!animationTime || !outageDayToCount.length) return 'No data shown';
+            const idx = outageDayToCount.findIndex(d => new Date(d.day + 'T23:59:59').getTime() >= animationTime.getTime());
+            return idx >= 0 ? `${outageCumulativeCounts[idx]} calls as of ${outageDayToCount[idx].day}` : 'No data shown';
+          })()}
         </div>
-        <div style={{ fontSize: 13, color: '#aaa', marginTop: 2 }}>
-          {animationTime ? animationTime.toLocaleDateString() : 'No data shown'}
+        <div style={{ fontWeight: 700, fontSize: 20, marginBottom: 4 }}>Tree &amp; Natural Debris</div>
+        <input
+          type="range"
+          min={0}
+          max={debrisCumulativeCounts.length ? debrisCumulativeCounts[debrisCumulativeCounts.length - 1] : 0}
+          value={(() => {
+            if (!animationTime || !debrisDayToCount.length) return 0;
+            const idx = debrisDayToCount.findIndex(d => new Date(d.day + 'T23:59:59').getTime() >= animationTime.getTime());
+            return idx >= 0 ? debrisCumulativeCounts[idx] : 0;
+          })()}
+          onChange={handleDebrisSliderChange}
+          style={{ flex: 1, marginBottom: 8 }}
+          disabled={!debrisCumulativeCounts.length}
+        />
+        <div style={{ fontSize: 16, color: '#aaa', marginBottom: 12, fontWeight: 500 }}>
+          {(() => {
+            if (!animationTime || !debrisDayToCount.length) return 'No data shown';
+            const idx = debrisDayToCount.findIndex(d => new Date(d.day + 'T23:59:59').getTime() >= animationTime.getTime());
+            return idx >= 0 ? `${debrisCumulativeCounts[idx]} calls as of ${debrisDayToCount[idx].day}` : 'No data shown';
+          })()}
         </div>
+        <button
+          onClick={handlePlayPause}
+          style={{
+            background: isAnimating ? '#e74c3c' : '#27ae60',
+            color: '#fff',
+            border: 'none',
+            borderRadius: 6,
+            padding: '8px 18px',
+            fontWeight: 600,
+            fontSize: 16,
+            cursor: 'pointer',
+            marginTop: 8
+          }}
+        >
+          {isAnimating ? 'Pause' : 'Play'}
+        </button>
       </div>
     </MapContainer>
   );
